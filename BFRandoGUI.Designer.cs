@@ -35,10 +35,12 @@ namespace BlueFireRando
             // 
             // Randomise
             // 
+            this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Randomise.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.Randomise.Location = new System.Drawing.Point(732, 430);
+            this.Randomise.Font = new System.Drawing.Font("Berlin Sans FB", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Randomise.Location = new System.Drawing.Point(980, 530);
             this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(269, 138);
+            this.Randomise.Size = new System.Drawing.Size(350, 200);
             this.Randomise.TabIndex = 0;
             this.Randomise.Text = "Randomise";
             this.Randomise.UseVisualStyleBackColor = false;
@@ -50,7 +52,8 @@ namespace BlueFireRando
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1136, 648);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1449, 778);
             this.Controls.Add(this.Randomise);
             this.Name = "BFRandoGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
