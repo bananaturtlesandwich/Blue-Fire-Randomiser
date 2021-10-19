@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace BlueFireRando
 {
-    public partial class BFRandoGUI : Form
+    public partial class RandomiserUI : Form
     {
-        public BFRandoGUI()
+        public RandomiserUI()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Wowie you clicked a button");
         }
     }
 }

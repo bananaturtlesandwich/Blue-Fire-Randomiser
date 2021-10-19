@@ -15,7 +15,7 @@ namespace BlueFireRando
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BFRandoGUI());
+            Application.Run(new RandomiserUI());
         }
     }
 }
