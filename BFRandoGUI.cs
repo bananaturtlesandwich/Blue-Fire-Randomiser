@@ -20,5 +20,10 @@ namespace BlueFireRando
         {
 
         }
+
+        private void Randomise_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

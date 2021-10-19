@@ -36,25 +36,32 @@ namespace BlueFireRando
             // Randomise
             // 
             this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Randomise.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Randomise.BackColor = System.Drawing.Color.Honeydew;
+            this.Randomise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Randomise.BackgroundImage")));
+            this.Randomise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Randomise.Location = new System.Drawing.Point(980, 530);
+            this.Randomise.Location = new System.Drawing.Point(1347, 762);
+            this.Randomise.Margin = new System.Windows.Forms.Padding(4);
             this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(350, 200);
+            this.Randomise.Size = new System.Drawing.Size(482, 288);
             this.Randomise.TabIndex = 0;
             this.Randomise.Text = "Randomise";
             this.Randomise.UseVisualStyleBackColor = false;
             this.Randomise.UseWaitCursor = true;
+            this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
             // 
             // BFRandoGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1449, 778);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.Randomise);
+            this.Font = new System.Drawing.Font("Cinzel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BFRandoGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blue Fire Randomiser";
