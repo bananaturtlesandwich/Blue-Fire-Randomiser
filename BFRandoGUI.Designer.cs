@@ -31,12 +31,13 @@ namespace BlueFireRando
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // BFRandoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1013, 612);
-            this.Name = "Form1";
+            this.Name = "BFRandoGUI";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
