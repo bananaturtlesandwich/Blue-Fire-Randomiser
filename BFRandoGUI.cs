@@ -15,5 +15,10 @@ namespace BlueFireRando
         {
             InitializeComponent();
         }
+
+        private void BFRandoGUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
