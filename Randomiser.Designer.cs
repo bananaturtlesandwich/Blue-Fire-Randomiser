@@ -1,7 +1,7 @@
 ﻿
 namespace BlueFireRando
 {
-    partial class RandomiserUI
+    partial class Randomiser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@ namespace BlueFireRando
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RandomiserUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomiser));
             this.Randomise = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.AmazonGamesCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Randomise
@@ -48,23 +48,23 @@ namespace BlueFireRando
             this.Randomise.TabIndex = 0;
             this.Randomise.Text = "Randomise";
             this.Randomise.UseVisualStyleBackColor = false;
-            this.Randomise.UseWaitCursor = true;
             this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
             // 
-            // checkBox1
+            // AmazonGamesCheck
             // 
-            this.checkBox1.AutoCheck = false;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.Ivory;
-            this.checkBox1.Location = new System.Drawing.Point(88, 337);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(465, 48);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Amazon games version?";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.AmazonGamesCheck.AutoCheck = false;
+            this.AmazonGamesCheck.AutoSize = true;
+            this.AmazonGamesCheck.BackColor = System.Drawing.Color.Transparent;
+            this.AmazonGamesCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AmazonGamesCheck.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmazonGamesCheck.ForeColor = System.Drawing.Color.Ivory;
+            this.AmazonGamesCheck.Location = new System.Drawing.Point(88, 337);
+            this.AmazonGamesCheck.Name = "AmazonGamesCheck";
+            this.AmazonGamesCheck.Size = new System.Drawing.Size(465, 48);
+            this.AmazonGamesCheck.TabIndex = 1;
+            this.AmazonGamesCheck.Text = "Amazon games version?";
+            this.AmazonGamesCheck.UseVisualStyleBackColor = false;
+            this.AmazonGamesCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // RandomiserUI
             // 
@@ -74,7 +74,7 @@ namespace BlueFireRando
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.AmazonGamesCheck);
             this.Controls.Add(this.Randomise);
             this.Font = new System.Drawing.Font("Cinzel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -82,7 +82,6 @@ namespace BlueFireRando
             this.Name = "RandomiserUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blue Fire Randomiser";
-            this.UseWaitCursor = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BFRandoGUI_Load);
             this.ResumeLayout(false);
@@ -93,7 +92,7 @@ namespace BlueFireRando
         #endregion
 
         private System.Windows.Forms.Button Randomise;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox AmazonGamesCheck;
     }
 }
 
