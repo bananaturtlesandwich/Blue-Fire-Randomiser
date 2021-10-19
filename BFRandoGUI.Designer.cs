@@ -37,7 +37,7 @@ namespace BlueFireRando
             // 
             this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Randomise.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.Randomise.Font = new System.Drawing.Font("Berlin Sans FB", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Randomise.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Randomise.Location = new System.Drawing.Point(980, 530);
             this.Randomise.Name = "Randomise";
             this.Randomise.Size = new System.Drawing.Size(350, 200);
