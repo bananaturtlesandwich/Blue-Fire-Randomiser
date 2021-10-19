@@ -38,7 +38,7 @@ namespace BlueFireRando
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1013, 612);
             this.Name = "BFRandoGUI";
-            this.Text = "Form1";
+            this.Text = "Blue Fire Randomiser";
             this.ResumeLayout(false);
 
         }
