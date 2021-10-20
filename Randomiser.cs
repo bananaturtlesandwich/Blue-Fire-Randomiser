@@ -16,13 +16,14 @@ namespace BlueFireRando
     public partial class Randomiser : Form
     {
         Random rndm = new Random();
-        bool randomiseCheckpoints = false;
+        bool randomiseSpirits = false;
+        bool nothingSelected = true;
         //TODO write out logic for these
         void RandomiseSpirits()
         {
             //Load umap/enum
-            AssetWriter y = new AssetWriter(@".\Base\Blue Fire\Content\Enums\Spirits.uasset", null, null);
-            MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
+            AssetWriter y = new AssetWriter(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", null, null);
+            //MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
             //Go through all data blocks
             for (int i = 0; i < y.data.categories.Count; i++)
             {
@@ -36,13 +37,18 @@ namespace BlueFireRando
                         if (cat.Data[j].Name == "Key(0)" && cat.Data[j] is StructPropertyData bob)
                         {
                             //get the name
-                            int temp=0;
-                            bool valid=false;
-                            string[] PossibleIndexes = {"0","1","2","3","5","6","17","18","19"};
-                            string[] UsedIndexes=new string[9];
+                            int temp = 0;
+                            bool valid = false;
+                            string[] PossibleIndexes = new string[30];
+                            string[] UsedIndexes = new string[30];
                             var index = bob.Value as NamePropertyData;
+                            for (int k = 0; k < PossibleIndexes.Length; k++)
+                            {
+                                PossibleIndexes[k] = Convert.ToString(k);
+                            }
                             while (valid == false)
                             {
+                                valid = false;
                                 temp = rndm.Next(0, 8);
                                 if (UsedIndexes.Contains(PossibleIndexes[temp]))
                                 {
@@ -54,33 +60,13 @@ namespace BlueFireRando
                                 }
                             }
                             index.Value = $"NewEnumerator{PossibleIndexes[temp]}(0)";
-                            valid = false;
+                            UsedIndexes[j] = PossibleIndexes[temp];
                         }
                     }
                 }
             }
-            y.Write(@".\Blue Fire\Content\Enums\CheckPoints.uasset");
-        }
-        void RandomiseEnums(string filepath)
-        {
-            //Load umap/enum
-            AssetWriter y = new AssetWriter(filepath, null, null);
-            MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
-            //Go through all data blocks
-            for(int i = 0; i < y.data.categories.Count; i++)
-            {
-                Category category = y.data.categories[i];
-                if(category is NormalCategory cat)
-                {
-                    //Loop through subcategories
-                    for(int j = 0; j < cat.Data.Count; j++)
-                    {
-
-                    }
-                }
-            }
-            //int temp=rndm.Next(0, AllIndexes.Length - 1);
-            
+            y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
+            MessageBox.Show("Spirits Randomised");
         }
 
         public Randomiser()
@@ -95,16 +81,25 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Randomising requested content...");
-            if (randomiseCheckpoints==true)
+            if (randomiseSpirits==true)
             {
-                RandomiseCheckpoints();
+                RandomiseSpirits();
             }
+            if (nothingSelected==true)
+            {
+                MessageBox.Show("You haven't checked any options!");
+            }
+            else
+            {
+                MessageBox.Show("Randomisation complete! You'll find the pak file in the root directory");
+            }
+
         }
 
         private void RandoOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            randomiseCheckpoints = true;
+            randomiseSpirits = true;
+            nothingSelected = false;
         }
     }
 }
