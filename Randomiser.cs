@@ -18,10 +18,10 @@ namespace BlueFireRando
         Random rndm = new Random();
         bool randomiseCheckpoints = false;
         //TODO write out logic for these
-        void RandomiseItems(string filepath)
+        void RandomiseCheckpoints()
         {
             //Load umap/enum
-            AssetWriter y = new AssetWriter(filepath, null, null);
+            AssetWriter y = new AssetWriter(@".\Base\Blue Fire\Content\Enums\CheckPoints.uasset", null, null);
             MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
             //Go through all data blocks
             for (int i = 0; i < y.data.categories.Count; i++)
@@ -59,7 +59,7 @@ namespace BlueFireRando
                     }
                 }
             }
-            y.Write(@".\Blue Fire\Content\Enums\Spirits.uasset");
+            y.Write(@".\Blue Fire\Content\Enums\CheckPoints.uasset");
         }
         void RandomiseEnums(string filepath)
         {
@@ -95,7 +95,11 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Randomising requested content...");
+            if (randomiseCheckpoints==true)
+            {
+                RandomiseCheckpoints();
+            }
         }
 
         private void RandoOptions_SelectedIndexChanged(object sender, EventArgs e)

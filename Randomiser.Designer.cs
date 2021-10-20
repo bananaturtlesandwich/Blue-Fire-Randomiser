@@ -31,7 +31,7 @@ namespace BlueFireRando
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomiser));
             this.Randomise = new System.Windows.Forms.Button();
-            this.RandoOptions = new System.Windows.Forms.CheckedListBox();
+            this.AmazonGamesCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Randomise
@@ -40,8 +40,6 @@ namespace BlueFireRando
             this.Randomise.BackColor = System.Drawing.SystemColors.Control;
             this.Randomise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Randomise.BackgroundImage")));
             this.Randomise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Randomise.FlatAppearance.BorderSize = 0;
-            this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Randomise.Location = new System.Drawing.Point(1524, 840);
             this.Randomise.Margin = new System.Windows.Forms.Padding(4);
@@ -52,27 +50,23 @@ namespace BlueFireRando
             this.Randomise.UseVisualStyleBackColor = false;
             this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
             // 
-            // RandoOptions
+            // AmazonGamesCheck
             // 
-            this.RandoOptions.BackColor = System.Drawing.SystemColors.WindowText;
-            this.RandoOptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RandoOptions.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandoOptions.ForeColor = System.Drawing.Color.LightGreen;
-            this.RandoOptions.FormattingEnabled = true;
-            this.RandoOptions.Items.AddRange(new object[] {
-            "Mix Randomisation?*",
-            "Randomise Checkpoints?",
-            "Randomise weapons?*",
-            "Randomise key items?*",
-            "Randomise keys?*",
-            "Randomise items?*"});
-            this.RandoOptions.Location = new System.Drawing.Point(88, 429);
-            this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(488, 376);
-            this.RandoOptions.TabIndex = 2;
-            this.RandoOptions.SelectedIndexChanged += new System.EventHandler(this.RandoOptions_SelectedIndexChanged);
+            this.AmazonGamesCheck.AutoCheck = false;
+            this.AmazonGamesCheck.AutoSize = true;
+            this.AmazonGamesCheck.BackColor = System.Drawing.Color.Transparent;
+            this.AmazonGamesCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AmazonGamesCheck.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmazonGamesCheck.ForeColor = System.Drawing.Color.Ivory;
+            this.AmazonGamesCheck.Location = new System.Drawing.Point(88, 337);
+            this.AmazonGamesCheck.Name = "AmazonGamesCheck";
+            this.AmazonGamesCheck.Size = new System.Drawing.Size(465, 48);
+            this.AmazonGamesCheck.TabIndex = 1;
+            this.AmazonGamesCheck.Text = "Amazon games version?";
+            this.AmazonGamesCheck.UseVisualStyleBackColor = false;
+            this.AmazonGamesCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // Randomiser
+            // RandomiserUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,24 +74,25 @@ namespace BlueFireRando
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.RandoOptions);
+            this.Controls.Add(this.AmazonGamesCheck);
             this.Controls.Add(this.Randomise);
             this.Font = new System.Drawing.Font("Cinzel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Randomiser";
+            this.Name = "RandomiserUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blue Fire Randomiser";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BFRandoGUI_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button Randomise;
-        private System.Windows.Forms.CheckedListBox RandoOptions;
+        private System.Windows.Forms.CheckBox AmazonGamesCheck;
     }
 }
 

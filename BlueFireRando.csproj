@@ -35,7 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>beegUmby.ico</ApplicationIcon>
+    <ApplicationIcon>Umby.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -85,8 +85,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="beegUmby.ico" />
     <Content Include="GameArt.png" />
+    <Content Include="Umby.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
