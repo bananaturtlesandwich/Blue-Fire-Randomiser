@@ -18,10 +18,10 @@ namespace BlueFireRando
         Random rndm = new Random();
         bool randomiseCheckpoints = false;
         //TODO write out logic for these
-        void RandomiseCheckpoints()
+        void RandomiseSpirits()
         {
             //Load umap/enum
-            AssetWriter y = new AssetWriter(@".\Base\Blue Fire\Content\Enums\CheckPoints.uasset", null, null);
+            AssetWriter y = new AssetWriter(@".\Base\Blue Fire\Content\Enums\Spirits.uasset", null, null);
             MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
             //Go through all data blocks
             for (int i = 0; i < y.data.categories.Count; i++)
