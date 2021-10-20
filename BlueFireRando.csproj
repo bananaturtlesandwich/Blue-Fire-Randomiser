@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>BlueFireRando</RootNamespace>
     <AssemblyName>BlueFireRando</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -64,7 +64,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="UAssetAPI, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Media\UAssetAPI.dll</HintPath>
+      <HintPath>..\Media\UAssetAPI\UAssetAPI\bin\Debug\UAssetAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
