@@ -43,7 +43,6 @@ namespace BlueFireRando
                             var index = bob.Value as NamePropertyData;
                             while (valid == false)
                             {
-                                valid = false;
                                 temp = rndm.Next(0, 8);
                                 if (UsedIndexes.Contains(PossibleIndexes[temp]))
                                 {
@@ -55,6 +54,7 @@ namespace BlueFireRando
                                 }
                             }
                             index.Value = $"NewEnumerator{PossibleIndexes[temp]}(0)";
+                            valid = false;
                         }
                     }
                 }
