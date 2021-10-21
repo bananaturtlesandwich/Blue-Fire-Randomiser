@@ -53,10 +53,10 @@ namespace BlueFireRando
             this.Randomise.FlatAppearance.BorderSize = 0;
             this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Randomise.Location = new System.Drawing.Point(1007, 568);
+            this.Randomise.Location = new System.Drawing.Point(952, 564);
             this.Randomise.Margin = new System.Windows.Forms.Padding(4);
             this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(343, 167);
+            this.Randomise.Size = new System.Drawing.Size(443, 206);
             this.Randomise.TabIndex = 0;
             this.Randomise.Text = "Randomise";
             this.Randomise.UseVisualStyleBackColor = false;
@@ -189,8 +189,8 @@ namespace BlueFireRando
             this.Disclaimer.Size = new System.Drawing.Size(437, 151);
             this.Disclaimer.TabIndex = 3;
             this.Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them " +
-    "it will have no effect.\r\nMix randomisation mean key items can be in weapon locat" +
-    "ions etc.";
+    "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
+    "tions etc.";
             // 
             // Randomiser
             // 
@@ -203,6 +203,7 @@ namespace BlueFireRando
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.UmbyPet);
             this.Controls.Add(this.Randomise);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cinzel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

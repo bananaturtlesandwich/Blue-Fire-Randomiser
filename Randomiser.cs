@@ -17,7 +17,6 @@ namespace BlueFireRando
     {
         Random rndm = new Random();
         bool randomiseSpirits = false;
-        bool nothingSelected = true;
         //TODO write out logic for these
         void RandomiseSpirits()
         {
@@ -28,7 +27,21 @@ namespace BlueFireRando
             Export baseUs = y.Exports[0];
             if (baseUs is NormalExport us)
             {
-                var newValues = new NamePropertyData(FName.FromString("Key"));
+                for(int j=0; j < us.Data.Count; j++)
+                {
+                    PropertyData me = us.Data[j];
+                    //This export is MapPropertyData
+                    if (me is MapPropertyData map)
+                    {
+                        MessageBox.Show("e");
+                        TMap<PropertyData, PropertyData> cosa= map.Value;
+                        for(int i = 0; i < cosa.Count; i++)
+                        {
+                            PropertyData algo = cosa[i];
+
+                        }
+                    }
+                }
             }
             //y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
             //MessageBox.Show("Spirits Randomised");
@@ -50,7 +63,7 @@ namespace BlueFireRando
             {
                 RandomiseSpirits();
             }
-            if (nothingSelected==true)
+            if (randomiseSpirits==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -67,7 +80,10 @@ namespace BlueFireRando
             if (Spirits.Checked)
             {
                 randomiseSpirits = true;
-                nothingSelected = false;
+            }
+            else
+            {
+                randomiseSpirits = false;
             }
         }
     }
