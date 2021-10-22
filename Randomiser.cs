@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -25,12 +26,14 @@ namespace BlueFireRando
             //MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
             //Only one export so for loop isn't needed
             Export baseUs = y.Exports[0];
-            if (baseUs is NormalExport us)
+            if (baseUs is EnumExport us)
             {
                 for(int j=0; j < us.Data.Count; j++)
                 {
-                    PropertyData me = us.Data[j];
                     //This export is MapPropertyData
+                    var eh = us.Enum.Names;
+                    
+                    /*PropertyData me = us.Data[j];
                     if (me is MapPropertyData map)
                     {
                         MessageBox.Show("e");
@@ -38,11 +41,10 @@ namespace BlueFireRando
                         for(int i = 0; i < cosa.Count; i++)
                         {
                             PropertyData algo = cosa[i];
-                            FString newValue = ((TextPropertyData)algo).Value;
+                            var newValue = ((TextPropertyData)algo).Value;
                             newValue = FString.FromString("gfuygf");
                         }
-                    }
-                    //us.Data.Insert(j, newValue);
+                    }*/
                 }
             }
             y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
@@ -61,6 +63,8 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
+            Directory.Delete(@".\Randomiser_P",true);
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (randomiseSpirits==true)
             {
                 RandomiseSpirits();
