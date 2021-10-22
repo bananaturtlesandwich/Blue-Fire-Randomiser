@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UAssetAPI;
-using UAssetAPI.PropertyTypes;
-using UAssetAPI.StructTypes;
 
 namespace BlueFireRando
 {
@@ -29,7 +27,7 @@ namespace BlueFireRando
             {
                 Random rndm = new Random();
                 int[] UsedIndexes = new int[45];
-                int[] UnusedIndexes = { 1, 3, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29};
+                int[] UnusedIndexes = { 3, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29};
                 for (int a = 0; a < UnusedIndexes.Length; a++)
                 {
                     UsedIndexes[a] = UnusedIndexes[a];
