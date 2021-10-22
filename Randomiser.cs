@@ -16,7 +16,6 @@ namespace BlueFireRando
 
     public partial class Randomiser : Form
     {
-        Random rndm = new Random();
         bool randomiseSpirits = false;
         //TODO write out logic for these
         void RandomiseSpirits()
@@ -28,23 +27,35 @@ namespace BlueFireRando
             Export baseUs = y.Exports[0];
             if (baseUs is EnumExport us)
             {
-                for(int j=0; j < us.Data.Count; j++)
+                Random rndm = new Random();
+                int[] UsedIndexes = new int[45];
+                int[] UnusedIndexes = { 1, 3, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29};
+                for (int a = 0; a < UnusedIndexes.Length; a++)
                 {
-                    //This export is MapPropertyData
-                    var eh = us.Enum.Names;
-                    
-                    /*PropertyData me = us.Data[j];
-                    if (me is MapPropertyData map)
+                    UsedIndexes[a] = UnusedIndexes[a];
+                }
+                //If anyone peeking knows a better way to do this please contact me
+                //bool valid;
+                List<Tuple<FName, long>> eh = us.Enum.Names;
+                for (int j=0; j < 30; j++)
+                {
+                    if (UnusedIndexes.Contains(j) == false)
                     {
-                        MessageBox.Show("e");
-                        TMap<PropertyData, PropertyData> cosa= map.Value;
-                        for(int i = 0; i < cosa.Count; i++)
+                        int temp;
+                        do
                         {
-                            PropertyData algo = cosa[i];
-                            var newValue = ((TextPropertyData)algo).Value;
-                            newValue = FString.FromString("gfuygf");
+                            temp = rndm.Next(0, 30);
                         }
-                    }*/
+                        while (UsedIndexes.Contains(temp));
+                        eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
+                        UsedIndexes[j+14]=temp;
+                        /*string debug=" ";
+                        foreach (var item in UsedIndexes)
+                        {
+                            debug +=Convert.ToString(item + ", ");
+                        }
+                        MessageBox.Show(debug);*/
+                    }
                 }
             }
             y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
@@ -75,8 +86,8 @@ namespace BlueFireRando
             }
             else
             {
-                //System.Diagnostics.Process.Start(@".\Packing.bat");
-                //MessageBox.Show("Randomisation complete! You'll find the pak file next to the application");
+                System.Diagnostics.Process.Start(@".\Packing.bat");
+                MessageBox.Show("Randomisation complete! You'll find the pak file next to the application");
             }
 
         }
