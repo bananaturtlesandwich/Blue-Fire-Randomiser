@@ -48,13 +48,13 @@ namespace BlueFireRando
                         }
                         while (UsedIndexes.Contains(temp));
                         eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
-                        UsedIndexes[j+14]=temp;
-                        /*string debug=" ";
+                        UsedIndexes[j+14]=5;
+                        string debug=" ";
                         foreach (var item in UsedIndexes)
                         {
                             debug +=Convert.ToString(item + ", ");
                         }
-                        MessageBox.Show(debug);*/
+                        MessageBox.Show(debug);
                     }
                 }
             }
