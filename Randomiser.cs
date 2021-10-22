@@ -37,7 +37,7 @@ namespace BlueFireRando
                 //If anyone peeking knows a better way to do this please contact me
                 //bool valid;
                 List<Tuple<FName, long>> eh = us.Enum.Names;
-                for (int j=0; j < 30; j++)
+                for (int j=0; j < 28; j++)
                 {
                     if (UnusedIndexes.Contains(j) == false)
                     {
@@ -48,13 +48,13 @@ namespace BlueFireRando
                         }
                         while (UsedIndexes.Contains(temp));
                         eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
-                        UsedIndexes[j+14]=5;
-                        string debug=" ";
+                        UsedIndexes[j+14]=temp;
+                        /*string debug=" ";
                         foreach (var item in UsedIndexes)
                         {
                             debug +=Convert.ToString(item + ", ");
                         }
-                        MessageBox.Show(debug);
+                        MessageBox.Show(debug);*/
                     }
                 }
             }
