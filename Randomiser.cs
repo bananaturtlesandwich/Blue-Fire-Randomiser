@@ -38,13 +38,15 @@ namespace BlueFireRando
                         for(int i = 0; i < cosa.Count; i++)
                         {
                             PropertyData algo = cosa[i];
-
+                            FString newValue = ((TextPropertyData)algo).Value;
+                            newValue = FString.FromString("gfuygf");
                         }
                     }
+                    //us.Data.Insert(j, newValue);
                 }
             }
-            //y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
-            //MessageBox.Show("Spirits Randomised");
+            y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
+            MessageBox.Show("Spirits Randomised");
         }
 
         public Randomiser()
