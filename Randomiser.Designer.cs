@@ -42,6 +42,7 @@ namespace BlueFireRando
             this.Disclaimer = new System.Windows.Forms.TextBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -223,6 +224,12 @@ namespace BlueFireRando
             this.Logo.TabIndex = 13;
             this.Logo.TabStop = false;
             // 
+            // modfoldercheck
+            // 
+            this.modfoldercheck.Description = "Please select the mod folder location-this is Blue Fire/Content/Paks/~mods (if yo" +
+    "u do not have a ~mods folder in Paks then make one)";
+            this.modfoldercheck.RootFolder = System.Environment.SpecialFolder.ProgramFilesX86;
+            // 
             // Randomiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -268,6 +275,7 @@ namespace BlueFireRando
         private System.Windows.Forms.TextBox Disclaimer;
         private System.Windows.Forms.CheckBox American;
         private System.Windows.Forms.PictureBox Logo;
+        public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
     }
 }
 

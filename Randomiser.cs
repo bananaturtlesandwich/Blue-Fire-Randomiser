@@ -1,56 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
-using UAssetAPI;
 
 namespace BlueFireRando
 {
 
     public partial class Randomiser : Form
     {
-        bool randomiseSpirits = false;
-        //TODO write out logic for these
-        void RandomiseSpirits()
-        {
-            //Load umap/enum
-            UAsset y = new UAsset(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", UE4Version.VER_UE4_25);
-            //MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
-            //Only one export so for loop isn't needed
-            Export baseUs = y.Exports[0];
-            if (baseUs is EnumExport us)
-            {
-                Random rndm = new Random();
-                int[] UnusedIndexes = { 3, 5, 6, 8, 16,15,17, 18, 19, 20, 22, 23, 24, 26, 29};
-                List<int> UsedIndexes = UnusedIndexes.ToList();
-                //If anyone peeking knows a better way to do this please contact me
-                //bool valid;
-                List<Tuple<FName, long>> eh = us.Enum.Names;
-                for (int j = 0; j < 30; j++)
-                {
-                    if (UnusedIndexes.Contains(j) == false)
-                    {
-                        int temp;
-                        do
-                        {
-                            temp = rndm.Next(0, 30);
-                        }
-                        while (UsedIndexes.Contains(temp));
-                        eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
-                        UsedIndexes.Add(temp);
-                        /*string debug=" ";
-                        foreach (var item in UsedIndexes)
-                        {
-                            debug +=Convert.ToString(item + ", ");
-                        }
-                        MessageBox.Show(debug);*/
-                    }
-                }
-            }
-            y.Write(@".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset");
-            MessageBox.Show("Spirits Randomised");
-        }
 
         public Randomiser()
         {
@@ -67,33 +23,54 @@ namespace BlueFireRando
             if (Directory.Exists(@".\Randomiser_P\Blue Fire\Content\Enums") == false)
             {
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
+                if (American.Checked)
+                {
+                    File.Move(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                    File.Move(@".\Baseassets\USLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
+                }
+                else
+                {
+                    File.Move(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                    File.Move(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
+                }
             }
-            if (randomiseSpirits == true)
+            if (File.Exists(@".\config.txt") == false)
             {
-                RandomiseSpirits();
+                File.Create(@".\config.txt");
             }
-            if (randomiseSpirits == false)
+            if (Spirits.Checked)
+            {
+                Enums.RandomiseSpirits();
+            }
+            if (Spirits.Checked==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
             else
             {
                 System.Diagnostics.Process.Start(@".\Packing.bat");
-                MessageBox.Show("Randomisation complete! You'll find the pak file next to the application");
+                MessageBox.Show("Randomisation complete!");
+                string modfolder = File.ReadAllText(@".\config.txt");
+                if (modfolder.Equals(""))
+                {
+                    File.WriteAllText(@".\config.txt",modfoldercheck.SelectedPath);
+                    if (modfoldercheck.ShowDialog() == DialogResult.OK)
+                    {
+                        MessageBox.Show($"Randomiser pak installed");
+                    }
+                }
+                modfolder = File.ReadAllText(@".\config.txt");
+                if (File.Exists($"{modfolder}\\Randomiser_P.pak"))
+                {
+                    File.Delete($"{modfolder}\\Randomiser_P.pak");
+                }
+                File.Move(@".\Randomiser_P.pak", $"{modfolder}\\Randomiser_P.pak");
             }
-
         }
 
         private void Spirits_CheckedChanged(object sender, EventArgs e)
         {
-            if (Spirits.Checked)
-            {
-                randomiseSpirits = true;
-            }
-            else
-            {
-                randomiseSpirits = false;
-            }
         }
 
         private void American_CheckedChanged(object sender, EventArgs e)

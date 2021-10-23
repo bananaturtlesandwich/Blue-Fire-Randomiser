@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +111,7 @@
     <Content Include="BlueFire_Logo.png" />
     <Content Include="Button.png" />
     <Content Include="OptimisedGameart.png" />
+    <Content Include="config.txt" />
     <Content Include="Umbypet.gif" />
   </ItemGroup>
   <ItemGroup>
