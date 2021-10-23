@@ -72,7 +72,10 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            if(Directory.Exists(@".\Randomiser_P\Blue Fire\Content\Enums")==false)
+            {
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            }
             if (randomiseSpirits==true)
             {
                 RandomiseSpirits();
@@ -84,10 +87,6 @@ namespace BlueFireRando
             else
             {
                 System.Diagnostics.Process.Start(@".\Packing.bat");
-                if (Directory.Exists(@".\Randomiser_P"))
-                {
-                    Directory.Delete(@".\Randomiser_P",true);
-                }
                 MessageBox.Show("Randomisation complete! You'll find the pak file next to the application");
             }
 
