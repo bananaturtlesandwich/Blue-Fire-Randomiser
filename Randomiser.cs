@@ -95,5 +95,35 @@ namespace BlueFireRando
                 randomiseSpirits = false;
             }
         }
+
+        private void American_CheckedChanged(object sender, EventArgs e)
+        {
+            if (American.Checked)
+            {
+                Mix.Text = "Mix Randomization?*";
+                Weapons.Text = "Randomize Weapons?*";
+                KeyItems.Text = "Randomize Key Items?*";
+                Keys.Text = "Randomize Keys?*";
+                Items.Text = "Randomize Items?*";
+                Spirits.Text = "Randomize Spirits?";
+                Randomise.Text = "Randomize";
+                Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomization means key items can be in weapon locations etc.";
+                UmbyPet.Image = UmbyPet.InitialImage;
+                Logo.BackgroundImage = Logo.ErrorImage;
+            }
+            else
+            {
+                Mix.Text = "Mix Randomisation?*";
+                Weapons.Text = "Randomise Weapons?*";
+                KeyItems.Text = "Randomise Key Items?*";
+                Keys.Text = "Randomise Keys?*";
+                Items.Text = "Randomise Items?*";
+                Spirits.Text = "Randomise Spirits?";
+                Randomise.Text = "Randomise";
+                Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomisation means key items can be in weapon locations etc.";
+                UmbyPet.Image = UmbyPet.ErrorImage;
+                Logo.BackgroundImage = Logo.InitialImage;
+            }
+        }
     }
 }

@@ -40,8 +40,11 @@ namespace BlueFireRando
             this.Items = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Disclaimer = new System.Windows.Forms.TextBox();
+            this.American = new System.Windows.Forms.CheckBox();
+            this.Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // Randomise
@@ -66,11 +69,12 @@ namespace BlueFireRando
             // 
             this.UmbyPet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UmbyPet.BackColor = System.Drawing.Color.Transparent;
+            this.UmbyPet.ErrorImage = ((System.Drawing.Image)(resources.GetObject("UmbyPet.ErrorImage")));
             this.UmbyPet.Image = ((System.Drawing.Image)(resources.GetObject("UmbyPet.Image")));
             this.UmbyPet.InitialImage = ((System.Drawing.Image)(resources.GetObject("UmbyPet.InitialImage")));
-            this.UmbyPet.Location = new System.Drawing.Point(0, 492);
+            this.UmbyPet.Location = new System.Drawing.Point(-11, 406);
             this.UmbyPet.Name = "UmbyPet";
-            this.UmbyPet.Size = new System.Drawing.Size(315, 294);
+            this.UmbyPet.Size = new System.Drawing.Size(406, 382);
             this.UmbyPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UmbyPet.TabIndex = 4;
             this.UmbyPet.TabStop = false;
@@ -192,6 +196,33 @@ namespace BlueFireRando
     "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
     "tions etc.";
             // 
+            // American
+            // 
+            this.American.AutoSize = true;
+            this.American.BackColor = System.Drawing.Color.Transparent;
+            this.American.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.American.ForeColor = System.Drawing.SystemColors.Control;
+            this.American.Location = new System.Drawing.Point(12, 257);
+            this.American.Name = "American";
+            this.American.Size = new System.Drawing.Size(321, 48);
+            this.American.TabIndex = 12;
+            this.American.Text = "American mode";
+            this.American.UseVisualStyleBackColor = false;
+            this.American.CheckedChanged += new System.EventHandler(this.American_CheckedChanged);
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo.BackgroundImage")));
+            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Logo.ErrorImage")));
+            this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
+            this.Logo.Location = new System.Drawing.Point(-11, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(588, 243);
+            this.Logo.TabIndex = 13;
+            this.Logo.TabStop = false;
+            // 
             // Randomiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -200,6 +231,8 @@ namespace BlueFireRando
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1407, 783);
+            this.Controls.Add(this.Logo);
+            this.Controls.Add(this.American);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.UmbyPet);
             this.Controls.Add(this.Randomise);
@@ -215,7 +248,9 @@ namespace BlueFireRando
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,6 +266,8 @@ namespace BlueFireRando
         private System.Windows.Forms.CheckBox Items;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox Disclaimer;
+        private System.Windows.Forms.CheckBox American;
+        private System.Windows.Forms.PictureBox Logo;
     }
 }
 

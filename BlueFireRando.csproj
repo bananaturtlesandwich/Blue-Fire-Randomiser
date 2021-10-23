@@ -105,6 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="%27murrica.gif" />
     <Content Include="beegUmby.ico" />
     <Content Include="BlueFire_Logo.png" />
     <Content Include="Button.png" />
