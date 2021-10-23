@@ -27,7 +27,7 @@ namespace BlueFireRando
             {
                 Random rndm = new Random();
                 int[] UsedIndexes = new int[45];
-                int[] UnusedIndexes = { 3, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29};
+                int[] UnusedIndexes = { 3/*, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29*/};
                 for (int a = 0; a < UnusedIndexes.Length; a++)
                 {
                     UsedIndexes[a] = UnusedIndexes[a];
@@ -72,7 +72,6 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            Directory.Delete(@".\Randomiser_P",true);
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (randomiseSpirits==true)
             {
@@ -85,6 +84,10 @@ namespace BlueFireRando
             else
             {
                 System.Diagnostics.Process.Start(@".\Packing.bat");
+                if (Directory.Exists(@".\Randomiser_P"))
+                {
+                    Directory.Delete(@".\Randomiser_P",true);
+                }
                 MessageBox.Show("Randomisation complete! You'll find the pak file next to the application");
             }
 
