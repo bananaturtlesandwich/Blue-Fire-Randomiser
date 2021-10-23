@@ -94,7 +94,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Packing.bat" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,7 +108,6 @@
     <Content Include="beegUmby.ico" />
     <Content Include="BlueFire_Logo.png" />
     <Content Include="Button.png" />
-    <Content Include="GameArt.png" />
     <Content Include="OptimisedGameart.png" />
     <Content Include="Umbypet.gif" />
   </ItemGroup>

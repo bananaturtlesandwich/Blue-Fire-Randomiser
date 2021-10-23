@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using UAssetAPI;
 
@@ -26,16 +22,12 @@ namespace BlueFireRando
             if (baseUs is EnumExport us)
             {
                 Random rndm = new Random();
-                int[] UsedIndexes = new int[45];
-                int[] UnusedIndexes = { 3/*, 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29*/};
-                for (int a = 0; a < UnusedIndexes.Length; a++)
-                {
-                    UsedIndexes[a] = UnusedIndexes[a];
-                }
+                int[] UnusedIndexes = { 3, 5, 6, 8, 16,15,17, 18, 19, 20, 22, 23, 24, 26, 29};
+                List<int> UsedIndexes = UnusedIndexes.ToList();
                 //If anyone peeking knows a better way to do this please contact me
                 //bool valid;
                 List<Tuple<FName, long>> eh = us.Enum.Names;
-                for (int j=0; j < 28; j++)
+                for (int j = 0; j < 30; j++)
                 {
                     if (UnusedIndexes.Contains(j) == false)
                     {
@@ -46,7 +38,7 @@ namespace BlueFireRando
                         }
                         while (UsedIndexes.Contains(temp));
                         eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
-                        UsedIndexes[j+14]=temp;
+                        UsedIndexes.Add(temp);
                         /*string debug=" ";
                         foreach (var item in UsedIndexes)
                         {
@@ -72,15 +64,15 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            if(Directory.Exists(@".\Randomiser_P\Blue Fire\Content\Enums")==false)
+            if (Directory.Exists(@".\Randomiser_P\Blue Fire\Content\Enums") == false)
             {
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             }
-            if (randomiseSpirits==true)
+            if (randomiseSpirits == true)
             {
                 RandomiseSpirits();
             }
-            if (randomiseSpirits==false)
+            if (randomiseSpirits == false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
