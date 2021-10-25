@@ -35,11 +35,10 @@ namespace BlueFireRando
             this.Spirits = new System.Windows.Forms.CheckBox();
             this.Mix = new System.Windows.Forms.CheckBox();
             this.Weapons = new System.Windows.Forms.CheckBox();
-            this.KeyItems = new System.Windows.Forms.CheckBox();
-            this.Keys = new System.Windows.Forms.CheckBox();
             this.Items = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Disclaimer = new System.Windows.Forms.TextBox();
+            this.Tunics = new System.Windows.Forms.CheckBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
@@ -87,7 +86,7 @@ namespace BlueFireRando
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 430);
+            this.Spirits.Location = new System.Drawing.Point(3, 320);
             this.Spirits.Name = "Spirits";
             this.Spirits.Size = new System.Drawing.Size(368, 48);
             this.Spirits.TabIndex = 5;
@@ -102,7 +101,7 @@ namespace BlueFireRando
             this.Mix.BackColor = System.Drawing.Color.Transparent;
             this.Mix.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Mix.ForeColor = System.Drawing.SystemColors.Control;
-            this.Mix.Location = new System.Drawing.Point(3, 160);
+            this.Mix.Location = new System.Drawing.Point(3, 158);
             this.Mix.Name = "Mix";
             this.Mix.Size = new System.Drawing.Size(417, 48);
             this.Mix.TabIndex = 6;
@@ -116,40 +115,12 @@ namespace BlueFireRando
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(3, 214);
+            this.Weapons.Location = new System.Drawing.Point(3, 212);
             this.Weapons.Name = "Weapons";
             this.Weapons.Size = new System.Drawing.Size(426, 48);
             this.Weapons.TabIndex = 7;
             this.Weapons.Text = "Randomise Weapons?*";
             this.Weapons.UseVisualStyleBackColor = false;
-            // 
-            // KeyItems
-            // 
-            this.KeyItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.KeyItems.AutoSize = true;
-            this.KeyItems.BackColor = System.Drawing.Color.Transparent;
-            this.KeyItems.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeyItems.ForeColor = System.Drawing.SystemColors.Control;
-            this.KeyItems.Location = new System.Drawing.Point(3, 268);
-            this.KeyItems.Name = "KeyItems";
-            this.KeyItems.Size = new System.Drawing.Size(431, 48);
-            this.KeyItems.TabIndex = 8;
-            this.KeyItems.Text = "Randomise Key Items?*";
-            this.KeyItems.UseVisualStyleBackColor = false;
-            // 
-            // Keys
-            // 
-            this.Keys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Keys.AutoSize = true;
-            this.Keys.BackColor = System.Drawing.Color.Transparent;
-            this.Keys.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Keys.ForeColor = System.Drawing.SystemColors.Control;
-            this.Keys.Location = new System.Drawing.Point(3, 322);
-            this.Keys.Name = "Keys";
-            this.Keys.Size = new System.Drawing.Size(346, 48);
-            this.Keys.TabIndex = 9;
-            this.Keys.Text = "Randomise Keys?*";
-            this.Keys.UseVisualStyleBackColor = false;
             // 
             // Items
             // 
@@ -158,7 +129,7 @@ namespace BlueFireRando
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 376);
+            this.Items.Location = new System.Drawing.Point(3, 266);
             this.Items.Name = "Items";
             this.Items.Size = new System.Drawing.Size(362, 48);
             this.Items.TabIndex = 10;
@@ -172,10 +143,9 @@ namespace BlueFireRando
             this.flowLayoutPanel1.Controls.Add(this.Disclaimer);
             this.flowLayoutPanel1.Controls.Add(this.Mix);
             this.flowLayoutPanel1.Controls.Add(this.Weapons);
-            this.flowLayoutPanel1.Controls.Add(this.KeyItems);
-            this.flowLayoutPanel1.Controls.Add(this.Keys);
             this.flowLayoutPanel1.Controls.Add(this.Items);
             this.flowLayoutPanel1.Controls.Add(this.Spirits);
+            this.flowLayoutPanel1.Controls.Add(this.Tunics);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(949, 43);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(446, 514);
@@ -191,11 +161,23 @@ namespace BlueFireRando
             this.Disclaimer.Location = new System.Drawing.Point(3, 3);
             this.Disclaimer.Multiline = true;
             this.Disclaimer.Name = "Disclaimer";
-            this.Disclaimer.Size = new System.Drawing.Size(437, 151);
+            this.Disclaimer.Size = new System.Drawing.Size(437, 149);
             this.Disclaimer.TabIndex = 3;
-            this.Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them " +
-    "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
-    "tions etc.";
+            this.Disclaimer.Text = resources.GetString("Disclaimer.Text");
+            // 
+            // Tunics
+            // 
+            this.Tunics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tunics.AutoSize = true;
+            this.Tunics.BackColor = System.Drawing.Color.Transparent;
+            this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
+            this.Tunics.Location = new System.Drawing.Point(3, 374);
+            this.Tunics.Name = "Tunics";
+            this.Tunics.Size = new System.Drawing.Size(375, 48);
+            this.Tunics.TabIndex = 11;
+            this.Tunics.Text = "Randomise Tunics?";
+            this.Tunics.UseVisualStyleBackColor = false;
             // 
             // American
             // 
@@ -268,14 +250,13 @@ namespace BlueFireRando
         private System.Windows.Forms.CheckBox Spirits;
         private System.Windows.Forms.CheckBox Mix;
         private System.Windows.Forms.CheckBox Weapons;
-        private System.Windows.Forms.CheckBox KeyItems;
-        private System.Windows.Forms.CheckBox Keys;
         private System.Windows.Forms.CheckBox Items;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox Disclaimer;
         private System.Windows.Forms.CheckBox American;
         private System.Windows.Forms.PictureBox Logo;
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
+        private System.Windows.Forms.CheckBox Tunics;
     }
 }
 

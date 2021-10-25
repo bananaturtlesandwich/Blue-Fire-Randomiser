@@ -108,10 +108,8 @@
   <ItemGroup>
     <Content Include="%27murrica.gif" />
     <Content Include="beegUmby.ico" />
-    <Content Include="BlueFire_Logo.png" />
     <Content Include="Button.png" />
     <Content Include="OptimisedGameart.png" />
-    <Content Include="config.txt" />
     <Content Include="Umbypet.gif" />
   </ItemGroup>
   <ItemGroup>

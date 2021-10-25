@@ -20,30 +20,44 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(@".\Randomiser_P\Blue Fire\Content\Enums") == false)
+            Directory.Delete(@".\Randomiser_P",true);
+            //for enums obviously
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            //custom menu art
+            /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
+            if (American.Checked)
             {
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
-                if (American.Checked)
-                {
-                    File.Move(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
-                    File.Move(@".\Baseassets\USLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
-                }
-                else
-                {
-                    File.Move(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
-                    File.Move(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
-                }
+                File.Copy(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                File.Copy(@".\Baseassets\USLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
+            else
+            {
+                File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
+            }*/
+            
             if (File.Exists(@".\config.txt") == false)
             {
                 File.Create(@".\config.txt");
             }
             if (Spirits.Checked)
             {
-                Enums.RandomiseSpirits();
+                int[] uwu = { 3, 5, 6, 8, 16, 15, 17, 18, 19, /*20,*/ 22, 23, 24, 26, 29 };
+                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset",30,uwu);
             }
-            if (Spirits.Checked==false)
+            if (Weapons.Checked)
+            {
+                //xEnums.OtherEnums(@".\Baseassets\Blue Fire\Content\Enums\Weapons.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Weapons.uasset",14);
+            }
+            if (Items.Checked)
+            {
+                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82);
+            }
+            if (Tunics.Checked)
+            {
+                //xEnums.OtherEnums(@".\Baseassets\Blue Fire\Content\Enums\Tunics.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Tunics.uasset", 31);
+            }
+            if (Spirits.Checked==false&&Items.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -57,7 +71,7 @@ namespace BlueFireRando
                     File.WriteAllText(@".\config.txt",modfoldercheck.SelectedPath);
                     if (modfoldercheck.ShowDialog() == DialogResult.OK)
                     {
-                        MessageBox.Show($"Randomiser pak installed");
+                        MessageBox.Show($"Mod folder registered. edit config.txt to change this folder");
                     }
                 }
                 modfolder = File.ReadAllText(@".\config.txt");
@@ -66,6 +80,7 @@ namespace BlueFireRando
                     File.Delete($"{modfolder}\\Randomiser_P.pak");
                 }
                 File.Move(@".\Randomiser_P.pak", $"{modfolder}\\Randomiser_P.pak");
+                MessageBox.Show("Randomiser pak installed");
             }
         }
 
@@ -79,8 +94,6 @@ namespace BlueFireRando
             {
                 Mix.Text = "Mix Randomization?*";
                 Weapons.Text = "Randomize Weapons?*";
-                KeyItems.Text = "Randomize Key Items?*";
-                Keys.Text = "Randomize Keys?*";
                 Items.Text = "Randomize Items?*";
                 Spirits.Text = "Randomize Spirits?";
                 Randomise.Text = "Randomize";
@@ -92,8 +105,6 @@ namespace BlueFireRando
             {
                 Mix.Text = "Mix Randomisation?*";
                 Weapons.Text = "Randomise Weapons?*";
-                KeyItems.Text = "Randomise Key Items?*";
-                Keys.Text = "Randomise Keys?*";
                 Items.Text = "Randomise Items?*";
                 Spirits.Text = "Randomise Spirits?";
                 Randomise.Text = "Randomise";
