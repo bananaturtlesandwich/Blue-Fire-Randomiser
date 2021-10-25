@@ -51,14 +51,18 @@ namespace BlueFireRando
             }
             if (Items.Checked)
             {
-                int[] uwo = {3,4,19,6,8,15,26,9,28,51,29,12,30,13,35,36,37,41,42,44,45,51,54,61,59,58 };
-                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82,uwo);
+                //xint[] uwo = {3,4,19,6,8,15,26,9,28,51,29,12,30,13,35,36,37,41,42,44,45,51,54,61,59,58 };
+                //xEnums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82,uwo);
             }
             if (Tunics.Checked)
             {
                 //xEnums.OtherEnums(@".\Baseassets\Blue Fire\Content\Enums\Tunics.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Tunics.uasset", 31);
             }
-            if (Spirits.Checked==false&&Items.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false)
+            if (Emotes.Checked)
+            {
+                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\E_Emotes.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\E_Emotes.uasset",15);
+            }
+            if (Spirits.Checked==false&&Items.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -97,6 +101,8 @@ namespace BlueFireRando
                 Weapons.Text = "Randomize Weapons?*";
                 Items.Text = "Randomize Items?*";
                 Spirits.Text = "Randomize Spirits?";
+                Tunics.Text = "Randomize Tunics?*";
+                Emotes.Text = "Randomize Emotes";
                 Randomise.Text = "Randomize";
                 Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomization means key items can be in weapon locations etc.";
                 UmbyPet.Image = UmbyPet.InitialImage;
@@ -108,6 +114,8 @@ namespace BlueFireRando
                 Weapons.Text = "Randomise Weapons?*";
                 Items.Text = "Randomise Items?*";
                 Spirits.Text = "Randomise Spirits?";
+                Tunics.Text = "Randomise Tunics?*";
+                Emotes.Text = "Randomise Emotes";
                 Randomise.Text = "Randomise";
                 Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomisation means key items can be in weapon locations etc.";
                 UmbyPet.Image = UmbyPet.ErrorImage;

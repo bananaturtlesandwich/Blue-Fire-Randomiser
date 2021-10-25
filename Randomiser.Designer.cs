@@ -42,6 +42,7 @@ namespace BlueFireRando
             this.American = new System.Windows.Forms.CheckBox();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
+            this.Emotes = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -146,6 +147,7 @@ namespace BlueFireRando
             this.flowLayoutPanel1.Controls.Add(this.Items);
             this.flowLayoutPanel1.Controls.Add(this.Spirits);
             this.flowLayoutPanel1.Controls.Add(this.Tunics);
+            this.flowLayoutPanel1.Controls.Add(this.Emotes);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(949, 43);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(446, 514);
@@ -212,6 +214,20 @@ namespace BlueFireRando
     "u do not have a ~mods folder in Paks then make one)";
             this.modfoldercheck.RootFolder = System.Environment.SpecialFolder.ProgramFilesX86;
             // 
+            // Emotes
+            // 
+            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Emotes.AutoSize = true;
+            this.Emotes.BackColor = System.Drawing.Color.Transparent;
+            this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
+            this.Emotes.Location = new System.Drawing.Point(3, 428);
+            this.Emotes.Name = "Emotes";
+            this.Emotes.Size = new System.Drawing.Size(382, 48);
+            this.Emotes.TabIndex = 12;
+            this.Emotes.Text = "Randomise Emotes?";
+            this.Emotes.UseVisualStyleBackColor = false;
+            // 
             // Randomiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -257,6 +273,7 @@ namespace BlueFireRando
         private System.Windows.Forms.PictureBox Logo;
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
         private System.Windows.Forms.CheckBox Tunics;
+        private System.Windows.Forms.CheckBox Emotes;
     }
 }
 
