@@ -24,7 +24,7 @@ namespace BlueFireRando
             //for enums obviously
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             //custom menu art
-            /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
             {
                 File.Copy(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
@@ -34,7 +34,7 @@ namespace BlueFireRando
             {
                 File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
-            }*/
+            }
             
             if (File.Exists(@".\config.txt") == false)
             {
@@ -42,7 +42,7 @@ namespace BlueFireRando
             }
             if (Spirits.Checked)
             {
-                int[] uwu = { 3, 5, 6, 8, 16, 15, 17, 18, 19, /*20,*/ 22, 23, 24, 26, 29 };
+                int[] uwu = { 3, 5, 6, 8, 16, 15, 17, 18, 19, 20, 22, 23, 24, 26, 29};
                 Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset",30,uwu);
             }
             if (Weapons.Checked)
@@ -51,7 +51,8 @@ namespace BlueFireRando
             }
             if (Items.Checked)
             {
-                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82);
+                int[] uwo = {3,4,19,6,8,15,26,9,28,51,29,12,30,13,35,36,37,41,42,44,45,51,54,61,59,58 };
+                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82,uwo);
             }
             if (Tunics.Checked)
             {
