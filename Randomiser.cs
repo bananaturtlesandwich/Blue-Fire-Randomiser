@@ -122,5 +122,18 @@ namespace BlueFireRando
                 Logo.BackgroundImage = Logo.InitialImage;
             }
         }
+
+        private void deletePak_Click(object sender, EventArgs e)
+        {
+            if (File.Exists($"{File.ReadAllText(@".\config.txt")}\\Randomiser_P.pak"))
+            {
+                File.Delete($"{File.ReadAllText(@".\config.txt")}\\Randomiser_P.pak");
+                MessageBox.Show("Pak file deleted");
+            }
+            else
+            {
+                MessageBox.Show("There was no pak to delete");
+            }
+        }
     }
 }
