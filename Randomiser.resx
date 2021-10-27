@@ -6248,6 +6248,16 @@ Items includes keys and key items</value>
   <metadata name="modfoldercheck.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="deletePak.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAABGdBTUEAALGPC/xhBQAAAAd0SU1FB+UK
+        ExMCNxaqGuUAAAAXdEVYdFNvZnR3YXJlAEdMRFBORyB2ZXIgMy40cYWk4QAAAORJREFUaEPt2lEKhDAM
+        hGHvfzbv1I1Eqtakgiw7GXZ+UPChMB99dVnXtTG32ENq8NkboH8Q1QfvAIvIcJ56ACwKwzDyArCKG+7z
+        RoBV1hAOCwBWQUM2KQZYpQyTMSnA8mP2BtZnZM0AFD3fALz3NyDAdxIAnQDoBEAnADoB0AmATgB0AqAT
+        AJ0A6ARAJwA6AdAJgE4AdAKgEwCdAOgEQPfHAIqeb8DewPqMrBQwP/bjJmNiQKn1XjYpABRc74XDRkDZ
+        9d593gVQfL03jDwAFOu989QdQLTe64M3AN16z2eT/37f2gd3iVekbcAucQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABboAAAM5CAYAAADBlYdYAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7U

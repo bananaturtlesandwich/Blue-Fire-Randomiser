@@ -42,7 +42,7 @@ namespace BlueFireRando
             }
             if (Spirits.Checked)
             {
-                int[] uwu = { 3, 5, 6, 8, 16, 15, 17, 18, 19, 20, 22, 23, 24, 26, 29};
+                int[] uwu = { 5,6,8,16,18,19,20,22,23,24,26,29};
                 Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset",30,uwu);
             }
             if (Weapons.Checked)

@@ -39,10 +39,11 @@ namespace BlueFireRando
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Disclaimer = new System.Windows.Forms.TextBox();
             this.Tunics = new System.Windows.Forms.CheckBox();
+            this.Emotes = new System.Windows.Forms.CheckBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
-            this.Emotes = new System.Windows.Forms.CheckBox();
+            this.deletePak = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -57,7 +58,7 @@ namespace BlueFireRando
             this.Randomise.FlatAppearance.BorderSize = 0;
             this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Randomise.Location = new System.Drawing.Point(952, 564);
+            this.Randomise.Location = new System.Drawing.Point(1029, 645);
             this.Randomise.Margin = new System.Windows.Forms.Padding(4);
             this.Randomise.Name = "Randomise";
             this.Randomise.Size = new System.Drawing.Size(443, 206);
@@ -73,7 +74,7 @@ namespace BlueFireRando
             this.UmbyPet.ErrorImage = ((System.Drawing.Image)(resources.GetObject("UmbyPet.ErrorImage")));
             this.UmbyPet.Image = ((System.Drawing.Image)(resources.GetObject("UmbyPet.Image")));
             this.UmbyPet.InitialImage = ((System.Drawing.Image)(resources.GetObject("UmbyPet.InitialImage")));
-            this.UmbyPet.Location = new System.Drawing.Point(-11, 406);
+            this.UmbyPet.Location = new System.Drawing.Point(-11, 487);
             this.UmbyPet.Name = "UmbyPet";
             this.UmbyPet.Size = new System.Drawing.Size(406, 382);
             this.UmbyPet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +149,7 @@ namespace BlueFireRando
             this.flowLayoutPanel1.Controls.Add(this.Spirits);
             this.flowLayoutPanel1.Controls.Add(this.Tunics);
             this.flowLayoutPanel1.Controls.Add(this.Emotes);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(949, 43);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1026, 43);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(446, 514);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -180,6 +181,20 @@ namespace BlueFireRando
             this.Tunics.TabIndex = 11;
             this.Tunics.Text = "Randomise Tunics?";
             this.Tunics.UseVisualStyleBackColor = false;
+            // 
+            // Emotes
+            // 
+            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Emotes.AutoSize = true;
+            this.Emotes.BackColor = System.Drawing.Color.Transparent;
+            this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
+            this.Emotes.Location = new System.Drawing.Point(3, 428);
+            this.Emotes.Name = "Emotes";
+            this.Emotes.Size = new System.Drawing.Size(382, 48);
+            this.Emotes.TabIndex = 12;
+            this.Emotes.Text = "Randomise Emotes?";
+            this.Emotes.UseVisualStyleBackColor = false;
             // 
             // American
             // 
@@ -214,19 +229,22 @@ namespace BlueFireRando
     "u do not have a ~mods folder in Paks then make one)";
             this.modfoldercheck.RootFolder = System.Environment.SpecialFolder.ProgramFilesX86;
             // 
-            // Emotes
+            // deletePak
             // 
-            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Emotes.AutoSize = true;
-            this.Emotes.BackColor = System.Drawing.Color.Transparent;
-            this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 428);
-            this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(382, 48);
-            this.Emotes.TabIndex = 12;
-            this.Emotes.Text = "Randomise Emotes?";
-            this.Emotes.UseVisualStyleBackColor = false;
+            this.deletePak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deletePak.BackColor = System.Drawing.SystemColors.Control;
+            this.deletePak.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deletePak.BackgroundImage")));
+            this.deletePak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deletePak.FlatAppearance.BorderSize = 0;
+            this.deletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deletePak.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePak.Location = new System.Drawing.Point(-11, 312);
+            this.deletePak.Margin = new System.Windows.Forms.Padding(4);
+            this.deletePak.Name = "deletePak";
+            this.deletePak.Size = new System.Drawing.Size(406, 168);
+            this.deletePak.TabIndex = 14;
+            this.deletePak.Text = "Delete Mod Pak";
+            this.deletePak.UseVisualStyleBackColor = false;
             // 
             // Randomiser
             // 
@@ -235,7 +253,8 @@ namespace BlueFireRando
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1407, 783);
+            this.ClientSize = new System.Drawing.Size(1484, 864);
+            this.Controls.Add(this.deletePak);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.American);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -274,6 +293,7 @@ namespace BlueFireRando
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
         private System.Windows.Forms.CheckBox Tunics;
         private System.Windows.Forms.CheckBox Emotes;
+        private System.Windows.Forms.Button deletePak;
     }
 }
 
