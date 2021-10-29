@@ -7,11 +7,11 @@ namespace BlueFireRando
 {
     public partial class Enums
     {
-        static public void RandomiseEnums(string filepath, string exitpath, int indexes,int[] UnusedIndexes)
+        static public void RandomiseEnums(string filepath, string endpath, int indexes,int[] UnusedIndexes,bool flip)
         {
-            //Load umap/enum
+            //Load enum
             UAsset y = new UAsset(filepath, UE4Version.VER_UE4_25);
-            //MessageBox.Show($"Data preserved:{(y.VerifyParsing() ? "yes" : "no")}");
+            //MessageBox.Show($"Data preserved:{(y.VerifyBinaryEquality() ? "yes" : "no")}");
             //Only one export so for loop isn't needed
             Export baseUs = y.Exports[0];
             if (baseUs is EnumExport us)
@@ -23,26 +23,44 @@ namespace BlueFireRando
                 List<Tuple<FName, long>> eh = us.Enum.Names;
                 for (int j = 0; j < indexes; j++)
                 {
-                    if (UnusedIndexes.Contains(j) == false)
+                    if (flip == false)
                     {
-                        int temp;
-                        do
+                        if (UnusedIndexes.Contains(j) == false)
                         {
-                            temp = rndm.Next(0, indexes);
+                            int temp;
+                            do
+                            {
+                                temp = rndm.Next(0, indexes);
+                            }
+                            while (UsedIndexes.Contains(temp) || temp == j);
+                            eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
+                            UsedIndexes.Add(temp);
+                            /*string debug=" ";
+                            foreach (var item in UsedIndexes)
+                            {
+                                debug +=Convert.ToString(item + ", ");
+                            }
+                            MessageBox.Show(debug);*/
                         }
-                        while (UsedIndexes.Contains(temp) || temp == j);
-                        eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
-                        UsedIndexes.Add(temp);
-                        /*string debug=" ";
-                        foreach (var item in UsedIndexes)
-                        {
-                            debug +=Convert.ToString(item + ", ");
-                        }
-                        MessageBox.Show(debug);*/
                     }
+                    else
+                    {
+                        if (UnusedIndexes.Contains(j))
+                        {
+                            int temp;
+                            do
+                            {
+                                temp = rndm.Next(0, indexes);
+                            }
+                            while (UsedIndexes.Contains(temp)==false || temp == j);
+                            eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
+                            UsedIndexes.Add(temp);
+                        }
+                    }
+                    
                 }
             }
-            y.Write(exitpath);
+            y.Write(endpath);
         }
 
         static public void RandomiseEnums(string filepath,string exitpath,int indexes)

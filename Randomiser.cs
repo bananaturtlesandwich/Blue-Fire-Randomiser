@@ -23,6 +23,8 @@ namespace BlueFireRando
             Directory.Delete(@".\Randomiser_P",true);
             //for enums obviously
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            //for datatables?
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\Emotes");
             //custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
@@ -40,29 +42,29 @@ namespace BlueFireRando
             {
                 File.Create(@".\config.txt");
             }
-            if (Spirits.Checked)
+            if (Mix.Checked)
             {
-                int[] uwu = { 5,6,8,16,18,19,20,22,23,24,26,29};
-                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset",30,uwu);
+                foreach (var file in Directory.GetFiles(@".\Baseassets\Maps"))
+                {
+                    Umaps.Randomise(file, "jjglfi", Spirits.Checked, KeyItems.Checked, false, Tunics.Checked, Emotes.Checked);
+                }
             }
-            if (Weapons.Checked)
+            else
             {
-                //xEnums.OtherEnums(@".\Baseassets\Blue Fire\Content\Enums\Weapons.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Weapons.uasset",14);
+                if (Spirits.Checked)
+                {
+                    int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
+                    Enums.RandomiseEnums(@".\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu,false);
+                }
+                if (KeyItems.Checked)
+                {
+                    int[] uwa = {5,46,47,48,49,50,52,69,70 };
+                    Enums.RandomiseEnums(@".\Baseassets\Items.uasset",@".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset", 82, uwa, true);
+                }
             }
-            if (Items.Checked)
-            {
-                //xint[] uwo = {3,4,19,6,8,15,26,9,28,51,29,12,30,13,35,36,37,41,42,44,45,51,54,61,59,58 };
-                //xEnums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\Items.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset",82,uwo);
-            }
-            if (Tunics.Checked)
-            {
-                //xEnums.OtherEnums(@".\Baseassets\Blue Fire\Content\Enums\Tunics.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Tunics.uasset", 31);
-            }
-            if (Emotes.Checked)
-            {
-                Enums.RandomiseEnums(@".\Baseassets\Blue Fire\Content\Enums\E_Emotes.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\E_Emotes.uasset",15);
-            }
-            if (Spirits.Checked==false&&Items.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false)
+
+
+            if (Spirits.Checked==false&&KeyItems.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -99,7 +101,7 @@ namespace BlueFireRando
             {
                 Mix.Text = "Mix Randomization?*";
                 Weapons.Text = "Randomize Weapons?*";
-                Items.Text = "Randomize Items?*";
+                KeyItems.Text = "Randomize Items?*";
                 Spirits.Text = "Randomize Spirits?";
                 Tunics.Text = "Randomize Tunics?*";
                 Emotes.Text = "Randomize Emotes";
@@ -112,7 +114,7 @@ namespace BlueFireRando
             {
                 Mix.Text = "Mix Randomisation?*";
                 Weapons.Text = "Randomise Weapons?*";
-                Items.Text = "Randomise Items?*";
+                KeyItems.Text = "Randomise Items?*";
                 Spirits.Text = "Randomise Spirits?";
                 Tunics.Text = "Randomise Tunics?*";
                 Emotes.Text = "Randomise Emotes";

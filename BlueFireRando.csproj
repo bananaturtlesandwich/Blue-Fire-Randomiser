@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Umaps.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
@@ -109,6 +110,9 @@
     <Content Include="%27murrica.gif" />
     <Content Include="beegUmby.ico" />
     <Content Include="Button.png" />
+    <Content Include="GreenNormalLogo.png" />
+    <Content Include="InstantSplash.png" />
+    <Content Include="OptimisedBOJ_KeyArt.png" />
     <Content Include="OptimisedGameart.png" />
     <Content Include="Umbypet.gif" />
   </ItemGroup>
