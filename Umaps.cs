@@ -12,7 +12,7 @@ namespace BlueFireRando
     {
         public class Spirits
         {
-            StructPropertyData location = new StructPropertyData(FName.FromString("RelativeLocation"))
+            /*xStructPropertyData location = new StructPropertyData(FName.FromString("RelativeLocation"))
             {
                 StructType = FName.FromString("Vector"),
                 Value = new List<PropertyData>
@@ -33,7 +33,12 @@ namespace BlueFireRando
                         Value = new FRotator() // Translation in unreal units (X, Y, Z)
                     }
                 }
+            };*/
+            ObjectPropertyData mesh = new ObjectPropertyData(FName.FromString("SkeletalMesh"))
+            {
+                
             };
+            BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
         }
         public static void Randomise(string filepath, string endpath,bool randomisespirits,bool randomisekeyitems, bool randomiseweapons, bool randomisetunics,bool randomiseemotes)
         {
@@ -43,19 +48,15 @@ namespace BlueFireRando
             for(int i = 0; i < y.Exports.Count; i++)
             {
                 Export export = y.Exports[i];
-                int chest = 0;
                 if(export is NormalExport ex)
                 {
                     //loop through subcategories to find chests
                     for(int j = 0; j < ex.Data.Count; j++)
                     {
-                        if (ex.Data[j].Name.Equals("RelativeLocation") && ex.Data[j] is StructPropertyData)
+                        BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
+                        if (ex.Data[j].Equals(spirit))
                         {
-                            chest++;
-                        }
-                        if(ex.Data[j].Name.Equals("RelativeRotation") && ex.Data[j] is StructPropertyData)
-                        {
-                            chest++;
+                            spirit.Value=3;
                         }
                     }
                 }

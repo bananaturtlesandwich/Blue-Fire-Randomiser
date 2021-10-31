@@ -44,10 +44,12 @@ namespace BlueFireRando
             }
             if (Mix.Checked)
             {
-                foreach (var file in Directory.GetFiles(@".\Baseassets\Maps"))
+                string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "?.uasset", SearchOption.AllDirectories);
+                for(int i = 0; i < fileentries.Length; i++)
                 {
-                    Umaps.Randomise(file, "jjglfi", Spirits.Checked, KeyItems.Checked, false, Tunics.Checked, Emotes.Checked);
+                    MessageBox.Show(fileentries[i]);
                 }
+                Mix.Checked = false;
             }
             else
             {
@@ -64,7 +66,7 @@ namespace BlueFireRando
             }
 
 
-            if (Spirits.Checked==false&&KeyItems.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false)
+            if (Spirits.Checked==false&&KeyItems.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false&&Mix.Checked==false)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
