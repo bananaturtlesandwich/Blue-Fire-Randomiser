@@ -3,12 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using UAssetAPI;
+using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 
 namespace BlueFireRando
 {
     public partial class Umaps
     {
+        public class Spirits
+        {
+            StructPropertyData location = new StructPropertyData(FName.FromString("RelativeLocation"))
+            {
+                StructType = FName.FromString("Vector"),
+                Value = new List<PropertyData>
+                {
+                    new VectorPropertyData(FName.FromString("Vector"))
+                    {
+                        Value = new FVector() // Translation in unreal units (X, Y, Z)
+                    }
+                }
+            };
+            StructPropertyData rotation = new StructPropertyData(FName.FromString("RelativeRotation"))
+            {
+                StructType = FName.FromString("Rotator"),
+                Value = new List<PropertyData>
+                {
+                    new RotatorPropertyData(FName.FromString("Vector"))
+                    {
+                        Value = new FRotator() // Translation in unreal units (X, Y, Z)
+                    }
+                }
+            };
+        }
         public static void Randomise(string filepath, string endpath,bool randomisespirits,bool randomisekeyitems, bool randomiseweapons, bool randomisetunics,bool randomiseemotes)
         {
             //Load umap
