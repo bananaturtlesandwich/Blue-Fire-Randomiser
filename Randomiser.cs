@@ -44,10 +44,11 @@ namespace BlueFireRando
             }
             if (Mix.Checked)
             {
-                string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "?.uasset", SearchOption.AllDirectories);
+                string[] fileentries = Directory.GetFiles(@".\Baseassets\World","*.umap", SearchOption.AllDirectories);
                 for(int i = 0; i < fileentries.Length; i++)
                 {
-                    MessageBox.Show(fileentries[i]);
+                    string endpath = fileentries[i].Replace(@".\Baseassets", "");
+                    MessageBox.Show(endpath);
                 }
                 Mix.Checked = false;
             }
