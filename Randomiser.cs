@@ -45,9 +45,9 @@ namespace BlueFireRando
             if (Mix.Checked)
             {
                 string[] fileentries = Directory.GetFiles(@".\Baseassets\World","*.umap", SearchOption.AllDirectories);
-                for(int i = 0; i < fileentries.Length; i++)
+                foreach(var file in fileentries)
                 {
-                    string endpath = fileentries[i].Replace(@".\Baseassets", "");
+                    string endpath = file.Replace(@".\Baseassets", "");
                     MessageBox.Show(endpath);
                 }
                 Mix.Checked = false;
