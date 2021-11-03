@@ -54,43 +54,10 @@ namespace BlueFireRando
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
                 string[] fileentries = Directory.GetFiles(@".\Baseassets\World","*.umap", SearchOption.AllDirectories);
-                foreach(var file in fileentries)
+                foreach (var file in fileentries)
                 {
                     string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps"+file.Replace(@".\Baseassets", "");
                     Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
-                    //some user feedback to tell them that the program is just buffering not frozen
-                    int notified = 0;
-                    switch (notified)
-                    {
-                        case 0:
-                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity"))
-                            {
-                                MessageBox.Show("Stoneheart randomised");
-                                notified++;
-                            }
-                            break;
-                        case 1:
-                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels"))
-                            {
-                                MessageBox.Show("Arcane and Fire keep randomised");
-                                notified++;
-                            }
-                            break;
-                        case 2:
-                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A06_IronCaves"))
-                            {
-                                MessageBox.Show("Firefall randomised");
-                                notified++;
-                            }
-                            break;
-                        case 3:
-                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids"))
-                            {
-                                MessageBox.Show("Voids randomised");
-                                notified++;
-                            }
-                            break;
-                    }
                 }
                 Mix.Checked = false;
             }
