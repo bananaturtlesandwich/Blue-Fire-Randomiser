@@ -60,6 +60,7 @@ namespace BlueFireRando
                     Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
                 }
                 Mix.Checked = false;
+                Spirits.Checked = false;
             }
             else
             {
