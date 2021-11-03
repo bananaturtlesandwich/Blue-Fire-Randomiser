@@ -15,23 +15,26 @@ namespace BlueFireRando
             //Load umap
             UAsset y = new UAsset(filepath, UE4Version.VER_UE4_25);
             //MessageBox.Show($"Data preserved:{(y.VerifyBinaryEquality() ? "yes" : "no")}");
+            //Loop through exports
             for(int i = 0; i < y.Exports.Count; i++)
             {
                 Export export = y.Exports[i];
                 if(export is NormalExport ex)
                 {
-                    //loop through subcategories to find chests
+                    //loop through subcategories to find chests/spirits or items
                     for(int j = 0; j < ex.Data.Count; j++)
                     {
-                        BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
-                        if (ex.Data[j].Equals(spirit))
+                        //BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
+                        if (ex.Data[j].Name.Equals(FName.FromString("Spirit"))&& ex.Data[j] is BytePropertyData)
                         {
-                            spirit.Value=3;
+                            BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
+                            spirit.Value = 3;
+                            ex.Data[j] = spirit;
                         }
                     }
                 }
             }
-        
+            y.Write(endpath);
         }
     }
 }

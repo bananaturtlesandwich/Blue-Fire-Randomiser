@@ -20,11 +20,12 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            Directory.Delete(@".\Randomiser_P",true);
-            //for enums obviously
-            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            if (Directory.Exists(@".\Randomiser_P"))
+            {
+                Directory.Delete(@".\Randomiser_P", true);
+            }
             //for datatables?
-            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\Emotes");
+            //Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\Emotes");
             //custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
@@ -44,16 +45,59 @@ namespace BlueFireRando
             }
             if (Mix.Checked)
             {
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A06_IronCaves");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\02_Void04_V2");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
                 string[] fileentries = Directory.GetFiles(@".\Baseassets\World","*.umap", SearchOption.AllDirectories);
                 foreach(var file in fileentries)
                 {
-                    string endpath = file.Replace(@".\Baseassets", "");
+                    string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps"+file.Replace(@".\Baseassets", "");
                     Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
+                    //some user feedback to tell them that the program is just buffering not frozen
+                    int notified = 0;
+                    switch (notified)
+                    {
+                        case 0:
+                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity"))
+                            {
+                                MessageBox.Show("Stoneheart randomised");
+                                notified++;
+                            }
+                            break;
+                        case 1:
+                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels"))
+                            {
+                                MessageBox.Show("Arcane and Fire keep randomised");
+                                notified++;
+                            }
+                            break;
+                        case 2:
+                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A06_IronCaves"))
+                            {
+                                MessageBox.Show("Firefall randomised");
+                                notified++;
+                            }
+                            break;
+                        case 3:
+                            if (file.Contains(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids"))
+                            {
+                                MessageBox.Show("Voids randomised");
+                                notified++;
+                            }
+                            break;
+                    }
                 }
                 Mix.Checked = false;
             }
             else
             {
+                //for enums obviously
+                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
                 if (Spirits.Checked)
                 {
                     int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
