@@ -88,9 +88,9 @@ namespace BlueFireRando
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 332);
+            this.Spirits.Location = new System.Drawing.Point(3, 344);
             this.Spirits.Name = "Spirits";
-            this.Spirits.Size = new System.Drawing.Size(368, 48);
+            this.Spirits.Size = new System.Drawing.Size(440, 52);
             this.Spirits.TabIndex = 5;
             this.Spirits.Text = "Randomise Spirits?";
             this.Spirits.UseVisualStyleBackColor = false;
@@ -105,7 +105,7 @@ namespace BlueFireRando
             this.Mix.ForeColor = System.Drawing.SystemColors.Control;
             this.Mix.Location = new System.Drawing.Point(3, 170);
             this.Mix.Name = "Mix";
-            this.Mix.Size = new System.Drawing.Size(417, 48);
+            this.Mix.Size = new System.Drawing.Size(500, 52);
             this.Mix.TabIndex = 6;
             this.Mix.Text = "Mix Randomisation?*";
             this.Mix.UseVisualStyleBackColor = false;
@@ -117,9 +117,9 @@ namespace BlueFireRando
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(3, 224);
+            this.Weapons.Location = new System.Drawing.Point(3, 228);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(426, 48);
+            this.Weapons.Size = new System.Drawing.Size(512, 52);
             this.Weapons.TabIndex = 7;
             this.Weapons.Text = "Randomise Weapons?*";
             this.Weapons.UseVisualStyleBackColor = false;
@@ -131,9 +131,9 @@ namespace BlueFireRando
             this.KeyItems.BackColor = System.Drawing.Color.Transparent;
             this.KeyItems.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyItems.ForeColor = System.Drawing.SystemColors.Control;
-            this.KeyItems.Location = new System.Drawing.Point(3, 278);
+            this.KeyItems.Location = new System.Drawing.Point(3, 286);
             this.KeyItems.Name = "KeyItems";
-            this.KeyItems.Size = new System.Drawing.Size(431, 48);
+            this.KeyItems.Size = new System.Drawing.Size(518, 52);
             this.KeyItems.TabIndex = 10;
             this.KeyItems.Text = "Randomise Key Items?*";
             this.KeyItems.UseVisualStyleBackColor = false;
@@ -177,9 +177,9 @@ namespace BlueFireRando
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(3, 386);
+            this.Tunics.Location = new System.Drawing.Point(3, 402);
             this.Tunics.Name = "Tunics";
-            this.Tunics.Size = new System.Drawing.Size(388, 48);
+            this.Tunics.Size = new System.Drawing.Size(465, 52);
             this.Tunics.TabIndex = 11;
             this.Tunics.Text = "Randomise Tunics?*";
             this.Tunics.UseVisualStyleBackColor = false;
@@ -191,9 +191,9 @@ namespace BlueFireRando
             this.Emotes.BackColor = System.Drawing.Color.Transparent;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 440);
+            this.Emotes.Location = new System.Drawing.Point(3, 460);
             this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(395, 48);
+            this.Emotes.Size = new System.Drawing.Size(474, 52);
             this.Emotes.TabIndex = 12;
             this.Emotes.Text = "Randomise Emotes?*";
             this.Emotes.UseVisualStyleBackColor = false;
@@ -205,9 +205,9 @@ namespace BlueFireRando
             this.American.BackColor = System.Drawing.Color.Transparent;
             this.American.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.American.ForeColor = System.Drawing.Color.Ivory;
-            this.American.Location = new System.Drawing.Point(31, 227);
+            this.American.Location = new System.Drawing.Point(608, 24);
             this.American.Name = "American";
-            this.American.Size = new System.Drawing.Size(321, 48);
+            this.American.Size = new System.Drawing.Size(383, 52);
             this.American.TabIndex = 12;
             this.American.Text = "American mode";
             this.American.UseVisualStyleBackColor = false;
@@ -222,7 +222,7 @@ namespace BlueFireRando
             this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
             this.Logo.Location = new System.Drawing.Point(-11, 12);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(588, 183);
+            this.Logo.Size = new System.Drawing.Size(613, 162);
             this.Logo.TabIndex = 13;
             this.Logo.TabStop = false;
             // 
@@ -252,7 +252,7 @@ namespace BlueFireRando
             // 
             // Randomiser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
