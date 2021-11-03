@@ -48,7 +48,7 @@ namespace BlueFireRando
                 foreach(var file in fileentries)
                 {
                     string endpath = file.Replace(@".\Baseassets", "");
-                    MessageBox.Show(endpath);
+                    Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
                 }
                 Mix.Checked = false;
             }
@@ -57,12 +57,7 @@ namespace BlueFireRando
                 if (Spirits.Checked)
                 {
                     int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
-                    Enums.RandomiseEnums(@".\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu,false);
-                }
-                if (KeyItems.Checked)
-                {
-                    int[] uwa = {5,46,47,48,49,50,52,69,70 };
-                    Enums.RandomiseEnums(@".\Baseassets\Items.uasset",@".\Randomiser_P\Blue Fire\Content\Enums\Items.uasset", 82, uwa, true);
+                    Enums.RandomiseEnums(@".\Enums\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu,false);
                 }
             }
 
