@@ -27,18 +27,20 @@ namespace BlueFireRando
                     {
                         if (ex.Data[j].Name.Equals(FName.FromString("Item")))
                         {
-                            ex = (NormalExport)z.Exports[207];
+                            if(z.Exports[207] is NormalExport norm)
+                            {
+                                ex = norm;
+                            }
                         }
-                        /*if (randomisespirits)
+                        if (randomisespirits)
                         {
                             //BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
                             if (ex.Data[j].Name.Equals(FName.FromString("Spirit")) && ex.Data[j] is BytePropertyData byt)
                             {
-                                //MessageBox.Show(byt.Value.GetTypeCode().ToString());//returns index in namemap :/
                                 int x=y.AddNameReference(FString.FromString("Spirits::NewEnumerator" + Convert.ToString(13)));
                                 byt.Value = x;
                             }
-                        } */
+                        } 
                     }
                 }
             }
