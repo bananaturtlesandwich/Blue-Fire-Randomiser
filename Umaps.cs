@@ -24,13 +24,17 @@ namespace BlueFireRando
                     //loop through subcategories to find chests/spirits or items
                     for(int j = 0; j < ex.Data.Count; j++)
                     {
-                        //BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
-                        if (ex.Data[j].Name.Equals(FName.FromString("Spirit"))&& ex.Data[j] is BytePropertyData)
+                        if (randomisespirits)
                         {
-                            BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
-                            spirit.Value = 3;
-                            ex.Data[j] = spirit;
-                        }
+                            //BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
+                            if (ex.Data[j].Name.Equals(FName.FromString("Spirit")) && ex.Data[j] is BytePropertyData byt)
+                            {
+                                //MessageBox.Show(byt.Value.ToString());
+                                byt.Value = 1132;
+
+                                //spirit indexes are: 729,1132,1680,541,516,833,875
+                            }
+                        } 
                     }
                 }
             }
