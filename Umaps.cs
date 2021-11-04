@@ -29,10 +29,10 @@ namespace BlueFireRando
                             //BytePropertyData spirit = new BytePropertyData(FName.FromString("Spirit"));
                             if (ex.Data[j].Name.Equals(FName.FromString("Spirit")) && ex.Data[j] is BytePropertyData byt)
                             {
-                                //MessageBox.Show(byt.Value.ToString());
-                                byt.Value = 1132;
-
-                                //spirit indexes are: 729,1132,1680,541,516,833,875
+                                //MessageBox.Show(byt.Value.GetTypeCode().ToString());//returns index in namemap :/
+                                int x=y.AddNameReference(FString.FromString("Spirits::NewEnumerator" + Convert.ToString(13)));
+                                MessageBox.Show(x.ToString());
+                                byt.Value = x;
                             }
                         } 
                     }
