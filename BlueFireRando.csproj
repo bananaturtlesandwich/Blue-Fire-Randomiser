@@ -107,14 +107,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="%27murrica.gif" />
     <Content Include="beegUmby.ico" />
-    <Content Include="Button.png" />
-    <Content Include="GreenNormalLogo.png" />
-    <Content Include="InstantSplash.png" />
-    <Content Include="OptimisedBOJ_KeyArt.png" />
-    <Content Include="OptimisedGameart.png" />
-    <Content Include="Umbypet.gif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
