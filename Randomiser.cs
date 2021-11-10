@@ -59,8 +59,6 @@ namespace BlueFireRando
                     string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps"+file.Replace(@".\Baseassets", "");
                     Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
                 }
-                Mix.Checked = false;
-                Spirits.Checked = false;
             }
             else
             {

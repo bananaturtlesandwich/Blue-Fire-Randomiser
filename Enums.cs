@@ -7,7 +7,7 @@ namespace BlueFireRando
 {
     public partial class Enums
     {
-        static public void RandomiseEnums(string filepath, string endpath, int indexes,int[] UnusedIndexes,bool flip)
+        static public void RandomiseEnums(string filepath, string endpath, int indexes, int[] UnusedIndexes, bool flip)
         {
             //Load enum
             UAsset y = new UAsset(filepath, UE4Version.VER_UE4_25);
@@ -52,18 +52,18 @@ namespace BlueFireRando
                             {
                                 temp = rndm.Next(0, indexes);
                             }
-                            while (UsedIndexes.Contains(temp)==false || temp == j);
+                            while (UsedIndexes.Contains(temp) == false || temp == j);
                             eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
                             UsedIndexes.Add(temp);
                         }
                     }
-                    
+
                 }
             }
             y.Write(endpath);
         }
 
-        static public void RandomiseEnums(string filepath,string exitpath,int indexes)
+        static public void RandomiseEnums(string filepath, string exitpath, int indexes)
         {
             //Load umap/enum
             UAsset y = new UAsset(filepath, UE4Version.VER_UE4_25);
@@ -73,7 +73,7 @@ namespace BlueFireRando
             if (baseUs is EnumExport us)
             {
                 Random rndm = new Random();
-                List<int> UsedIndexes= new List<int>();
+                List<int> UsedIndexes = new List<int>();
                 List<Tuple<FName, long>> eh = us.Enum.Names;
                 for (int j = 0; j < indexes; j++)
                 {
