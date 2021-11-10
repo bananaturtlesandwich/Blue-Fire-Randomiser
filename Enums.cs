@@ -35,12 +35,6 @@ namespace BlueFireRando
                             while (UsedIndexes.Contains(temp) || temp == j);
                             eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
                             UsedIndexes.Add(temp);
-                            /*string debug=" ";
-                            foreach (var item in UsedIndexes)
-                            {
-                                debug +=Convert.ToString(item + ", ");
-                            }
-                            MessageBox.Show(debug);*/
                         }
                     }
                     else
