@@ -15,6 +15,7 @@ namespace BlueFireRando
             //MessageBox.Show($"Data preserved: {(y.VerifyBinaryEquality() ? "yes" : "no")} {filepath}");
             //Loop through exports
             List<string> shit = new List<string>();
+            string[] frick = {};
             for (int i = 0; i < y.Exports.Count; i++)
             {
                 Export export = y.Exports[i];
@@ -48,7 +49,7 @@ namespace BlueFireRando
             {
                 fuck += "," + piceofshit;
             }
-            MessageBox.Show(fuck);
+            Console.Write(fuck);
             y.Write(endpath);
         }
     }

@@ -207,13 +207,12 @@ namespace BlueFireRando
             // 
             // American
             // 
-            this.American.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.American.AutoSize = true;
             this.American.BackColor = System.Drawing.Color.Transparent;
             this.American.Cursor = System.Windows.Forms.Cursors.Hand;
             this.American.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.American.ForeColor = System.Drawing.Color.Ivory;
-            this.American.Location = new System.Drawing.Point(656, 43);
+            this.American.Location = new System.Drawing.Point(12, 101);
             this.American.Name = "American";
             this.American.Size = new System.Drawing.Size(383, 52);
             this.American.TabIndex = 12;
@@ -223,12 +222,13 @@ namespace BlueFireRando
             // 
             // Logo
             // 
+            this.Logo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Logo.BackColor = System.Drawing.Color.Transparent;
             this.Logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo.BackgroundImage")));
             this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Logo.ErrorImage")));
             this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
-            this.Logo.Location = new System.Drawing.Point(-11, 12);
+            this.Logo.Location = new System.Drawing.Point(401, 12);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(550, 150);
             this.Logo.TabIndex = 13;
@@ -263,6 +263,8 @@ namespace BlueFireRando
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
