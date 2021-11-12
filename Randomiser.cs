@@ -38,41 +38,47 @@ namespace BlueFireRando
                 File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
-            
-            if (File.Exists(@".\config.txt") == false)
+
+            if (!File.Exists(@".\config.txt"))
             {
                 File.Create(@".\config.txt");
             }
             if (Mix.Checked)
             {
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A06_IronCaves");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\02_Void04_V2");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
-                Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
-                string[] fileentries = Directory.GetFiles(@".\Baseassets\World","*.umap", SearchOption.AllDirectories);
-                foreach (var file in fileentries)
-                {
-                    string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps"+file.Replace(@".\Baseassets", "");
-                    Umaps.Randomise(file,endpath,Spirits.Checked,KeyItems.Checked,Weapons.Checked,Tunics.Checked,Emotes.Checked);
-                }
             }
             else
             {
                 //for enums obviously
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+                if (Items.Checked)
+                {
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A06_IronCaves");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\02_Void04_V2");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
+                    Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
+                    string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+                    //string msg = "";
+                    foreach (var file in fileentries)
+                    {
+                        string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + file.Replace(@".\Baseassets", "");
+                        /*msg+=*/
+                        Umaps.Randomise(file, endpath, KeyItems.Checked, Weapons.Checked, Tunics.Checked, Emotes.Checked);
+                    }
+                    //MessageBox.Show(msg); see Umaps.cs for use of these statements(line 40)
+                }
                 if (Spirits.Checked)
                 {
                     int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
-                    Enums.RandomiseEnums(@".\Enums\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu,false);
+                    Enums.RandomiseEnums(@".\Enums\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu, false);
                 }
             }
 
 
-            if (Spirits.Checked==false&&KeyItems.Checked==false&&Weapons.Checked==false&&Tunics.Checked==false&&Emotes.Checked==false&&Mix.Checked==false)
+            if (!Spirits.Checked && !KeyItems.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Mix.Checked && !Items.Checked)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -83,7 +89,7 @@ namespace BlueFireRando
                 string modfolder = File.ReadAllText(@".\config.txt");
                 if (modfolder.Equals(""))
                 {
-                    File.WriteAllText(@".\config.txt",modfoldercheck.SelectedPath);
+                    File.WriteAllText(@".\config.txt", modfoldercheck.SelectedPath);
                     if (modfoldercheck.ShowDialog() == DialogResult.OK)
                     {
                         MessageBox.Show($"Mod folder registered. edit config.txt to change this folder");

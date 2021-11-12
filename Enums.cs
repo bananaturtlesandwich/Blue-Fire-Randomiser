@@ -23,9 +23,9 @@ namespace BlueFireRando
                 List<Tuple<FName, long>> eh = us.Enum.Names;
                 for (int j = 0; j < indexes; j++)
                 {
-                    if (flip == false)
+                    if (!flip)
                     {
-                        if (UnusedIndexes.Contains(j) == false)
+                        if (!UnusedIndexes.Contains(j))
                         {
                             int temp;
                             do
@@ -46,8 +46,8 @@ namespace BlueFireRando
                             {
                                 temp = rndm.Next(0, indexes);
                             }
-                            while (UsedIndexes.Contains(temp) == false || temp == j);
-                            eh[j] = new Tuple<FName, long>(us.Enum.Names[j].Item1, temp);
+                            while (!UsedIndexes.Contains(temp) || temp == j);
+                            eh[j] = new Tuple<FName, long>(eh[j].Item1, temp);
                             UsedIndexes.Add(temp);
                         }
                     }
