@@ -50,6 +50,16 @@ namespace BlueFireRando
             {
                 //for enums obviously
                 Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+                if (KeyItems.Checked)
+                {
+                    int[] uwo = { 5, 7 };
+                    Enums.RandomiseEnums(@".\Baseassets\Enums\Abilities.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Abilities.uasset", 10, uwo, false);
+                }
+                if (Spirits.Checked)
+                {
+                    int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
+                    Enums.RandomiseEnums(@".\Baseassets\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu, false);
+                }
                 if (Items.Checked)
                 {
                     Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
@@ -69,11 +79,6 @@ namespace BlueFireRando
                         Umaps.Randomise(file, endpath, KeyItems.Checked, Weapons.Checked, Tunics.Checked, Emotes.Checked);
                     }
                     //MessageBox.Show(msg); see Umaps.cs for use of these statements(line 40)
-                }
-                if (Spirits.Checked)
-                {
-                    int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
-                    Enums.RandomiseEnums(@".\Enums\Baseassets\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu, false);
                 }
             }
 

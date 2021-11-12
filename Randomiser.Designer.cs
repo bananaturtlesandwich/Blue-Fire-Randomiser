@@ -37,14 +37,14 @@ namespace BlueFireRando
             this.Weapons = new System.Windows.Forms.CheckBox();
             this.KeyItems = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Disclaimer = new System.Windows.Forms.TextBox();
             this.Tunics = new System.Windows.Forms.CheckBox();
             this.Emotes = new System.Windows.Forms.CheckBox();
+            this.Items = new System.Windows.Forms.CheckBox();
+            this.Disclaimer = new System.Windows.Forms.TextBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
             this.deletePak = new System.Windows.Forms.Button();
-            this.Items = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -139,9 +139,9 @@ namespace BlueFireRando
             this.KeyItems.ForeColor = System.Drawing.SystemColors.Control;
             this.KeyItems.Location = new System.Drawing.Point(3, 119);
             this.KeyItems.Name = "KeyItems";
-            this.KeyItems.Size = new System.Drawing.Size(518, 52);
+            this.KeyItems.Size = new System.Drawing.Size(503, 52);
             this.KeyItems.TabIndex = 10;
-            this.KeyItems.Text = "Randomise Key Items?*";
+            this.KeyItems.Text = "Randomise Key Items?";
             this.KeyItems.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
@@ -159,22 +159,6 @@ namespace BlueFireRando
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(412, 501);
             this.flowLayoutPanel1.TabIndex = 11;
-            // 
-            // Disclaimer
-            // 
-            this.Disclaimer.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Disclaimer.BackColor = System.Drawing.SystemColors.MenuText;
-            this.Disclaimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Disclaimer.Font = new System.Drawing.Font("Cinzel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Disclaimer.ForeColor = System.Drawing.Color.LightGreen;
-            this.Disclaimer.Location = new System.Drawing.Point(1034, 280);
-            this.Disclaimer.Multiline = true;
-            this.Disclaimer.Name = "Disclaimer";
-            this.Disclaimer.Size = new System.Drawing.Size(451, 116);
-            this.Disclaimer.TabIndex = 3;
-            this.Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them " +
-    "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
-    "tions etc.";
             // 
             // Tunics
             // 
@@ -205,6 +189,37 @@ namespace BlueFireRando
             this.Emotes.TabIndex = 12;
             this.Emotes.Text = "Randomise Emotes?*";
             this.Emotes.UseVisualStyleBackColor = false;
+            // 
+            // Items
+            // 
+            this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Items.AutoSize = true;
+            this.Items.BackColor = System.Drawing.Color.Transparent;
+            this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Items.ForeColor = System.Drawing.SystemColors.Control;
+            this.Items.Location = new System.Drawing.Point(3, 351);
+            this.Items.Name = "Items";
+            this.Items.Size = new System.Drawing.Size(419, 52);
+            this.Items.TabIndex = 13;
+            this.Items.Text = "Randomise Items?";
+            this.Items.UseVisualStyleBackColor = false;
+            // 
+            // Disclaimer
+            // 
+            this.Disclaimer.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Disclaimer.BackColor = System.Drawing.SystemColors.MenuText;
+            this.Disclaimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Disclaimer.Font = new System.Drawing.Font("Cinzel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disclaimer.ForeColor = System.Drawing.Color.LightGreen;
+            this.Disclaimer.Location = new System.Drawing.Point(1034, 280);
+            this.Disclaimer.Multiline = true;
+            this.Disclaimer.Name = "Disclaimer";
+            this.Disclaimer.Size = new System.Drawing.Size(451, 116);
+            this.Disclaimer.TabIndex = 3;
+            this.Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them " +
+    "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
+    "tions etc.";
             // 
             // American
             // 
@@ -259,21 +274,6 @@ namespace BlueFireRando
             this.deletePak.Text = "Delete Mod Pak";
             this.deletePak.UseVisualStyleBackColor = false;
             this.deletePak.Click += new System.EventHandler(this.deletePak_Click);
-            // 
-            // Items
-            // 
-            this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Items.AutoSize = true;
-            this.Items.BackColor = System.Drawing.Color.Transparent;
-            this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 351);
-            this.Items.Name = "Items";
-            this.Items.Size = new System.Drawing.Size(419, 52);
-            this.Items.TabIndex = 13;
-            this.Items.Text = "Randomise Items?";
-            this.Items.UseVisualStyleBackColor = false;
             // 
             // Randomiser
             // 
