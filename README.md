@@ -3,4 +3,4 @@ A **very** WIP item randomiser for Blue Fire
 
 For umap editing it uses [uassetAPI](https://github.com/atenfyr/UAssetAPI) by @atenfyr
 
-For roadmap, goals, etc., see the corresponding [github project](https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser/projects/1)
+For roadmap, goals, etc., see the corresponding [github project](https://github.com/users/bananaturtlesandwich/projects/2)
