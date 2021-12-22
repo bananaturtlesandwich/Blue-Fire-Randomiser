@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using static BlueFireRando.Enums;
+using static BlueFireRando.Umaps;
 
 namespace BlueFireRando
 {
@@ -67,12 +69,12 @@ namespace BlueFireRando
                 if (KeyItems.Checked)
                 {
                     int[] uwo = { 5, 7 };
-                    Enums.RandomiseEnums(@".\Baseassets\Enums\Abilities.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Abilities.uasset", 10, uwo, false);
+                    RandomiseEnums(@".\Baseassets\Enums\Abilities.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Abilities.uasset", 10, uwo, false);
                 }
                 if (Spirits.Checked)
                 {
                     int[] uwu = { 5, 6, 8, 16, 18, 19, 20, 22, 23, 24, 26, 29 };
-                    Enums.RandomiseEnums(@".\Baseassets\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu, false);
+                    RandomiseEnums(@".\Baseassets\Enums\Spirits.uasset", @".\Randomiser_P\Blue Fire\Content\Enums\Spirits.uasset", 30, uwu, false);
                 }
                 if (Items.Checked)
                 {
@@ -90,7 +92,7 @@ namespace BlueFireRando
                     {
                         string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + file.Replace(@".\Baseassets", "");
                         /*msg+=*/
-                        Umaps.Randomise(file, endpath, KeyItems.Checked, Weapons.Checked, Tunics.Checked, Emotes.Checked);
+                        Randomise(file, endpath, KeyItems.Checked, Weapons.Checked, Tunics.Checked, Emotes.Checked);
                     }
                     //MessageBox.Show(msg); see Umaps.cs for use of these statements(line 40)
                 }
