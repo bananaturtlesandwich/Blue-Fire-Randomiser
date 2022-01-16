@@ -12,12 +12,6 @@ namespace BlueFireRando
         {
             InitializeComponent();
 
-            //delete any previously generated seed's source
-            if (Directory.Exists(@".\Randomiser_P"))
-            {
-                Directory.Delete(@".\Randomiser_P", true);
-            }
-
             //create config.txt to store modfolder if it doesn't exist
             if (!File.Exists(@".\config.txt"))
             {
@@ -32,20 +26,24 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
+
+            //delete any previously generated seed's source
+            if (Directory.Exists(@".\Randomiser_P"))
+            {
+                Directory.Delete(@".\Randomiser_P", true);
+            }
+
             //custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
-            if (!File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset"))
+            if (American.Checked)
             {
-                if (American.Checked)
-                {
-                    File.Copy(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
-                    File.Copy(@".\Baseassets\USLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
-                }
-                else
-                {
-                    File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
-                    File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
-                }
+                File.Copy(@".\Baseassets\USLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                File.Copy(@".\Baseassets\USLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
+            }
+            else
+            {
+                File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+                File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
 
 
