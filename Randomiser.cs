@@ -11,6 +11,18 @@ namespace BlueFireRando
         public Randomiser()
         {
             InitializeComponent();
+
+            //delete any previously generated seed's source
+            if (Directory.Exists(@".\Randomiser_P"))
+            {
+                Directory.Delete(@".\Randomiser_P", true);
+            }
+
+            //create config.txt to store modfolder if it doesn't exist
+            if (!File.Exists(@".\config.txt"))
+            {
+                File.Create(@".\config.txt");
+            }
         }
 
         private void BFRandoGUI_Load(object sender, EventArgs e)
@@ -20,14 +32,6 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-            //delete any previously generated seed's source
-            if (Directory.Exists(@".\Randomiser_P"))
-            {
-                Directory.Delete(@".\Randomiser_P", true);
-            }
-
-
-
             //custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
@@ -42,11 +46,6 @@ namespace BlueFireRando
             }
 
 
-            //create config.txt to store modfolder if it doesn't exist
-            if (!File.Exists(@".\config.txt"))
-            {
-                File.Create(@".\config.txt");
-            }
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
