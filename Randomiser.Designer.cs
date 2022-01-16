@@ -181,7 +181,8 @@ namespace BlueFireRando
             this.American.Cursor = System.Windows.Forms.Cursors.Hand;
             this.American.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.American.ForeColor = System.Drawing.SystemColors.Control;
-            this.American.Location = new System.Drawing.Point(13, 64);
+            this.American.Location = new System.Drawing.Point(13, 63);
+            this.American.Margin = new System.Windows.Forms.Padding(4);
             this.American.Name = "American";
             this.American.Size = new System.Drawing.Size(320, 48);
             this.American.TabIndex = 12;
