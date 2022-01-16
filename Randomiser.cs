@@ -93,10 +93,6 @@ namespace BlueFireRando
             }
         }
 
-        private void Spirits_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
         private void American_CheckedChanged(object sender, EventArgs e)
         {
             if (American.Checked)
