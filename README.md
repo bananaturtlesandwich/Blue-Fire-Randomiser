@@ -10,5 +10,5 @@ Remember this application was written using the dotnet 4.7.2 framework in order 
 - A pak file will be generated
 - You will be prompted to select your mod folder - this is Blue Fire/Content/Paks/~mods (if you do not have a ~mods folder in Paks then make one)
 
-# Errors
-There is nothing currently-if there is then please report in the issues tab or in the Blue Fire discord(ping spuds#5419)
+# Issues
+There is nothing currently-if there is then please report in the issues tab or in the Blue Fire discord (ping spuds#5419)
