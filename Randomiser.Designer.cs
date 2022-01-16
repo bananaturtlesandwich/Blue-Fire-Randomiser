@@ -123,7 +123,7 @@ namespace BlueFireRando
             this.RandoOptions.Controls.Add(this.Items);
             this.RandoOptions.Location = new System.Drawing.Point(393, 288);
             this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(393, 463);
+            this.RandoOptions.Size = new System.Drawing.Size(412, 463);
             this.RandoOptions.TabIndex = 11;
             // 
             // Tunics

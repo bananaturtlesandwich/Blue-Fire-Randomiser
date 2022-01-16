@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BlueFireRando")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Blue Fire Randomiser")]
+[assembly: AssemblyDescription("An application that allows randomisation of items in blue fire")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BlueFireRando")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCompany("Blue Fire Modding")]
+[assembly: AssemblyProduct("Blue Fire Randomiser")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

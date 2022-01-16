@@ -105,7 +105,7 @@ namespace BlueFireRando
                 KeyItems.Text = "Randomize Items?";
                 Spirits.Text = "Randomize Spirits?";
                 Tunics.Text = "Randomize Tunics?";
-                Emotes.Text = "Randomize Emotes";
+                Emotes.Text = "Randomize Emotes?";
                 Randomise.Text = "Randomize";
                 UmbyPet.Image = UmbyPet.InitialImage;
                 Logo.BackgroundImage = Logo.ErrorImage;
