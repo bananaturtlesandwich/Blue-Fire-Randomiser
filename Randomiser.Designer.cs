@@ -33,7 +33,6 @@ namespace BlueFireRando
             this.Randomise = new System.Windows.Forms.Button();
             this.UmbyPet = new System.Windows.Forms.PictureBox();
             this.Spirits = new System.Windows.Forms.CheckBox();
-            this.Mix = new System.Windows.Forms.CheckBox();
             this.Weapons = new System.Windows.Forms.CheckBox();
             this.KeyItems = new System.Windows.Forms.CheckBox();
             this.RandoOptions = new System.Windows.Forms.FlowLayoutPanel();
@@ -93,7 +92,7 @@ namespace BlueFireRando
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(25, 253);
+            this.Spirits.Location = new System.Drawing.Point(25, 177);
             this.Spirits.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Spirits.Name = "Spirits";
             this.Spirits.Size = new System.Drawing.Size(367, 48);
@@ -101,22 +100,6 @@ namespace BlueFireRando
             this.Spirits.Text = "Randomise Spirits?";
             this.Spirits.UseVisualStyleBackColor = false;
             this.Spirits.CheckedChanged += new System.EventHandler(this.Spirits_CheckedChanged);
-            // 
-            // Mix
-            // 
-            this.Mix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Mix.AutoSize = true;
-            this.Mix.BackColor = System.Drawing.Color.Transparent;
-            this.Mix.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Mix.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mix.ForeColor = System.Drawing.SystemColors.Control;
-            this.Mix.Location = new System.Drawing.Point(25, 25);
-            this.Mix.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
-            this.Mix.Name = "Mix";
-            this.Mix.Size = new System.Drawing.Size(416, 48);
-            this.Mix.TabIndex = 6;
-            this.Mix.Text = "Mix Randomisation?*";
-            this.Mix.UseVisualStyleBackColor = false;
             // 
             // Weapons
             // 
@@ -126,7 +109,7 @@ namespace BlueFireRando
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(25, 101);
+            this.Weapons.Location = new System.Drawing.Point(25, 25);
             this.Weapons.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Weapons.Name = "Weapons";
             this.Weapons.Size = new System.Drawing.Size(425, 48);
@@ -142,7 +125,7 @@ namespace BlueFireRando
             this.KeyItems.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KeyItems.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyItems.ForeColor = System.Drawing.SystemColors.Control;
-            this.KeyItems.Location = new System.Drawing.Point(25, 177);
+            this.KeyItems.Location = new System.Drawing.Point(25, 101);
             this.KeyItems.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.KeyItems.Name = "KeyItems";
             this.KeyItems.Size = new System.Drawing.Size(417, 48);
@@ -154,7 +137,6 @@ namespace BlueFireRando
             // 
             this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
-            this.RandoOptions.Controls.Add(this.Mix);
             this.RandoOptions.Controls.Add(this.Weapons);
             this.RandoOptions.Controls.Add(this.KeyItems);
             this.RandoOptions.Controls.Add(this.Spirits);
@@ -174,7 +156,7 @@ namespace BlueFireRando
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(25, 329);
+            this.Tunics.Location = new System.Drawing.Point(25, 253);
             this.Tunics.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Tunics.Name = "Tunics";
             this.Tunics.Size = new System.Drawing.Size(387, 48);
@@ -190,7 +172,7 @@ namespace BlueFireRando
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(25, 405);
+            this.Emotes.Location = new System.Drawing.Point(25, 329);
             this.Emotes.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Emotes.Name = "Emotes";
             this.Emotes.Size = new System.Drawing.Size(394, 48);
@@ -206,7 +188,7 @@ namespace BlueFireRando
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(25, 481);
+            this.Items.Location = new System.Drawing.Point(25, 405);
             this.Items.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Items.Name = "Items";
             this.Items.Size = new System.Drawing.Size(348, 48);
@@ -336,7 +318,6 @@ namespace BlueFireRando
         private System.Windows.Forms.Button Randomise;
         private System.Windows.Forms.PictureBox UmbyPet;
         private System.Windows.Forms.CheckBox Spirits;
-        private System.Windows.Forms.CheckBox Mix;
         private System.Windows.Forms.CheckBox Weapons;
         private System.Windows.Forms.CheckBox KeyItems;
         private System.Windows.Forms.FlowLayoutPanel RandoOptions;

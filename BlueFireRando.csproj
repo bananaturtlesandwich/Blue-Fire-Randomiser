@@ -68,9 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Transformtest.cs" />
-    <Compile Include="Umaps.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
     </Compile>
