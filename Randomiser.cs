@@ -94,25 +94,23 @@ namespace BlueFireRando
         {
             if (American.Checked)
             {
-                Weapons.Text = "Randomize Weapons?*";
-                KeyItems.Text = "Randomize Items?*";
+                Weapons.Text = "Randomize Weapons?";
+                KeyItems.Text = "Randomize Items?";
                 Spirits.Text = "Randomize Spirits?";
-                Tunics.Text = "Randomize Tunics?*";
+                Tunics.Text = "Randomize Tunics?";
                 Emotes.Text = "Randomize Emotes";
                 Randomise.Text = "Randomize";
-                Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomization means key items can be in weapon locations etc.";
                 UmbyPet.Image = UmbyPet.InitialImage;
                 Logo.BackgroundImage = Logo.ErrorImage;
             }
             else
             {
-                Weapons.Text = "Randomise Weapons?*";
-                KeyItems.Text = "Randomise Items?*";
+                Weapons.Text = "Randomise Weapons?";
+                KeyItems.Text = "Randomise Items?";
                 Spirits.Text = "Randomise Spirits?";
-                Tunics.Text = "Randomise Tunics?*";
+                Tunics.Text = "Randomise Tunics?";
                 Emotes.Text = "Randomise Emotes";
                 Randomise.Text = "Randomise";
-                Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them it will have no effect. Mix randomisation means key items can be in weapon locations etc.";
                 UmbyPet.Image = UmbyPet.ErrorImage;
                 Logo.BackgroundImage = Logo.InitialImage;
             }

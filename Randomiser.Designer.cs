@@ -30,7 +30,6 @@ namespace BlueFireRando
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomiser));
-            this.Randomise = new System.Windows.Forms.Button();
             this.UmbyPet = new System.Windows.Forms.PictureBox();
             this.Spirits = new System.Windows.Forms.CheckBox();
             this.Weapons = new System.Windows.Forms.CheckBox();
@@ -39,36 +38,15 @@ namespace BlueFireRando
             this.Tunics = new System.Windows.Forms.CheckBox();
             this.Emotes = new System.Windows.Forms.CheckBox();
             this.Items = new System.Windows.Forms.CheckBox();
-            this.Disclaimer = new System.Windows.Forms.TextBox();
             this.American = new System.Windows.Forms.CheckBox();
-            this.Logo = new System.Windows.Forms.PictureBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
             this.deletePak = new System.Windows.Forms.Button();
-            this.Description = new System.Windows.Forms.FlowLayoutPanel();
+            this.Logo = new System.Windows.Forms.PictureBox();
+            this.Randomise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             this.RandoOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
-            this.Description.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Randomise
-            // 
-            this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Randomise.BackColor = System.Drawing.SystemColors.Control;
-            this.Randomise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Randomise.BackgroundImage")));
-            this.Randomise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Randomise.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Randomise.FlatAppearance.BorderSize = 0;
-            this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Randomise.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Randomise.Location = new System.Drawing.Point(4, 395);
-            this.Randomise.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
-            this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(458, 259);
-            this.Randomise.TabIndex = 0;
-            this.Randomise.Text = "Randomise";
-            this.Randomise.UseVisualStyleBackColor = false;
-            this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
             // 
             // UmbyPet
             // 
@@ -112,9 +90,9 @@ namespace BlueFireRando
             this.Weapons.Location = new System.Drawing.Point(25, 25);
             this.Weapons.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(425, 48);
+            this.Weapons.Size = new System.Drawing.Size(412, 48);
             this.Weapons.TabIndex = 7;
-            this.Weapons.Text = "Randomise Weapons?*";
+            this.Weapons.Text = "Randomise Weapons?";
             this.Weapons.UseVisualStyleBackColor = false;
             // 
             // KeyItems
@@ -135,7 +113,7 @@ namespace BlueFireRando
             // 
             // RandoOptions
             // 
-            this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.RandoOptions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
             this.RandoOptions.Controls.Add(this.Weapons);
             this.RandoOptions.Controls.Add(this.KeyItems);
@@ -143,9 +121,9 @@ namespace BlueFireRando
             this.RandoOptions.Controls.Add(this.Tunics);
             this.RandoOptions.Controls.Add(this.Emotes);
             this.RandoOptions.Controls.Add(this.Items);
-            this.RandoOptions.Location = new System.Drawing.Point(393, 23);
+            this.RandoOptions.Location = new System.Drawing.Point(393, 288);
             this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(393, 728);
+            this.RandoOptions.Size = new System.Drawing.Size(393, 463);
             this.RandoOptions.TabIndex = 11;
             // 
             // Tunics
@@ -159,9 +137,9 @@ namespace BlueFireRando
             this.Tunics.Location = new System.Drawing.Point(25, 253);
             this.Tunics.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Tunics.Name = "Tunics";
-            this.Tunics.Size = new System.Drawing.Size(387, 48);
+            this.Tunics.Size = new System.Drawing.Size(374, 48);
             this.Tunics.TabIndex = 11;
-            this.Tunics.Text = "Randomise Tunics?*";
+            this.Tunics.Text = "Randomise Tunics?";
             this.Tunics.UseVisualStyleBackColor = false;
             // 
             // Emotes
@@ -175,9 +153,9 @@ namespace BlueFireRando
             this.Emotes.Location = new System.Drawing.Point(25, 329);
             this.Emotes.Margin = new System.Windows.Forms.Padding(25, 25, 3, 3);
             this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(394, 48);
+            this.Emotes.Size = new System.Drawing.Size(381, 48);
             this.Emotes.TabIndex = 12;
-            this.Emotes.Text = "Randomise Emotes?*";
+            this.Emotes.Text = "Randomise Emotes?";
             this.Emotes.UseVisualStyleBackColor = false;
             // 
             // Items
@@ -196,23 +174,6 @@ namespace BlueFireRando
             this.Items.Text = "Randomise Items?";
             this.Items.UseVisualStyleBackColor = false;
             // 
-            // Disclaimer
-            // 
-            this.Disclaimer.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Disclaimer.BackColor = System.Drawing.SystemColors.MenuText;
-            this.Disclaimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Disclaimer.Font = new System.Drawing.Font("Cinzel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Disclaimer.ForeColor = System.Drawing.SystemColors.Control;
-            this.Disclaimer.Location = new System.Drawing.Point(3, 174);
-            this.Disclaimer.Multiline = true;
-            this.Disclaimer.Name = "Disclaimer";
-            this.Disclaimer.ShortcutsEnabled = false;
-            this.Disclaimer.Size = new System.Drawing.Size(459, 168);
-            this.Disclaimer.TabIndex = 3;
-            this.Disclaimer.Text = "Items marked with a * are features yet to be implemented and if you do tick them " +
-    "it will have no effect.\r\nMix randomisation means key items can be in weapon loca" +
-    "tions etc.";
-            // 
             // American
             // 
             this.American.AutoSize = true;
@@ -227,20 +188,6 @@ namespace BlueFireRando
             this.American.Text = "American mode";
             this.American.UseVisualStyleBackColor = false;
             this.American.CheckedChanged += new System.EventHandler(this.American_CheckedChanged);
-            // 
-            // Logo
-            // 
-            this.Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Logo.BackColor = System.Drawing.Color.Transparent;
-            this.Logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo.BackgroundImage")));
-            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Logo.ErrorImage")));
-            this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
-            this.Logo.Location = new System.Drawing.Point(3, 3);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(459, 165);
-            this.Logo.TabIndex = 13;
-            this.Logo.TabStop = false;
             // 
             // modfoldercheck
             // 
@@ -267,17 +214,38 @@ namespace BlueFireRando
             this.deletePak.UseVisualStyleBackColor = false;
             this.deletePak.Click += new System.EventHandler(this.deletePak_Click);
             // 
-            // Description
+            // Logo
             // 
-            this.Description.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Description.BackColor = System.Drawing.Color.Transparent;
-            this.Description.Controls.Add(this.Logo);
-            this.Description.Controls.Add(this.Disclaimer);
-            this.Description.Controls.Add(this.Randomise);
-            this.Description.Location = new System.Drawing.Point(789, 23);
-            this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(496, 728);
-            this.Description.TabIndex = 15;
+            this.Logo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo.BackgroundImage")));
+            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Logo.ErrorImage")));
+            this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
+            this.Logo.Location = new System.Drawing.Point(393, 26);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(877, 248);
+            this.Logo.TabIndex = 13;
+            this.Logo.TabStop = false;
+            // 
+            // Randomise
+            // 
+            this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Randomise.BackColor = System.Drawing.SystemColors.Control;
+            this.Randomise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Randomise.BackgroundImage")));
+            this.Randomise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Randomise.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Randomise.FlatAppearance.BorderSize = 0;
+            this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Randomise.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Randomise.Location = new System.Drawing.Point(812, 327);
+            this.Randomise.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
+            this.Randomise.Name = "Randomise";
+            this.Randomise.Size = new System.Drawing.Size(458, 311);
+            this.Randomise.TabIndex = 0;
+            this.Randomise.Text = "Randomise";
+            this.Randomise.UseVisualStyleBackColor = false;
+            this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
             // 
             // Randomiser
             // 
@@ -289,7 +257,8 @@ namespace BlueFireRando
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1290, 763);
-            this.Controls.Add(this.Description);
+            this.Controls.Add(this.Randomise);
+            this.Controls.Add(this.Logo);
             this.Controls.Add(this.deletePak);
             this.Controls.Add(this.American);
             this.Controls.Add(this.RandoOptions);
@@ -306,30 +275,25 @@ namespace BlueFireRando
             this.RandoOptions.ResumeLayout(false);
             this.RandoOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
-            this.Description.ResumeLayout(false);
-            this.Description.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Randomise;
         private System.Windows.Forms.PictureBox UmbyPet;
         private System.Windows.Forms.CheckBox Spirits;
         private System.Windows.Forms.CheckBox Weapons;
         private System.Windows.Forms.CheckBox KeyItems;
         private System.Windows.Forms.FlowLayoutPanel RandoOptions;
-        private System.Windows.Forms.TextBox Disclaimer;
         private System.Windows.Forms.CheckBox American;
-        private System.Windows.Forms.PictureBox Logo;
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
         private System.Windows.Forms.CheckBox Tunics;
         private System.Windows.Forms.CheckBox Emotes;
         private System.Windows.Forms.Button deletePak;
         private System.Windows.Forms.CheckBox Items;
-        private System.Windows.Forms.FlowLayoutPanel Description;
+        private System.Windows.Forms.PictureBox Logo;
+        private System.Windows.Forms.Button Randomise;
     }
 }
 
