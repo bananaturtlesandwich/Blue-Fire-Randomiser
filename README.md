@@ -1,6 +1,6 @@
 # Blue-Fire-Randomiser
-A **very** WIP item randomiser for Blue Fire
+A **very** work-in-progress randomiser for Blue Fire
 
-For umap editing it uses [uassetAPI](https://github.com/atenfyr/UAssetAPI) by @atenfyr
+For uasset editing it uses [UAssetAPI](https://github.com/atenfyr/UAssetAPI) by [atenfyr](https://github.com/atenfyr)
 
 For roadmap, goals, etc., see the corresponding [github project](https://github.com/users/bananaturtlesandwich/projects/2)
