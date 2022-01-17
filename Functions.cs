@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UAssetAPI;
+using UAssetAPI.PropertyTypes;
 
-namespace BlueFireRando
+public static class Functions
 {
-    public static class Functions
+    public static void RandomiseEnum(string filepath, int[] BannedIndexes)
     {
-        public static void RandomiseEnums(string filepath)
+        UAsset enumerator = new UAsset(filepath, UE4Version.VER_UE4_25);
+        if (enumerator.Exports[0] is EnumExport ex)
         {
-            UAsset
+            Random random = new Random();
+            var names = ex.Data.ToArray();
+            List<int> used = new List<int>();
+            int temp = random.Next(names.Length);
+            for (int i = 0; i < names.Length; i++) if (!BannedIndexes.Contains(i))
+                {
+                    while (!BannedIndexes.Contains(temp)) temp = random.Next(names.Length);
+                }
         }
+        enumerator.Write($@"./Randomiser_P{filepath.Replace("Baseassets", "")}");
     }
 }

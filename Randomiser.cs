@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using static Functions;
 
 namespace BlueFireRando
 {
@@ -47,6 +48,9 @@ namespace BlueFireRando
             }
 
 
+            Directory.CreateDirectory(@".\Randomiser_P\Enums");
+            int[] Abilities = { 5, 7 };
+            RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset",Abilities);
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
@@ -99,7 +103,7 @@ namespace BlueFireRando
             if (American.Checked)
             {
                 Weapons.Text = "Randomize Weapons?";
-                KeyItems.Text = "Randomize Items?";
+                KeyItems.Text = "Randomize Abilities?";
                 Spirits.Text = "Randomize Spirits?";
                 Tunics.Text = "Randomize Tunics?";
                 Emotes.Text = "Randomize Emotes?";
@@ -110,7 +114,7 @@ namespace BlueFireRando
             else
             {
                 Weapons.Text = "Randomise Weapons?";
-                KeyItems.Text = "Randomise Items?";
+                KeyItems.Text = "Randomise Abilities?";
                 Spirits.Text = "Randomise Spirits?";
                 Tunics.Text = "Randomise Tunics?";
                 Emotes.Text = "Randomise Emotes";
