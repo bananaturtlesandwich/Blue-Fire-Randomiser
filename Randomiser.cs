@@ -48,7 +48,7 @@ namespace BlueFireRando
             }
 
             //enum randomisation
-            Directory.CreateDirectory(@".\Randomiser_P\Enums");
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
             {
                 int[] CutAbilities = { 5, 7 };

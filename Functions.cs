@@ -23,6 +23,6 @@ public static class Functions
                     used.Add(temp);
                 }
         }
-        enumerator.Write($@"./Randomiser_P{filepath.Replace("Baseassets", "")}");
+        enumerator.Write($@"./Randomiser_P/Blue Fire/Content{filepath.Replace("Baseassets", "")}");
     }
 }
