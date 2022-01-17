@@ -32,7 +32,7 @@ namespace BlueFireRando
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomiser));
             this.UmbyPet = new System.Windows.Forms.PictureBox();
             this.Weapons = new System.Windows.Forms.CheckBox();
-            this.KeyItems = new System.Windows.Forms.CheckBox();
+            this.Abilities = new System.Windows.Forms.CheckBox();
             this.RandoOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.Tunics = new System.Windows.Forms.CheckBox();
             this.Emotes = new System.Windows.Forms.CheckBox();
@@ -81,28 +81,28 @@ namespace BlueFireRando
             this.Weapons.Text = "Randomise Weapons?";
             this.Weapons.UseVisualStyleBackColor = false;
             // 
-            // KeyItems
+            // Abilities
             // 
-            this.KeyItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.KeyItems.AutoSize = true;
-            this.KeyItems.BackColor = System.Drawing.Color.Transparent;
-            this.KeyItems.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KeyItems.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeyItems.ForeColor = System.Drawing.SystemColors.Control;
-            this.KeyItems.Location = new System.Drawing.Point(0, 76);
-            this.KeyItems.Margin = new System.Windows.Forms.Padding(0, 25, 3, 3);
-            this.KeyItems.Name = "KeyItems";
-            this.KeyItems.Size = new System.Drawing.Size(400, 48);
-            this.KeyItems.TabIndex = 10;
-            this.KeyItems.Text = "Randomise Abilities?";
-            this.KeyItems.UseVisualStyleBackColor = false;
+            this.Abilities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Abilities.AutoSize = true;
+            this.Abilities.BackColor = System.Drawing.Color.Transparent;
+            this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Abilities.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
+            this.Abilities.Location = new System.Drawing.Point(0, 76);
+            this.Abilities.Margin = new System.Windows.Forms.Padding(0, 25, 3, 3);
+            this.Abilities.Name = "Abilities";
+            this.Abilities.Size = new System.Drawing.Size(400, 48);
+            this.Abilities.TabIndex = 10;
+            this.Abilities.Text = "Randomise Abilities?";
+            this.Abilities.UseVisualStyleBackColor = false;
             // 
             // RandoOptions
             // 
             this.RandoOptions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
             this.RandoOptions.Controls.Add(this.Weapons);
-            this.RandoOptions.Controls.Add(this.KeyItems);
+            this.RandoOptions.Controls.Add(this.Abilities);
             this.RandoOptions.Controls.Add(this.Tunics);
             this.RandoOptions.Controls.Add(this.Emotes);
             this.RandoOptions.Controls.Add(this.Items);
@@ -316,7 +316,7 @@ namespace BlueFireRando
         #endregion
         private System.Windows.Forms.PictureBox UmbyPet;
         private System.Windows.Forms.CheckBox Weapons;
-        private System.Windows.Forms.CheckBox KeyItems;
+        private System.Windows.Forms.CheckBox Abilities;
         private System.Windows.Forms.FlowLayoutPanel RandoOptions;
         private System.Windows.Forms.CheckBox American;
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;

@@ -47,10 +47,29 @@ namespace BlueFireRando
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
 
-
+            //enum randomisation
             Directory.CreateDirectory(@".\Randomiser_P\Enums");
-            int[] Abilities = { 5, 7 };
-            RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset",Abilities);
+            if (Abilities.Checked)
+            {
+                int[] CutAbilities = { 5, 7 };
+                RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
+            }
+            if (Items.Checked)
+            {
+                int[] CutOrKeyItems = {/*To be done*/};
+                RandomiseEnum(@".\Baseassets\Enums\Items.uasset", CutOrKeyItems);
+            }
+            if (Spirits.Checked)
+            {
+                int[] CutSpirits = {/*To be done*/};
+                RandomiseEnum(@".\Baseassets\Enums\Spirits.uasset", CutSpirits);
+            }
+            if (Weapons.Checked) RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", new int[0]);
+            if (Emotes.Checked)
+            {
+                int[] UnusedEmotes = {14};
+                RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
+            }
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");
@@ -68,7 +87,7 @@ namespace BlueFireRando
 
 
             //If no options then tell the user they're a fucking dummy
-            if (!Spirits.Checked && !KeyItems.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
+            if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -103,7 +122,7 @@ namespace BlueFireRando
             if (American.Checked)
             {
                 Weapons.Text = "Randomize Weapons?";
-                KeyItems.Text = "Randomize Abilities?";
+                Abilities.Text = "Randomize Abilities?";
                 Spirits.Text = "Randomize Spirits?";
                 Tunics.Text = "Randomize Tunics?";
                 Emotes.Text = "Randomize Emotes?";
@@ -114,7 +133,7 @@ namespace BlueFireRando
             else
             {
                 Weapons.Text = "Randomise Weapons?";
-                KeyItems.Text = "Randomise Abilities?";
+                Abilities.Text = "Randomise Abilities?";
                 Spirits.Text = "Randomise Spirits?";
                 Tunics.Text = "Randomise Tunics?";
                 Emotes.Text = "Randomise Emotes";
