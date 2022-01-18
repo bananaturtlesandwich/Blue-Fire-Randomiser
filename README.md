@@ -1,6 +1,8 @@
 # Blue-Fire-Randomiser
 A **very** work-in-progress randomiser for Blue Fire
 
+For a roadmap and my thought process check out the [wiki](https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser/wiki)
+
 Remember this application was written using the dotnet 4.7.2 framework in order to support .uasset file editing in [UAssetAPI](https://github.com/atenfyr/UAssetAPI) by [atenfyr](https://github.com/atenfyr) so you will need to install the appropriate runtime from [here](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472) in order to run it
 
 
@@ -11,4 +13,4 @@ Remember this application was written using the dotnet 4.7.2 framework in order 
 - You will be prompted to select your mod folder - this is Blue Fire/Content/Paks/~mods (if you do not have a ~mods folder in Paks then make one)
 
 # Issues
-There is nothing currently-if there is then please report in the issues tab or in the Blue Fire discord (ping spuds#5419)
+There is nothing currently-if there is then please report in the issues tab or in the Blue Fire discord (ping spuds)
