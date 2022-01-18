@@ -14,10 +14,7 @@ namespace BlueFireRando
             InitializeComponent();
 
             //create config.txt to store modfolder if it doesn't exist
-            if (!File.Exists(@".\config.txt"))
-            {
-                File.Create(@".\config.txt");
-            }
+            if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
         }
 
         private void BFRandoGUI_Load(object sender, EventArgs e)
@@ -29,10 +26,7 @@ namespace BlueFireRando
         {
 
             //delete any previously generated seed's source
-            if (Directory.Exists(@".\Randomiser_P"))
-            {
-                Directory.Delete(@".\Randomiser_P", true);
-            }
+            if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
 
             //custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
@@ -61,13 +55,13 @@ namespace BlueFireRando
             }
             if (Spirits.Checked)
             {
-                int[] CutSpirits = {/*To be done*/};
+                int[] CutSpirits = { 5, 6, 8, 15, 17, 19, 20, 22, 23, 24, 26, 29,30 };
                 RandomiseEnum(@".\Baseassets\Enums\Spirits.uasset", CutSpirits);
             }
             if (Weapons.Checked) RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", new int[0]);
             if (Emotes.Checked)
             {
-                int[] UnusedEmotes = {14};
+                int[] UnusedEmotes = { 14 };
                 RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
             }
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
@@ -78,13 +72,7 @@ namespace BlueFireRando
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
-            string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
-            foreach (var file in fileentries)
-            {
-                string endpath = @".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + file.Replace(@".\Baseassets", "");
-                Transformtest.RandTransform(file, endpath);
-            }*/
-
+            string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);*/
 
             //If no options then tell the user they're a fucking dummy
             if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
