@@ -24,7 +24,6 @@ namespace BlueFireRando
 
         private void Randomise_Click(object sender, EventArgs e)
         {
-
             //delete any previously generated seed's source
             if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
 
@@ -74,7 +73,7 @@ namespace BlueFireRando
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
             string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);*/
 
-            //If no options then tell the user they're a fucking dummy
+            //If no options then tell the user they're a dummy
             if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
             {
                 MessageBox.Show("You haven't checked any options!");
