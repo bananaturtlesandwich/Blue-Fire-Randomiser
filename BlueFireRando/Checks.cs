@@ -58,7 +58,7 @@ namespace BlueFireRando
             {"Chest_A02_Tunic_PureShadow","Tunics::NewEnumerator7"}, //Pure shadow is a cool tunic-especially with neon abyss mask
             {"A02_Arcane_EmoteStatue_HatKid","E_Emotes::NewEnumerator4"} //Awesome reference imo - official too because GBF retweeted it
 
-
+            //Uthas (The fact this is in the same folder as intro and arcane is a crime)
         };
     }
 }
