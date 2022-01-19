@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checks.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Randomiser.cs">
