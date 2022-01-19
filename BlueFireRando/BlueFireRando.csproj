@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
@@ -125,7 +126,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Rem del "Newtonsoft.Json.dll"
-del "BlueFireRando.exe.config"</PostBuildEvent>
+    <PostBuildEvent>del "BlueFireRando.exe.config"
+del "UAssetAPI.pdb"
+del "UAssetAPI.xml"</PostBuildEvent>
   </PropertyGroup>
 </Project>
