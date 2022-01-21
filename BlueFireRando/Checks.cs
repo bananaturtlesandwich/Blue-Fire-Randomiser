@@ -6,8 +6,7 @@ namespace BlueFireRando
     {
         Dictionary<string/*ObjectName*/, string/*Enumerator index*/> checks = new Dictionary<string, string>()
         {
-            //Fire Keep
-
+            #region Fire Keep
             //A02_GameIntro_Exterior (The epic view)
             {"A01_FireKeep_EmoteStatue_Levitation","E_Emotes::NewEnumerator2"},// A quaint emote statue, next to a stunning view and an onop with even more stunning hair
             //A02_GameIntro_DLC_VoidMaster (general map)
@@ -23,9 +22,9 @@ namespace BlueFireRando
             //A02_GameIntro_FirstVoidRoom (Lula's grace room)
             {"A01_FireKeep_EmoteStatue_Techno","E_Emotes::NewEnumerator12"}, //Nicely hidden statue tbf plus nice dance (overshadowed by smug)
             {"Spirit_A02_RiverSpirit","Spirits::NewEnumerator3"}, //A really cool spirit-I'm still amazed at the speedrun trick that allows this to be obtained early game
+            #endregion
 
-            //Arcane Tunnels
-
+            #region Arcane Tunnels
             //A02_Arcane (general map)
             //A02_EastArcane (Spirit hunter)
             {"Chest_A02_EastArcane_Loot_01","Items::NewEnumerator31"},
@@ -50,15 +49,22 @@ namespace BlueFireRando
             {"Dance_Platform_Celebration_Target","E_Emotes::NewEnumerator9"}, // I assume the emote required to use it
             {"Dance_Platform_KungFu_Platform","E_Emotes::NewEnumerator11"}, // I assume the emote required to use it
             {"Dance_Platform_KungFu_Target","E_Emotes::NewEnumerator11"}, // I assume the emote required to use it
+            #endregion
 
-            //Waterways
-
+            #region Waterways
             //A02_CentralWaterWay (has a duck)
             //A02_CentralWaterWay_CenterAccess
             {"Chest_A02_Tunic_PureShadow","Tunics::NewEnumerator7"}, //Pure shadow is a cool tunic-especially with neon abyss mask
-            {"A02_Arcane_EmoteStatue_HatKid","E_Emotes::NewEnumerator4"} //Awesome reference imo - official too because GBF retweeted it
+            {"A02_Arcane_EmoteStatue_HatKid","E_Emotes::NewEnumerator4"}, //Awesome reference imo - official too because GBF retweeted it
+            #endregion
 
-            //Uthas (The fact this is in the same folder as intro and arcane is a crime)
+            #region Uthas (The fact this is in the same folder as intro and arcane is a crime)
+            //A01_SmallShrine_Intro
+            {"Chest_A01_Uthas_Key_04","Items::NewEnumerator6"},
+            {"Chest_A01_Uthas_Loot_02","Items::NewEnumerator24"},
+            {"Chest_A01_Uthas_Loot_03","Items::NewEnumerator31"}
+
+            #endregion
         };
     }
 }

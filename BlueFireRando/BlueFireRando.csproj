@@ -75,9 +75,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asset Editing\Maps.cs" />
     <Compile Include="Checks.cs" />
-    <Compile Include="Globals.cs" />
-    <Compile Include="Functions.cs" />
+    <Compile Include="ButtonBools.cs" />
+    <Compile Include="Asset Editing\Enums.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using UAssetAPI;
-using static Globals;
+using static ButtonBools;
 
-public static class Functions
+public static class Enums
 {
     public static void RandomiseEnum(string filepath, int[] BannedIndexes)
     {

@@ -1,4 +1,4 @@
-﻿public static class Globals
+﻿public static class ButtonBools
 {
     public static bool Vanilla = false;
 }

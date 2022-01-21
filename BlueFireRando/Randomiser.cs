@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using static Functions;
+using static Enums;
 
 namespace BlueFireRando
 {
@@ -138,7 +138,7 @@ namespace BlueFireRando
 
         private void Vanilla_CheckedChanged(object sender, EventArgs e)
         {
-            if(Vanilla.Checked) Globals.Vanilla = true; else Globals.Vanilla = false;
+            if(Vanilla.Checked) ButtonBools.Vanilla = true; else ButtonBools.Vanilla = false;
         }
 
         //Delete mod pak in mod folder
