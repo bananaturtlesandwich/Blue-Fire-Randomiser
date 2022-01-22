@@ -22,12 +22,14 @@ namespace BlueFireRando
 
         }
 
+        //button and checkbox events
+
         private void Randomise_Click(object sender, EventArgs e)
         {
             //delete any previously generated seed's source
             if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
 
-            //custom menu art
+            #region custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
             {
@@ -39,8 +41,9 @@ namespace BlueFireRando
                 File.Copy(@".\Baseassets\NormalLogo.uasset", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
+            #endregion
 
-            //enum randomisation
+            #region enum randomising
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
             {
@@ -77,8 +80,9 @@ namespace BlueFireRando
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
             string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);*/
+            #endregion
 
-            //If no options then tell the user they're a dummy
+            #region if options were checked then package
             if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
             {
                 MessageBox.Show("You haven't checked any options!");
@@ -107,9 +111,10 @@ namespace BlueFireRando
                 File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
                 MessageBox.Show("Randomiser pak installed");
             }
+            #endregion
         }
 
-        //American mode validation event
+        #region american mode text and image switching
         private void American_CheckedChanged(object sender, EventArgs e)
         {
             if (American.Checked)
@@ -135,13 +140,16 @@ namespace BlueFireRando
                 Logo.BackgroundImage = Logo.InitialImage;
             }
         }
+        #endregion
 
+        #region setting vanilla global because idk how else to do it
         private void Vanilla_CheckedChanged(object sender, EventArgs e)
         {
             if(Vanilla.Checked) ButtonBools.Vanilla = true; else ButtonBools.Vanilla = false;
         }
+        #endregion
 
-        //Delete mod pak in mod folder
+        #region Delete mod pak
         private void deletePak_Click(object sender, EventArgs e)
         {
             if (File.Exists($@"{File.ReadAllText(@".\config.txt")}\Randomiser_P.pak"))
@@ -155,5 +163,6 @@ namespace BlueFireRando
                 MessageBox.Show("There was no pak to delete");
             }
         }
+        #endregion
     }
 }
