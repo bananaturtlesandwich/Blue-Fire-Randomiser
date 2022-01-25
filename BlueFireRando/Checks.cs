@@ -49,6 +49,7 @@ namespace BlueFireRando
             {"Dance_Platform_Celebration_Target","E_Emotes::NewEnumerator9"}, // I assume the emote required to use it
             {"Dance_Platform_KungFu_Platform","E_Emotes::NewEnumerator11"}, // I assume the emote required to use it
             {"Dance_Platform_KungFu_Target","E_Emotes::NewEnumerator11"}, // I assume the emote required to use it
+            //debating whether I should include emote platforms
             #endregion
 
             #region Waterways
@@ -62,8 +63,62 @@ namespace BlueFireRando
             //A01_SmallShrine_Intro
             {"Chest_A01_Uthas_Key_04","Items::NewEnumerator6"},
             {"Chest_A01_Uthas_Loot_02","Items::NewEnumerator24"},
-            {"Chest_A01_Uthas_Loot_03","Items::NewEnumerator31"}
+            {"Chest_A01_Uthas_Loot_03","Items::NewEnumerator31"},
+            //A01_SmallShrine_EndPath
+            {"Chest_A01_Uthas_Key_05","Items::NewEnumerator6"},
+            //A01_SmallShrine_BottomPassage
+            {"Chest_A01_Uthas_Key_03","Items::NewEnumerator6"},
+            //A01_SmallShrine_Main
+            {"Chest_A01_Uthas_Key_02","Items::NewEnumerator6"},
+            {"Chest_A01_Uthas_Loot_04","Items::NewEnumerator31"},
+            {"Chest_A01_Uthas_Loot_05","Items::NewEnumerator31"},
+            {"Chest_A01_Uthas_Loot_06","Items::NewEnumerator31"},
+            {"Chest_A01_Uthas_Loot","Items::NewEnumerator31"},//Weapons::NewEnumerator7(peace keepers)
+            {"Chest_A01_Uthas_Loot_01","Abilities::NewEnumerator1"},//Items::NewEnumerator72 this is the uthas bracelet
+            {"Chest_A01_Uthas_MasterKey2","Items::NewEnumerator72"},
+            {"A01_Uthas_EmoteStatue_Party","E_Emotes::NewEnumerator13"},
+            {"A01_Uthas_EmoteStatue_Photo","E_Emotes::NewEnumerator8"},
+            //A01_SmallShrine_SouthEast
+            {"Chest_A01_Uthas_Key_01","Items::NewEnumerator6"},
+            //A01_SmallShrine_SouthWest
+            {"Chest_A01_Uthas_MasterKey","Items::NewEnumerator72"},
+            #endregion
 
+            #region Crossroads
+            //A01_Well
+            {"Chest_A01_CrossRoads_Loot",""},//aaaagghgghgh
+            {"Chest_A01_Well_SpinAttack","Abilities::NewEnumerator15"},
+            //A01_CrossRoads
+            {"Dance_Platform_Techno_Chest","Tunics::NewEnumerator15"},//Items::NewEnumerator42(Rice)
+            {"Chest_A01_CrossRoads_Loot_01",""},
+            {"Chest_A01_CrossRoads_Loot_02",""},
+            {"Chest_A01_CrossRoads_Loot_03",""},
+            #endregion
+
+            #region Stoneheart City
+            //A01_CliffPath
+            {"Dance_Platform_Triceps_Chest","Items::NewEnumerator17"},
+            {"Chest_A01_Stoneheart_Loot_01",""},
+            {"Chest_A01_Stoneheart_Loot_02","Items::NewEnumerator31"},//also has an amount variable
+            {"Chest_A01_Stoneheart_Loot_03",""},
+            {"Chest_A01_Stoneheart_Loot",""},
+            {"Chest_A01_Stoneheart_Tunic_MerchantsRobe","Items::NewEnumerator24"},
+            {"Chest_Master_A01_StoneheartCity_GraveyardKey","Items::NewEnumerator26"},
+            {"Chest_Master_A01_StoneheartCity_GraveyardKey2","Items::NewEnumerator31"},
+            {"Chest_A01_Tunic_AlphaTunic","Tunics::NewEnumerator31"},
+            #endregion
+
+            #region Forest Shrine
+            //A01_AbilityShrine
+            {"Dance_Platform_Hello2_Chest","Items::NewEnumerator45"},
+            {"Chest_A01_Nuos_MasterKey","Items::NewEnumerator72"},
+            //A01_AbilityShrine_AmbushZone
+            {"Chest_A01_Nuos_Key_01","Items::NewEnumerator6"},
+            {"Chest_A01_Nuos_Loot_01","Items::NewEnumerator24"},
+            {"Chest_A01_Nuos_Ability_WallRun","Abilities::NewEnumerator9"},
+            {"Chest_A01_Nuos_Key_03","Items::NewEnumerator72"},
+            //A01_AbilityShrine_CenterTree
+            {"" }
             #endregion
         };
     }

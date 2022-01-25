@@ -17,10 +17,7 @@ namespace BlueFireRando
             if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
         }
 
-        private void BFRandoGUI_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void BFRandoGUI_Load(object sender, EventArgs e){}
 
         //button and checkbox events
 
