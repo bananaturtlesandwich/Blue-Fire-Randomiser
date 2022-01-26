@@ -68,38 +68,38 @@ namespace BlueFireRando
             // 
             // Weapons
             // 
-            this.Weapons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Weapons.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Weapons.AutoSize = true;
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(0, 60);
+            this.Weapons.Location = new System.Drawing.Point(0, 56);
             this.Weapons.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(497, 52);
+            this.Weapons.Size = new System.Drawing.Size(412, 48);
             this.Weapons.TabIndex = 7;
             this.Weapons.Text = "Randomise Weapons?";
             this.Weapons.UseVisualStyleBackColor = false;
             // 
             // Abilities
             // 
-            this.Abilities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Abilities.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Abilities.AutoSize = true;
             this.Abilities.BackColor = System.Drawing.Color.Transparent;
             this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Abilities.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
-            this.Abilities.Location = new System.Drawing.Point(3, 118);
+            this.Abilities.Location = new System.Drawing.Point(3, 110);
             this.Abilities.Name = "Abilities";
-            this.Abilities.Size = new System.Drawing.Size(481, 52);
+            this.Abilities.Size = new System.Drawing.Size(400, 48);
             this.Abilities.TabIndex = 10;
             this.Abilities.Text = "Randomise Abilities?";
             this.Abilities.UseVisualStyleBackColor = false;
             // 
             // RandoOptions
             // 
-            this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.RandoOptions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
             this.RandoOptions.Controls.Add(this.Vanilla);
             this.RandoOptions.Controls.Add(this.Weapons);
@@ -116,6 +116,7 @@ namespace BlueFireRando
             // 
             // Vanilla
             // 
+            this.Vanilla.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Vanilla.AutoSize = true;
             this.Vanilla.BackColor = System.Drawing.Color.Transparent;
             this.Vanilla.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -124,84 +125,84 @@ namespace BlueFireRando
             this.Vanilla.Location = new System.Drawing.Point(4, 4);
             this.Vanilla.Margin = new System.Windows.Forms.Padding(4);
             this.Vanilla.Name = "Vanilla";
-            this.Vanilla.Size = new System.Drawing.Size(502, 52);
+            this.Vanilla.Size = new System.Drawing.Size(412, 48);
             this.Vanilla.TabIndex = 16;
             this.Vanilla.Text = "Allow Vanilla Items?";
             this.Vanilla.UseVisualStyleBackColor = false;
             // 
             // Tunics
             // 
-            this.Tunics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tunics.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Tunics.AutoSize = true;
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(3, 176);
+            this.Tunics.Location = new System.Drawing.Point(3, 164);
             this.Tunics.Name = "Tunics";
-            this.Tunics.Size = new System.Drawing.Size(450, 52);
+            this.Tunics.Size = new System.Drawing.Size(374, 48);
             this.Tunics.TabIndex = 11;
             this.Tunics.Text = "Randomise Tunics?";
             this.Tunics.UseVisualStyleBackColor = false;
             // 
             // Emotes
             // 
-            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Emotes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Emotes.AutoSize = true;
             this.Emotes.BackColor = System.Drawing.Color.Transparent;
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 234);
+            this.Emotes.Location = new System.Drawing.Point(3, 218);
             this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(459, 52);
+            this.Emotes.Size = new System.Drawing.Size(381, 48);
             this.Emotes.TabIndex = 12;
             this.Emotes.Text = "Randomise Emotes?";
             this.Emotes.UseVisualStyleBackColor = false;
             // 
             // Items
             // 
-            this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Items.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Items.AutoSize = true;
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 292);
+            this.Items.Location = new System.Drawing.Point(3, 272);
             this.Items.Name = "Items";
-            this.Items.Size = new System.Drawing.Size(419, 52);
+            this.Items.Size = new System.Drawing.Size(348, 48);
             this.Items.TabIndex = 13;
             this.Items.Text = "Randomise Items?";
             this.Items.UseVisualStyleBackColor = false;
             // 
             // Spirits
             // 
-            this.Spirits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Spirits.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Spirits.AutoSize = true;
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
             this.Spirits.CausesValidation = false;
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 350);
+            this.Spirits.Location = new System.Drawing.Point(3, 326);
             this.Spirits.Name = "Spirits";
-            this.Spirits.Size = new System.Drawing.Size(440, 52);
+            this.Spirits.Size = new System.Drawing.Size(367, 48);
             this.Spirits.TabIndex = 14;
             this.Spirits.Text = "Randomise Spirits?";
             this.Spirits.UseVisualStyleBackColor = false;
             // 
             // Ducks
             // 
-            this.Ducks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Ducks.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Ducks.AutoSize = true;
             this.Ducks.BackColor = System.Drawing.Color.Transparent;
             this.Ducks.CausesValidation = false;
             this.Ducks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Ducks.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ducks.ForeColor = System.Drawing.SystemColors.Control;
-            this.Ducks.Location = new System.Drawing.Point(3, 408);
+            this.Ducks.Location = new System.Drawing.Point(3, 380);
             this.Ducks.Name = "Ducks";
-            this.Ducks.Size = new System.Drawing.Size(438, 52);
+            this.Ducks.Size = new System.Drawing.Size(365, 48);
             this.Ducks.TabIndex = 15;
             this.Ducks.Text = "Randomise Ducks?";
             this.Ducks.UseVisualStyleBackColor = false;
@@ -216,7 +217,7 @@ namespace BlueFireRando
             this.American.Location = new System.Drawing.Point(4, 4);
             this.American.Margin = new System.Windows.Forms.Padding(4);
             this.American.Name = "American";
-            this.American.Size = new System.Drawing.Size(383, 52);
+            this.American.Size = new System.Drawing.Size(320, 48);
             this.American.TabIndex = 12;
             this.American.Text = "American mode";
             this.American.UseVisualStyleBackColor = false;
@@ -238,7 +239,7 @@ namespace BlueFireRando
             this.deletePak.FlatAppearance.BorderSize = 0;
             this.deletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deletePak.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePak.Location = new System.Drawing.Point(4, 64);
+            this.deletePak.Location = new System.Drawing.Point(4, 60);
             this.deletePak.Margin = new System.Windows.Forms.Padding(4);
             this.deletePak.Name = "deletePak";
             this.deletePak.Size = new System.Drawing.Size(373, 178);
@@ -292,7 +293,7 @@ namespace BlueFireRando
             // 
             // Randomiser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;

@@ -7,7 +7,7 @@ public static class Maps
 {
     public static void RandomiseMap()
     {
-        #region creating necessary directories
+        #region creating necessary directories for maps
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A01_StoneHeartCity");

@@ -145,11 +145,7 @@ namespace BlueFireRando
                 File.Delete($@"{File.ReadAllText(@".\config.txt")}\Randomiser_P.pak");
                 MessageBox.Show("Pak file deleted");
             }
-            else
-            {
-                //hehe dummy
-                MessageBox.Show("There was no pak to delete");
-            }
+            else MessageBox.Show("There was no pak to delete");
         }
         #endregion
     }
