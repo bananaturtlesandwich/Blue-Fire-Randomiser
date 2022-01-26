@@ -4,7 +4,8 @@ namespace BlueFireRando
 {
     internal class Checks
     {
-        Dictionary<string/*ObjectName*/, string/*Enumerator index*/> checks = new Dictionary<string, string>()
+        //UNITY IS SO MUCH EASIER THAN THIS I STG
+        public static Dictionary<string/*ObjectName*/, string/*Enumerator index*/> checks = new Dictionary<string, string>()
         {
             #region Fire Keep
             //A02_GameIntro_Exterior (The epic view)
@@ -39,7 +40,7 @@ namespace BlueFireRando
             {"Chest_A02_NorthArcane_Loot_03","idfk how this works but ok"},
             {"A02_Arcane_EmoteStatue_Windmill","E_Emotes::NewEnumerator3"}, //I like windmill because you can drill into the ground and skydive
             //A02_SouthArcane (where everything is)
-            {"Dance_Platform_Celebration_Chest","Items::NewEnumerator42"}, 
+            {"Dance_Platform_Celebration_Chest","Items::NewEnumerator42"},
             {"Dance_Platform_KungFu_Chest","Items::NewEnumerator14"}, //I forget what these chest are
             {"Chest_A02_NorthArcane_Sword_Bloodstorm","Weapons::NewEnumerator1"},
             {"Chest_A02_SouthArcane_Key_01","Items::NewEnumerator24"},
@@ -118,7 +119,75 @@ namespace BlueFireRando
             {"Chest_A01_Nuos_Ability_WallRun","Abilities::NewEnumerator9"},
             {"Chest_A01_Nuos_Key_03","Items::NewEnumerator72"},
             //A01_AbilityShrine_CenterTree
-            {"" }
+            {"Chest_A01_Nuos_Key_02","Items::NewEnumerator6"},
+            {"Chest_A01_Nuos_Loot_04","Items::NewEnumerator24"},
+            {"Chest_A01_Nuos_Loot_06","Items::NewEnumerator24"},
+            {"Chest_A01_TempleGardens_Sword_SilverBlades","Weapons::NewEnumerator10"},
+            {"A01_Nuos_EmoteStatue_Wave",""},
+            //A01_AbilityShrine_WaterLevels
+            {"Chest_A01_Nuos_Key_2","Items::NewEnumerator6"},
+            {"Chest_A01_Nuos_Loot_02","Items::NewEnumerator24"},
+            {"Chest_A01_Nuos_Loot_03","Items::NewEnumerator24"},
+            {"Chest_A01_Nuos_Loot_05","Items::NewEnumerator24"},
+            {"Chest_A01_Nuos_Loot","Items::NewEnumerator31"},//Amount is 3
+            {"Spirit_A01_ForestGuardian","Spirits::NewEnumerator13"},
+            #endregion
+
+            #region Temple Gardens
+            //A01_TempleGardens
+            {"Ember_Angel_TempleGardens_Juro_Tunic",""},//still a check
+            {"Dance_Platform_Applause_Tunic_BananaKing","Tunics::NewEnumerator16"},
+            {"Dance_Platform_Wave_Chest","Tunics::NewEnumerator16"},//Items::NewEnumerator46
+            {"Chest_A01_TempleGardens_Loot_01",""},
+            {"Chest_A01_TempleGardens_Loot_02",""},
+            {"Chest_A01_TempleGardens_Loot_03",""},
+            {"Chest_A01_TempleGardens_Loot_04",""},
+            {"Chest_A01_TempleGardens_Loot_05",""},
+            {"Chest_A01_TempleGardens_Loot_06",""},
+            {"Chest_A01_TempleGardens_Loot_07",""},
+            {"Chest_A01_TempleGardens_Loot_08",""},
+            {"Chest_A01_TempleGardens_RareSnow","Items::NewEnumerator26"},
+            {"Chest_A01_TempleGardens_Sword_Shanks","Weapons::NewEnumerator8"},
+            {"NPC_Nilo",""},//technically still a check
+                            //There's a duck here
+            #endregion
+
+            #region Abandoned Path
+            //A01_Graveyard
+            {"Dance_Platform_Levitation_Chest","Items::NewEnumerator55"},
+            {"Chest_A01_Graveyard_IceDestroyers","Weapons::NewEnumerator6"},
+            {"Chest_A01_Graveyard_Loot_01",""},
+            {"Chest_A01_Graveyard_Loot_02",""},
+            {"Chest_A01_Graveyard_Loot_03",""},
+            {"Chest_A02_Tunic_HolyAttire","Tunics::NewEnumerator2"},
+            {"A01_Graveyard_EmoteStatue_Aggressive","E_Emotes::NewEnumerator6"},
+            {"A01_Graveyard_EmoteStatue_No","E_Emotes::NewEnumerator7"},
+            {"Pickup_BremurPicture","Items::NewEnumerator27"},//PickUpList::NewEnumerator1
+            {"Pickup_Necklace","Items::NewEnumerator70"},
+            {"Pickup_Rose","Items::NewEnumerator9"},
+            {"Pickup_Rose2","Items::NewEnumerator9"},
+            //There's another duck here
+
+            //A01_GraveyardShrine
+            {"Ember_Angel_Graveyard_Kuna_Oddstone",""},
+            {"Chest_A01_Graveyard_Key_01","Items::NewEnumerator24"},
+            {"Spirit_A01_AngryAmbusher","Spirits::NewEnumerator4"},
+            //There's a duck here
+            #endregion
+
+            #region FireFall River
+            //A06_FireFall_A
+            {"Dance_Platform_HatKid_Chest","Weapons::NewEnumerator4"},//Items::NewEnumerator42
+            {"Chest_A06_River_Loot_01",""},
+            {"Chest_A06_River_Loot_03",""},
+            //A06_FireFall_B
+            {"Dance_Platform_Windmill_Chest","Items::NewEnumerator54"},
+            {"Chest_A06_River_Loot_02",""},
+            {"A06_Firefall_EmoteStatue_KungFu","E_Emotes::NewEnumerator11"},
+            {"NPC_Master_Onari",""},
+            {"NPC_Mia_Firefall",""},
+            {"NPC_Onop_Speedo",""},
+            //A06_FireFallRiver
             #endregion
         };
     }
