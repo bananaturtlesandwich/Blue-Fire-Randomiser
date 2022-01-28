@@ -5,10 +5,8 @@ using static Enums;
 
 namespace BlueFireRando
 {
-
     public partial class Randomiser : Form
     {
-
         public Randomiser()
         {
             InitializeComponent();
@@ -17,7 +15,7 @@ namespace BlueFireRando
             if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
         }
 
-        private void BFRandoGUI_Load(object sender, EventArgs e){}
+        private void BFRandoGUI_Load(object sender, EventArgs e) { }
 
         //button and checkbox events
 
@@ -25,7 +23,6 @@ namespace BlueFireRando
         {
             //delete any previously generated seed's source
             if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
-
             #region custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
@@ -50,7 +47,7 @@ namespace BlueFireRando
             if (Items.Checked)
             {
                 //this might change
-                int[] CutOrKeyItems = { 2, 3, 17, 4, 6, 8, 15, 20, 21, 43, 25, 26, 22, 7, 9, 28, 10, 16, 11, 29, 12, 30, 13, 35, 36, 37, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 68, 69, 71, 73, 74, 76, 77, 78, 79, 80, 81, 82};
+                int[] CutOrKeyItems = { 2, 3, 17, 4, 6, 8, 15, 20, 21, 43, 25, 26, 22, 7, 9, 28, 10, 16, 11, 29, 12, 30, 13, 35, 36, 37, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 68, 69, 71, 73, 74, 76, 77, 78, 79, 80, 81, 82 };
                 RandomiseEnum(@".\Baseassets\Enums\Items.uasset", CutOrKeyItems);
             }
             if (Spirits.Checked)
@@ -130,11 +127,15 @@ namespace BlueFireRando
         }
         #endregion
 
-        #region setting vanilla global because idk how else to do it
-        private void Vanilla_CheckedChanged(object sender, EventArgs e)
-        {
-            if(Vanilla.Checked) ButtonBools.Vanilla = true; else ButtonBools.Vanilla = false;
-        }
+        #region making the checkboxes global
+        private void Vanilla_CheckedChanged(object sender, EventArgs e) { ButtonBools.Vanilla = Vanilla.Checked ? true : false; }
+        private void Weapons_CheckedChanged(object sender, EventArgs e) { ButtonBools.Weapons = Weapons.Checked ? true : false; }
+        private void Abilities_CheckedChanged(object sender, EventArgs e) { ButtonBools.Abilities = Abilities.Checked ? true : false; }
+        private void Tunics_CheckedChanged(object sender, EventArgs e) { ButtonBools.Tunics = Tunics.Checked ? true : false; }
+        private void Emotes_CheckedChanged(object sender, EventArgs e) { ButtonBools.Emotes = Emotes.Checked ? true : false; }
+        private void Items_CheckedChanged(object sender, EventArgs e) { ButtonBools.Items = Items.Checked ? true : false; }
+        private void Spirit_CheckedChanged(object sender, EventArgs e) { ButtonBools.Spirits = Spirits.Checked ? true : false; }
+        private void Ducks_CheckedChanged(object sender, EventArgs e) { ButtonBools.Ducks = Ducks.Checked ? true : false; }
         #endregion
 
         #region Delete mod pak
