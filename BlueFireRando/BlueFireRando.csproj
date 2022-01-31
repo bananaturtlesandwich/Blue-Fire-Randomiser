@@ -75,7 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Asset Editing\Maps.cs" />
+    <Compile Include="Asset Editing\Indexes.cs" />
+    <Compile Include="Asset Editing\Locations.cs" />
     <Compile Include="Checks.cs" />
     <Compile Include="ButtonBools.cs" />
     <Compile Include="Asset Editing\Enums.cs" />
