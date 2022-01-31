@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asset Editing\Datatables.cs" />
     <Compile Include="Asset Editing\Indexes.cs" />
     <Compile Include="Asset Editing\Locations.cs" />
     <Compile Include="Checks.cs" />

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueFireRando", "BlueFireRando\BlueFireRando.csproj", "{03CF6894-5F04-453F-A38D-B9EC768E07F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OldStuff or Experimentation", "OldStuff\OldStuff or Experimentation.csproj", "{862B6472-0124-4C57-A9EA-C52F60064A11}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{03CF6894-5F04-453F-A38D-B9EC768E07F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03CF6894-5F04-453F-A38D-B9EC768E07F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03CF6894-5F04-453F-A38D-B9EC768E07F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{862B6472-0124-4C57-A9EA-C52F60064A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{862B6472-0124-4C57-A9EA-C52F60064A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{862B6472-0124-4C57-A9EA-C52F60064A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{862B6472-0124-4C57-A9EA-C52F60064A11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
