@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using static Enums;
+using static Datatables;
 
 namespace BlueFireRando
 {
@@ -36,9 +37,9 @@ namespace BlueFireRando
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
             #endregion
-
+            
             #region enum randomising
-            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
             {
                 int[] CutAbilities = { 5, 7, 10 };
@@ -64,7 +65,7 @@ namespace BlueFireRando
             {
                 int[] UnusedEmotes = { 14, 15 };
                 RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
-            }
+            }*/
             #endregion
 
             #region if options were checked then package
@@ -138,7 +139,7 @@ namespace BlueFireRando
         private void Ducks_CheckedChanged(object sender, EventArgs e) { ButtonBools.Ducks = Ducks.Checked ? true : false; }
         #endregion
 
-        #region Delete mod pak
+        #region deleting mod pak
         private void deletePak_Click(object sender, EventArgs e)
         {
             if (File.Exists($@"{File.ReadAllText(@".\config.txt")}\Randomiser_P.pak"))
