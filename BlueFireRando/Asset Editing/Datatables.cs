@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UAssetAPI;
-using UAssetAPI.StructTypes;
+using static ButtonBools;
 
 public static class Datatables
 {
     public static void CreateDTDirectories()
     {
-        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\Emote");
-        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Amulets");
-        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Stat");
-        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Tunics");
-        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Weapons");
+        if(Emotes) Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\Emote");
+        if(Spirits)Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Amulets");
+        //Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Stat");
+        if(Tunics) Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Tunics");
+        if(Weapons) Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\Weapons");
     }
 
     public static void RandomiseDatatable(string uasset)
@@ -25,6 +25,6 @@ public static class Datatables
             var shuffle = DTE.Table.Data.OrderBy(item => rndm.Next()).ToList();
             DTE.Table.Data = shuffle;
         }
-        DataTable.Write(@"");
+        DataTable.Write($@"./Randomiser_P/Blue Fire/Content{uasset.Replace("Baseassets", "")}");
     }
 }
