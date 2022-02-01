@@ -29,13 +29,13 @@ public static class Locations
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
     }
 
-    public static void Shuffle(List<FVector> list, out List<FVector> output)
+    public static void Shuffle<T>(List<T> list, out List<T> output)
     {
         Random rndm = new Random();
-        output = new List<FVector>();
+        output = new List<T>();
         for (int i = 0; i < list.Count; i++)
         {
-            FVector temp = list[rndm.Next(list.Count)];
+            T temp = list[rndm.Next(list.Count)];
             if (!Vanilla) while (temp.Equals(list[i])) temp = list[rndm.Next(list.Count)];
             output.Add(temp);
             list.Remove(temp);
