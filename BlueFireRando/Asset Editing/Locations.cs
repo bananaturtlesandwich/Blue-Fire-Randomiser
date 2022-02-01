@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 //using System.Windows.Forms;
 using UAssetAPI;
 using UAssetAPI.PropertyTypes;
@@ -29,19 +30,6 @@ public static class Locations
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
     }
 
-    public static void Shuffle<T>(List<T> list, out List<T> output)
-    {
-        Random rndm = new Random();
-        output = new List<T>();
-        for (int i = 0; i < list.Count; i++)
-        {
-            T temp = list[rndm.Next(list.Count)];
-            if (!Vanilla) while (temp.Equals(list[i])) temp = list[rndm.Next(list.Count)];
-            output.Add(temp);
-            list.Remove(temp);
-        }
-    }
-
     public static List<FVector> GetAllLocations()
     {
         List<FVector> Locations = new List<FVector>();
@@ -62,7 +50,8 @@ public static class Locations
             }
         }
         foreach (FVector location in Locations) if (location.Equals(new FVector())) Locations.Remove(location);//removes the new Fvectors
-        return Locations;
+        Random rndm=new Random();
+        return Locations.OrderBy(item => rndm.Next()).ToList();
     }
 
     public static FVector GetLocation(UAsset map, Export export, string identifier)
@@ -74,6 +63,7 @@ public static class Locations
                                 }
         return new FVector();
     }
+
     public static FVector GetLocation(UAsset map, Export export, string[] identifier)
     {
         foreach (string element in identifier) if (export.ObjectName.ToString().Contains(element) && export is NormalExport ex) foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) foreach (PropertyData item in norm.Data) if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
@@ -100,6 +90,7 @@ public static class Locations
             map.Write($@"./Randomiser_P/Blue Fire/Content{file.Replace("Baseassets", "")}");
         }
     }
+
     public static void SetLocation(UAsset map, Export export, string identifier, List<FVector> Locations)
     {
         if (export.ObjectName.ToString().Contains(identifier) && export is NormalExport ex) foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) foreach (PropertyData item in norm.Data) if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)

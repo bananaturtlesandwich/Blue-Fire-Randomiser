@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UAssetAPI;
 using UAssetAPI.StructTypes;
-using System;
-using static ButtonBools;
-using static Locations;
 
 public static class Datatables
 {
@@ -19,12 +18,13 @@ public static class Datatables
 
     public static void RandomiseDatatable(string uasset)
     {
-        UAsset DataTable=new UAsset(uasset,UE4Version.VER_UE4_25);
-        List<StructPropertyData> table;
+        UAsset DataTable = new UAsset(uasset, UE4Version.VER_UE4_25);
+        Random rndm = new Random();
         if (DataTable.Exports[0] is DataTableExport DTE)
         {
-            Shuffle(DTE.Table.Data, out table);
-            DTE.Table.Data = table;
+            var shuffle = DTE.Table.Data.OrderBy(item => rndm.Next()).ToList();
+            DTE.Table.Data = shuffle;
         }
+        DataTable.Write(@"");
     }
 }
