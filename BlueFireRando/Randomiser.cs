@@ -37,7 +37,7 @@ namespace BlueFireRando
                 File.Copy(@".\Baseassets\NormalLogo.uexp", @".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
             }
             #endregion
-            
+
             #region enum randomising
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
@@ -66,6 +66,12 @@ namespace BlueFireRando
                 int[] UnusedEmotes = { 14, 15 };
                 RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
             }*/
+            #endregion
+
+            #region index randomising
+            #endregion
+
+            #region location randomising
             #endregion
 
             #region if options were checked then package
