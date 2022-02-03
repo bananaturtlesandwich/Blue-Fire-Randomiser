@@ -33,8 +33,10 @@ public static class Locations
     public static List<FVector> GetAllLocations()
     {
         List<FVector> Locations = new List<FVector>();
-
+        Random rndm = new Random();
         string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);//Get all the map files
+        string[] ShopSwaps=new string[32];
+        for(int i = 0;i<32;i++) ShopSwaps.Append(fileentries[rndm.Next(2)]);//still need to fix this
         foreach (string file in fileentries)
         {
             UAsset map = new UAsset(file, UE4Version.VER_UE4_25);
@@ -50,7 +52,6 @@ public static class Locations
             }
         }
         foreach (FVector location in Locations) if (location.Equals(new FVector())) Locations.Remove(location);//removes the new Fvectors
-        Random rndm=new Random();
         return Locations.OrderBy(item => rndm.Next()).ToList();
     }
 

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows.Forms;
 using static Enums;
-using static Datatables;
 
 namespace BlueFireRando
 {
