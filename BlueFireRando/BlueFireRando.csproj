@@ -80,7 +80,7 @@
     <Compile Include="Checks.cs" />
     <Compile Include="ButtonBools.cs" />
     <Compile Include="Asset Editing\Enums.cs" />
-    <Compile Include="NewRandom.cs" />
+    <Compile Include="HelperFunctions.cs" />
     <Compile Include="Randomiser.cs">
       <SubType>Form</SubType>
     </Compile>

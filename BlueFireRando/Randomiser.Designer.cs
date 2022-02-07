@@ -34,7 +34,6 @@ namespace BlueFireRando
             this.Weapons = new System.Windows.Forms.CheckBox();
             this.Abilities = new System.Windows.Forms.CheckBox();
             this.RandoOptions = new System.Windows.Forms.FlowLayoutPanel();
-            this.Vanilla = new System.Windows.Forms.CheckBox();
             this.Tunics = new System.Windows.Forms.CheckBox();
             this.Emotes = new System.Windows.Forms.CheckBox();
             this.Items = new System.Windows.Forms.CheckBox();
@@ -74,7 +73,7 @@ namespace BlueFireRando
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(0, 60);
+            this.Weapons.Location = new System.Drawing.Point(0, 0);
             this.Weapons.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.Weapons.Name = "Weapons";
             this.Weapons.Size = new System.Drawing.Size(497, 52);
@@ -90,7 +89,7 @@ namespace BlueFireRando
             this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Abilities.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
-            this.Abilities.Location = new System.Drawing.Point(3, 118);
+            this.Abilities.Location = new System.Drawing.Point(3, 58);
             this.Abilities.Name = "Abilities";
             this.Abilities.Size = new System.Drawing.Size(481, 52);
             this.Abilities.TabIndex = 10;
@@ -101,7 +100,6 @@ namespace BlueFireRando
             // 
             this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
-            this.RandoOptions.Controls.Add(this.Vanilla);
             this.RandoOptions.Controls.Add(this.Weapons);
             this.RandoOptions.Controls.Add(this.Abilities);
             this.RandoOptions.Controls.Add(this.Tunics);
@@ -115,22 +113,6 @@ namespace BlueFireRando
             this.RandoOptions.Size = new System.Drawing.Size(412, 463);
             this.RandoOptions.TabIndex = 11;
             // 
-            // Vanilla
-            // 
-            this.Vanilla.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Vanilla.AutoSize = true;
-            this.Vanilla.BackColor = System.Drawing.Color.Transparent;
-            this.Vanilla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Vanilla.Font = new System.Drawing.Font("Cinzel", 19.8F);
-            this.Vanilla.ForeColor = System.Drawing.SystemColors.Control;
-            this.Vanilla.Location = new System.Drawing.Point(4, 4);
-            this.Vanilla.Margin = new System.Windows.Forms.Padding(4);
-            this.Vanilla.Name = "Vanilla";
-            this.Vanilla.Size = new System.Drawing.Size(502, 52);
-            this.Vanilla.TabIndex = 16;
-            this.Vanilla.Text = "Allow Vanilla Items?";
-            this.Vanilla.UseVisualStyleBackColor = false;
-            // 
             // Tunics
             // 
             this.Tunics.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -139,7 +121,7 @@ namespace BlueFireRando
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(3, 176);
+            this.Tunics.Location = new System.Drawing.Point(3, 116);
             this.Tunics.Name = "Tunics";
             this.Tunics.Size = new System.Drawing.Size(450, 52);
             this.Tunics.TabIndex = 11;
@@ -154,7 +136,7 @@ namespace BlueFireRando
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 234);
+            this.Emotes.Location = new System.Drawing.Point(3, 174);
             this.Emotes.Name = "Emotes";
             this.Emotes.Size = new System.Drawing.Size(459, 52);
             this.Emotes.TabIndex = 12;
@@ -169,7 +151,7 @@ namespace BlueFireRando
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 292);
+            this.Items.Location = new System.Drawing.Point(3, 232);
             this.Items.Name = "Items";
             this.Items.Size = new System.Drawing.Size(419, 52);
             this.Items.TabIndex = 13;
@@ -184,7 +166,7 @@ namespace BlueFireRando
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 350);
+            this.Spirits.Location = new System.Drawing.Point(3, 290);
             this.Spirits.Name = "Spirits";
             this.Spirits.Size = new System.Drawing.Size(440, 52);
             this.Spirits.TabIndex = 14;
@@ -199,7 +181,7 @@ namespace BlueFireRando
             this.Ducks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Ducks.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ducks.ForeColor = System.Drawing.SystemColors.Control;
-            this.Ducks.Location = new System.Drawing.Point(3, 408);
+            this.Ducks.Location = new System.Drawing.Point(3, 348);
             this.Ducks.Name = "Ducks";
             this.Ducks.Size = new System.Drawing.Size(438, 52);
             this.Ducks.TabIndex = 15;
@@ -340,7 +322,6 @@ namespace BlueFireRando
         private System.Windows.Forms.CheckBox Spirits;
         private System.Windows.Forms.FlowLayoutPanel LeftSide;
         private System.Windows.Forms.CheckBox Ducks;
-        private System.Windows.Forms.CheckBox Vanilla;
     }
 }
 

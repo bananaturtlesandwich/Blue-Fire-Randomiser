@@ -1,6 +1,5 @@
 ﻿public static class ButtonBools
 {
-    public static bool Vanilla = false;
     public static bool Weapons = false;
     public static bool Abilities = false;
     public static bool Tunics = false;

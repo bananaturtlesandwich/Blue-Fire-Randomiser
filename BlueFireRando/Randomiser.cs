@@ -80,9 +80,10 @@ namespace BlueFireRando
             }
             else
             {
-                //Start the custom batch file I create
+                //Start the custom batch file I created
                 System.Diagnostics.Process.Start(@".\Packing.bat");
                 MessageBox.Show("Randomisation complete!");
+                if (American.Checked) File.Move(@".\Randomiser_P.pak", @".\Randomizer_P.pak");
 
                 //Start moving process of the .pak file to the mod folder
                 string modfolder = File.ReadAllText(@".\config.txt");
@@ -134,7 +135,6 @@ namespace BlueFireRando
         #endregion
 
         #region making the checkboxes global
-        private void Vanilla_CheckedChanged(object sender, EventArgs e) { ButtonBools.Vanilla = Vanilla.Checked ? true : false; }
         private void Weapons_CheckedChanged(object sender, EventArgs e) { ButtonBools.Weapons = Weapons.Checked ? true : false; }
         private void Abilities_CheckedChanged(object sender, EventArgs e) { ButtonBools.Abilities = Abilities.Checked ? true : false; }
         private void Tunics_CheckedChanged(object sender, EventArgs e) { ButtonBools.Tunics = Tunics.Checked ? true : false; }

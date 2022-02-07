@@ -7,16 +7,10 @@ using UAssetAPI;
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 using static ButtonBools;
+using static HelperFunctions;
 
 public static class Locations
 {
-    //Emote statues, dance platforms, ducks, ember angels and NPCs can all be found with identifiers
-    public static readonly string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo"};
-    public static readonly string[] Spirit = { "" };
-    public static readonly string[] Tunic = { "" };
-    public static readonly string[] Loot = { "" };
-    public static readonly string[] Item = { "" };
-    public static readonly string[] Weapon = { "" };
 
     public static void CreateMapDirectories()
     {
@@ -32,11 +26,15 @@ public static class Locations
 
     public static List<FVector> GetAllLocations()
     {
+        string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
+        string[] Spirit = { "" };
+        string[] Tunic = { "" };
+        string[] Loot = { "" };
+        string[] Item = { "" };
+        string[] Weapon = { "" };
         List<FVector> Locations = new List<FVector>();
         Random rndm = new Random();
-        string[] fileentries = Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);//Get all the map files
-        string[] ShopSwaps=new string[32];
-        for(int i = 0;i<32;i++) ShopSwaps.Append(fileentries[rndm.Next(2)]);//still need to fix this
+        string[] fileentries = GetMaps();
         foreach (string file in fileentries)
         {
             UAsset map = new UAsset(file, UE4Version.VER_UE4_25);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 //using System.Windows.Forms;
 using UAssetAPI;
-using static ButtonBools;
 
 public static class Enums
 {
@@ -19,19 +18,9 @@ public static class Enums
             int temp;
             for (int i = 0; i < names.Count; i++) if (!BannedIndexes.Contains(i))
                 {
-                    //if we want vanilla items
-                    if (Vanilla)
-                    {
-                        do temp = random.Next(names.Count); while (used.Contains(temp));
-                        names[i] = new Tuple<FName, long>(names[i].Item1, temp);
-                        used.Add(temp);
-                    }
-                    else
-                    {
-                        do temp = random.Next(names.Count); while (used.Contains(temp) || temp == i);
-                        names[i] = new Tuple<FName, long>(names[i].Item1, temp);
-                        used.Add(temp);
-                    }
+                    do temp = random.Next(names.Count); while (used.Contains(temp) || temp == i);
+                    names[i] = new Tuple<FName, long>(names[i].Item1, temp);
+                    used.Add(temp);
                 }
         }
         enumerator.Write($@"./Randomiser_P/Blue Fire/Content{filepath.Replace("Baseassets", "")}");
