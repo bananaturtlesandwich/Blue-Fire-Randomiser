@@ -78,7 +78,7 @@
     <Compile Include="Asset Editing\Shops.cs" />
     <Compile Include="Asset Editing\Locations.cs" />
     <Compile Include="Checks.cs" />
-    <Compile Include="ButtonBools.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Asset Editing\Enums.cs" />
     <Compile Include="HelperFunctions.cs" />
     <Compile Include="Randomiser.cs">

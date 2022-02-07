@@ -6,7 +6,7 @@ using System.Linq;
 using UAssetAPI;
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
-using static ButtonBools;
+using static Globals;
 using static HelperFunctions;
 
 public static class Locations

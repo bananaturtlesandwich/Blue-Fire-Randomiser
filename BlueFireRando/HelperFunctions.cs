@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UAssetAPI;
-using static ButtonBools;
+using static Globals;
 
 public static partial class HelperFunctions
 {
@@ -21,7 +21,8 @@ public static partial class HelperFunctions
         else return Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
-    public static List<Export> GetWantedExports()//incomplete
+    //is this more or less efficient than scanning through exports each time you want to cchange something?
+    public static List<Export> GetWantedExports()//incomplete-look at strategy guide for locations
     {
         List<Export> exports = new List<Export>();
         //Emote statues, dance platforms, ducks, ember angels and NPCs can all be found with identifiers
@@ -46,8 +47,8 @@ public static partial class HelperFunctions
 
     public static List<Export> GetExport(string path, string identifier)
     {
-        UAsset Map=new UAsset(@path,UE4Version.VER_UE4_25);
-        List<Export> output=new List<Export> ();
+        UAsset Map = new UAsset(@path, UE4Version.VER_UE4_25);
+        List<Export> output = new List<Export>();
         foreach (Export export in Map.Exports) if (export.ObjectName.ToString().Contains(identifier)) output.Add(export);
         return output;
     }
@@ -56,7 +57,7 @@ public static partial class HelperFunctions
     {
         UAsset Map = new UAsset(@path, UE4Version.VER_UE4_25);
         List<Export> output = new List<Export>();
-        foreach (string identifier in identifiers) foreach (Export export in Map.Exports) if(export.ObjectName.ToString().Contains(identifier)) output.Add(export);
+        foreach (string identifier in identifiers) foreach (Export export in Map.Exports) if (export.ObjectName.ToString().Contains(identifier)) output.Add(export);
         return output;
     }
 }
