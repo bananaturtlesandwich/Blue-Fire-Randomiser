@@ -17,8 +17,7 @@ public static partial class HelperFunctions
 
     public static string[] GetMaps()
     {
-        if (Directory.Exists(@".\Randomiser_P\World")) return Directory.GetFiles(@".\Randomiser_P\World", "*.umap", SearchOption.AllDirectories);
-        else return Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+        return Directory.Exists(@".\Randomiser_P\World") ? Directory.GetFiles(@".\Randomiser_P\World", "*.umap", SearchOption.AllDirectories) : Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
     //is this more or less efficient than scanning through exports each time you want to change something?

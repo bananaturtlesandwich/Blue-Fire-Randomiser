@@ -41,7 +41,7 @@ namespace BlueFireRando
             this.Ducks = new System.Windows.Forms.CheckBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.modfoldercheck = new System.Windows.Forms.FolderBrowserDialog();
-            this.deletePak = new System.Windows.Forms.Button();
+            this.DeletePak = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.Randomise = new System.Windows.Forms.Button();
             this.LeftSide = new System.Windows.Forms.FlowLayoutPanel();
@@ -210,24 +210,24 @@ namespace BlueFireRando
     "u do not have a ~mods folder in Paks then make one)";
             this.modfoldercheck.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // deletePak
+            // DeletePak
             // 
-            this.deletePak.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.deletePak.BackColor = System.Drawing.SystemColors.Control;
-            this.deletePak.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deletePak.BackgroundImage")));
-            this.deletePak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.deletePak.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deletePak.FlatAppearance.BorderSize = 0;
-            this.deletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deletePak.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePak.Location = new System.Drawing.Point(4, 64);
-            this.deletePak.Margin = new System.Windows.Forms.Padding(4);
-            this.deletePak.Name = "deletePak";
-            this.deletePak.Size = new System.Drawing.Size(373, 178);
-            this.deletePak.TabIndex = 14;
-            this.deletePak.Text = "Delete Mod Pak";
-            this.deletePak.UseVisualStyleBackColor = false;
-            this.deletePak.Click += new System.EventHandler(this.deletePak_Click);
+            this.DeletePak.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.DeletePak.BackColor = System.Drawing.SystemColors.Control;
+            this.DeletePak.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeletePak.BackgroundImage")));
+            this.DeletePak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeletePak.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeletePak.FlatAppearance.BorderSize = 0;
+            this.DeletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeletePak.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeletePak.Location = new System.Drawing.Point(4, 64);
+            this.DeletePak.Margin = new System.Windows.Forms.Padding(4);
+            this.DeletePak.Name = "DeletePak";
+            this.DeletePak.Size = new System.Drawing.Size(373, 178);
+            this.DeletePak.TabIndex = 14;
+            this.DeletePak.Text = "Delete Mod Pak";
+            this.DeletePak.UseVisualStyleBackColor = false;
+            this.DeletePak.Click += new System.EventHandler(this.deletePak_Click);
             // 
             // Logo
             // 
@@ -266,7 +266,7 @@ namespace BlueFireRando
             // 
             this.LeftSide.BackColor = System.Drawing.Color.Transparent;
             this.LeftSide.Controls.Add(this.American);
-            this.LeftSide.Controls.Add(this.deletePak);
+            this.LeftSide.Controls.Add(this.DeletePak);
             this.LeftSide.Location = new System.Drawing.Point(13, 26);
             this.LeftSide.Name = "LeftSide";
             this.LeftSide.Size = new System.Drawing.Size(382, 244);
@@ -315,7 +315,7 @@ namespace BlueFireRando
         public System.Windows.Forms.FolderBrowserDialog modfoldercheck;
         private System.Windows.Forms.CheckBox Tunics;
         private System.Windows.Forms.CheckBox Emotes;
-        private System.Windows.Forms.Button deletePak;
+        private System.Windows.Forms.Button DeletePak;
         private System.Windows.Forms.CheckBox Items;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button Randomise;

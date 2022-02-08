@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using static Enums;
 
 namespace BlueFireRando
 {
@@ -37,35 +36,35 @@ namespace BlueFireRando
             }
             #endregion
 
-            Globals.ValidExports=HelperFunctions.GetWantedExports();//Find the exports to modify
+            Globals.ValidExports = HelperFunctions.GetWantedExports();//Find the exports to modify
 
             #region enum randomising
             /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
             {
                 int[] CutAbilities = { 5, 7, 10 };
-                RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
+                Enums.RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
             }
             if (Items.Checked)
             {
                 //this might change
                 int[] CutOrKeyItems = { 2, 3, 17, 4, 6, 8, 15, 20, 21, 43, 25, 26, 22, 7, 9, 28, 10, 16, 11, 29, 12, 30, 13, 35, 36, 37, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 68, 69, 71, 73, 74, 76, 77, 78, 79, 80, 81, 82 };
-                RandomiseEnum(@".\Baseassets\Enums\Items.uasset", CutOrKeyItems);
+                Enums.RandomiseEnum(@".\Baseassets\Enums\Items.uasset", CutOrKeyItems);
             }
             if (Spirits.Checked)
             {
                 int[] CutSpirits = { 5, 6, 8, 15, 17, 19, 20, 22, 23, 24, 26, 29, 30 };
-                RandomiseEnum(@".\Baseassets\Enums\Spirits.uasset", CutSpirits);
+                Enums.RandomiseEnum(@".\Baseassets\Enums\Spirits.uasset", CutSpirits);
             }
             if (Weapons.Checked)
             {
                 int[] UnusedWeapons = { 14 };
-                RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", UnusedWeapons);
+                Enums.RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", UnusedWeapons);
             }
             if (Emotes.Checked)
             {
                 int[] UnusedEmotes = { 14, 15 };
-                RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
+                Enums.RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", UnusedEmotes);
             }*/
             #endregion
 

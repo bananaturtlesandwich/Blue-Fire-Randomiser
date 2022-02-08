@@ -11,6 +11,6 @@ public static class Shops
             int[] used=new int[32];
             used[i]=HelperFunctions.RandInt(Globals.ValidExports.Count,used);
         }
-        foreach(int )
+
     }
 }
