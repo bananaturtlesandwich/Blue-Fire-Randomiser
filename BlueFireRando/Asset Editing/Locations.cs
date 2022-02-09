@@ -34,8 +34,7 @@ public static class Locations
         string[] Weapon = { "" };
         List<FVector> Locations = new List<FVector>();
         Random rndm = new Random();
-        string[] fileentries = GetMaps();
-        foreach (string file in fileentries)
+        foreach (string file in GetMaps())
         {
             UAsset map = new UAsset(file, UE4Version.VER_UE4_25);
             //MessageBox.Show($"Data preserved:{(map.VerifyBinaryEquality() ? "yes" : "no")}");

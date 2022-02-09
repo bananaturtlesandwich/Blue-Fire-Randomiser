@@ -22,6 +22,7 @@ namespace BlueFireRando
         {
             //delete any previously generated seed's source
             if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
+
             #region custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
             if (American.Checked)
@@ -39,13 +40,13 @@ namespace BlueFireRando
             Globals.ValidExports = HelperFunctions.GetWantedExports();//Find the exports to modify
 
             #region enum randomising
-            /*Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
+            Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
             if (Abilities.Checked)
             {
                 int[] CutAbilities = { 5, 7, 10 };
                 Enums.RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
             }
-            if (Items.Checked)
+            /*if (Items.Checked)
             {
                 //this might change
                 int[] CutOrKeyItems = { 2, 3, 17, 4, 6, 8, 15, 20, 21, 43, 25, 26, 22, 7, 9, 28, 10, 16, 11, 29, 12, 30, 13, 35, 36, 37, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 68, 69, 71, 73, 74, 76, 77, 78, 79, 80, 81, 82 };
@@ -75,7 +76,7 @@ namespace BlueFireRando
             #endregion
 
             #region if options were checked then package
-            if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
+            if (!(Spirits.Checked && Abilities.Checked && Weapons.Checked && Tunics.Checked && Emotes.Checked && Items.Checked&&Ducks.Checked))
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -107,7 +108,7 @@ namespace BlueFireRando
             #endregion
         }
 
-        #region american mode text and image switching
+        #region american mode switching
         private void American_CheckedChanged(object sender, EventArgs e)
         {
             if (American.Checked)
@@ -117,6 +118,7 @@ namespace BlueFireRando
                 Spirits.Text = "Randomize Spirits?";
                 Tunics.Text = "Randomize Tunics?";
                 Emotes.Text = "Randomize Emotes?";
+                Ducks.Text = "Randomize Ducks?";
                 Randomise.Text = "Randomize";
                 UmbyPet.Image = UmbyPet.InitialImage;
                 Logo.BackgroundImage = Logo.ErrorImage;
@@ -128,6 +130,7 @@ namespace BlueFireRando
                 Spirits.Text = "Randomise Spirits?";
                 Tunics.Text = "Randomise Tunics?";
                 Emotes.Text = "Randomise Emotes";
+                Ducks.Text = "Randomise Ducks?";
                 Randomise.Text = "Randomise";
                 UmbyPet.Image = UmbyPet.ErrorImage;
                 Logo.BackgroundImage = Logo.InitialImage;

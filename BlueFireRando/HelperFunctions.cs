@@ -31,8 +31,7 @@ public static partial class HelperFunctions
         string[] Loot = { "" };
         string[] Item = { "" };
         string[] Weapon = { "" };
-        string[] maps = GetMaps();
-        foreach (string file in maps)
+        foreach (string file in GetMaps())
         {
             if (Abilities) exports.AddRange(GetExport(file, Ability));
             if (Spirits) exports.AddRange(GetExport(file, Spirit));
