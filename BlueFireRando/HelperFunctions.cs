@@ -26,7 +26,7 @@ public static partial class HelperFunctions
         List<Export> exports = new List<Export>();
         //Emote statues, dance platforms, ducks, ember angels and NPCs can all be found with identifiers
         string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
-        string[] Spirit = { "Spirit_A01_AngryAmbusher", "Spirit_A01_FarasGrace", "Spirit_A06_FlyingOnop", "Spirit_A01_ForestGuardian", "Spirit_A01_HolyCentry", "Spirit_A01_LoveFlower", "Spirit_A02_ToxicRat", "Spirit_A02_RiverSpirit" };//Everything else is is shops
+        string[] Spirit = { "Spirit_A","Dance_Platform_Party_Chest_Spirit_HammerKing" };
         string[] Tunic = { "" };
         string[] Loot = { "" };
         string[] Item = { "" };

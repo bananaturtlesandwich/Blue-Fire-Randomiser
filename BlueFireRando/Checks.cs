@@ -187,7 +187,34 @@ namespace BlueFireRando
             {"NPC_Master_Onari",""},
             {"NPC_Mia_Firefall",""},
             {"NPC_Onop_Speedo",""},
-            //A06_FireFallRiver
+            //A06_FireFallRiver has a duck
+            //A06_LakeMolva
+            {"Dance_Platform_Party_Chest_Spirit_HammerKing","Spirits::NewEnumerator1"},
+            {"Chest_A06_Lake_Loot_01",""},
+            {"Chest_A06_Lake_Loot_02",""},//WHYCAN'TISEEYOU?
+            {"Chest_A06_Lake_Loot_03",""},
+            {"A06_Firefall_EmoteStatue_Triceps","E_Emotes::NewEnumerator5"},
+            {"Spirit_A06_FlyingOnop","Spirits::NewEnumerator28"},
+            //A06_RustCity
+            {"Dance_Platform_Aggresive_Chest","Items::NewEnumerator81"},
+            {"Dance_Platform_No_Chest","Tunics::NewEnumerator14"},
+            {"A06_RustCity_EmoteStatue_Applause","E_Emotes::NewEnumerator1" },
+            //A06_SteamHouse_Core
+            {"Chest_A06_SteamHouse_Tunic_SteamSuit","Tunics::NewEnumerator10"},
+            #endregion
+
+            #region Voids
+            //Void_04_V2
+            {"Chest_Master_Loot_04_V2","Items::NewEnumerator90"},
+            {"Chest_Master_Loot_04_V21","Items::NewEnumerator90"},
+            //Void_Easy
+            {"Chest_Master","Items::NewEnumerator90"},
+            //Void_Flauta
+            {"Chest_Master","Items::NewEnumerator90"},
+            {"Chest_Master2","Items::NewEnumerator90"},
+            //Void_Santi
+            {"Chest_Master_Void_Santi_02","Items::NewEnumerator90"},
+            {"Chest_Master_Void_Santi_03","Items::NewEnumerator90"}
             #endregion
         };
     }
