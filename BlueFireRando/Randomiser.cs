@@ -18,8 +18,6 @@ namespace BlueFireRando
 
         private void BFRandoGUI_Load(object sender, EventArgs e) { }
 
-        //button and checkbox events
-
         private void Randomise_Click(object sender, EventArgs e)
         {
             //delete any previously generated seed's source
