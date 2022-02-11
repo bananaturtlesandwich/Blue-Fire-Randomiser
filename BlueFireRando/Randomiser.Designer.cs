@@ -76,7 +76,7 @@ namespace BlueFireRando
             this.Weapons.Location = new System.Drawing.Point(0, 0);
             this.Weapons.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(497, 52);
+            this.Weapons.Size = new System.Drawing.Size(412, 48);
             this.Weapons.TabIndex = 7;
             this.Weapons.Text = "Randomise Weapons?";
             this.Weapons.UseVisualStyleBackColor = false;
@@ -89,16 +89,16 @@ namespace BlueFireRando
             this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Abilities.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
-            this.Abilities.Location = new System.Drawing.Point(3, 58);
+            this.Abilities.Location = new System.Drawing.Point(3, 54);
             this.Abilities.Name = "Abilities";
-            this.Abilities.Size = new System.Drawing.Size(481, 52);
+            this.Abilities.Size = new System.Drawing.Size(400, 48);
             this.Abilities.TabIndex = 10;
             this.Abilities.Text = "Randomise Abilities?";
             this.Abilities.UseVisualStyleBackColor = false;
             // 
             // RandoOptions
             // 
-            this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.RandoOptions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
             this.RandoOptions.Controls.Add(this.Weapons);
             this.RandoOptions.Controls.Add(this.Abilities);
@@ -121,9 +121,9 @@ namespace BlueFireRando
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(3, 116);
+            this.Tunics.Location = new System.Drawing.Point(3, 108);
             this.Tunics.Name = "Tunics";
-            this.Tunics.Size = new System.Drawing.Size(450, 52);
+            this.Tunics.Size = new System.Drawing.Size(374, 48);
             this.Tunics.TabIndex = 11;
             this.Tunics.Text = "Randomise Tunics?";
             this.Tunics.UseVisualStyleBackColor = false;
@@ -136,9 +136,9 @@ namespace BlueFireRando
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 174);
+            this.Emotes.Location = new System.Drawing.Point(3, 162);
             this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(459, 52);
+            this.Emotes.Size = new System.Drawing.Size(381, 48);
             this.Emotes.TabIndex = 12;
             this.Emotes.Text = "Randomise Emotes?";
             this.Emotes.UseVisualStyleBackColor = false;
@@ -151,9 +151,9 @@ namespace BlueFireRando
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 232);
+            this.Items.Location = new System.Drawing.Point(3, 216);
             this.Items.Name = "Items";
-            this.Items.Size = new System.Drawing.Size(419, 52);
+            this.Items.Size = new System.Drawing.Size(348, 48);
             this.Items.TabIndex = 13;
             this.Items.Text = "Randomise Items?";
             this.Items.UseVisualStyleBackColor = false;
@@ -166,9 +166,9 @@ namespace BlueFireRando
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 290);
+            this.Spirits.Location = new System.Drawing.Point(3, 270);
             this.Spirits.Name = "Spirits";
-            this.Spirits.Size = new System.Drawing.Size(440, 52);
+            this.Spirits.Size = new System.Drawing.Size(367, 48);
             this.Spirits.TabIndex = 14;
             this.Spirits.Text = "Randomise Spirits?";
             this.Spirits.UseVisualStyleBackColor = false;
@@ -181,9 +181,9 @@ namespace BlueFireRando
             this.Ducks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Ducks.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ducks.ForeColor = System.Drawing.SystemColors.Control;
-            this.Ducks.Location = new System.Drawing.Point(3, 348);
+            this.Ducks.Location = new System.Drawing.Point(3, 324);
             this.Ducks.Name = "Ducks";
-            this.Ducks.Size = new System.Drawing.Size(438, 52);
+            this.Ducks.Size = new System.Drawing.Size(365, 48);
             this.Ducks.TabIndex = 15;
             this.Ducks.Text = "Randomise Ducks?";
             this.Ducks.UseVisualStyleBackColor = false;
@@ -198,7 +198,7 @@ namespace BlueFireRando
             this.American.Location = new System.Drawing.Point(4, 4);
             this.American.Margin = new System.Windows.Forms.Padding(4);
             this.American.Name = "American";
-            this.American.Size = new System.Drawing.Size(383, 52);
+            this.American.Size = new System.Drawing.Size(320, 48);
             this.American.TabIndex = 12;
             this.American.Text = "American mode";
             this.American.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@ namespace BlueFireRando
             this.DeletePak.FlatAppearance.BorderSize = 0;
             this.DeletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeletePak.Font = new System.Drawing.Font("Cinzel", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeletePak.Location = new System.Drawing.Point(4, 64);
+            this.DeletePak.Location = new System.Drawing.Point(4, 60);
             this.DeletePak.Margin = new System.Windows.Forms.Padding(4);
             this.DeletePak.Name = "DeletePak";
             this.DeletePak.Size = new System.Drawing.Size(373, 178);
@@ -274,7 +274,7 @@ namespace BlueFireRando
             // 
             // Randomiser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;

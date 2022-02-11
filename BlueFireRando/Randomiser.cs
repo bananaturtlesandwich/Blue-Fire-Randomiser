@@ -10,6 +10,8 @@ namespace BlueFireRando
         {
             InitializeComponent();
 
+            MessageBox.Show("PSA:\nThere is currently a bug I'm not sure what to do with where the application will have trouble accessing the mod folder due to you having file explorer open.\nJust click randomise again and it'll work, or close file explorer before hitting randomise :)");
+
             //create config.txt to store modfolder if it doesn't exist
             if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
         }
@@ -72,11 +74,8 @@ namespace BlueFireRando
             #region index randomising
             #endregion
 
-            #region location randomising
-            #endregion
-
             #region if options were checked then package
-            if (!(Spirits.Checked && Abilities.Checked && Weapons.Checked && Tunics.Checked && Emotes.Checked && Items.Checked&&Ducks.Checked))
+            if (!(Spirits.Checked && Abilities.Checked && Weapons.Checked && Tunics.Checked && Emotes.Checked && Items.Checked && Ducks.Checked))
             {
                 MessageBox.Show("You haven't checked any options!");
             }
@@ -84,8 +83,8 @@ namespace BlueFireRando
             {
                 //Start the custom batch file I created
                 System.Diagnostics.Process.Start(@".\Packing.bat");
-                MessageBox.Show("Randomisation complete!");
                 if (American.Checked) File.Move(@".\Randomiser_P.pak", @".\Randomizer_P.pak");
+                MessageBox.Show("Randomisation complete!");
 
                 //Start moving process of the .pak file to the mod folder
                 string modfolder = File.ReadAllText(@".\config.txt");
@@ -98,10 +97,7 @@ namespace BlueFireRando
                     }
                 }
                 modfolder = File.ReadAllText(@".\config.txt");
-                if (File.Exists($@"{modfolder}\Randomiser_P.pak"))
-                {
-                    File.Delete($@"{modfolder}\Randomiser_P.pak");
-                }
+                if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
                 File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
                 MessageBox.Show("Randomiser pak installed");
             }
@@ -138,7 +134,7 @@ namespace BlueFireRando
         }
         #endregion
 
-        #region making the checkboxes global
+        #region making the customisation checkboxes global
         private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked ? true : false; }
         private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked ? true : false; }
         private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked ? true : false; }
