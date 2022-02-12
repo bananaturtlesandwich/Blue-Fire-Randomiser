@@ -73,7 +73,7 @@ namespace BlueFireRando
             #endregion
 
             #region if options were checked then package
-            if (!(Spirits.Checked && Abilities.Checked && Weapons.Checked && Tunics.Checked && Emotes.Checked && Items.Checked && Ducks.Checked))
+            if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked && !Ducks.Checked)
             {
                 MessageBox.Show("You haven't checked any options!");
             }
