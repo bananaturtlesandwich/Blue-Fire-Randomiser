@@ -47,8 +47,4 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="rmdir /s /q &quot;..\obj&quot;&#xD;&#xA;rmdir /s /q &quot;..\Engine&quot;" />
-  </Target>
-
 </Project>
