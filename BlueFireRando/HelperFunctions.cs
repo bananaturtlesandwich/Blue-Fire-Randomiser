@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using UAssetAPI;
+﻿using UAssetAPI;
 using static Globals;
 
 public static partial class HelperFunctions
@@ -17,16 +13,16 @@ public static partial class HelperFunctions
 
     public static string[] GetMaps()
     {
-        return Directory.Exists(@".\Randomiser_P\World") ? Directory.GetFiles(@".\Randomiser_P\World", "*.umap", SearchOption.AllDirectories) : Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+        return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ? Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) : Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
     //is this more or less efficient than scanning through exports each time you want to change something?
-    public static List<Export> GetWantedExports()//incomplete-look at strategy guide for locations
+    public static List<Export> GetWantedExports()//incomplete-look at strategy guide for locations/patterns
     {
         List<Export> exports = new List<Export>();
         //Emote statues, dance platforms, ducks, ember angels and NPCs can all be found with identifiers
         string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
-        string[] Spirit = { "Spirit_A","Dance_Platform_Party_Chest_Spirit_HammerKing" };
+        string[] Spirit = { "Spirit_A", "Dance_Platform_Party_Chest_Spirit_HammerKing" };
         string[] Tunic = { "" };
         string[] Loot = { "" };
         string[] Item = { "" };
