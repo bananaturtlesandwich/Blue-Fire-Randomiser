@@ -16,12 +16,27 @@ public static partial class HelperFunctions
         return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ? Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) : Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
+    public static List<T> Shuffle<T>(List<T> target)
+    {
+        Random rndm = new Random();
+        return target.OrderBy(x => rndm.Next()).ToList();
+    }
+
+    public static void ShuffleEnumIndexes()
+    {
+        foreach (Export export in ValidExports)
+        {
+
+        }
+    }
+
     //is this more or less efficient than scanning through exports each time you want to change something?
     public static List<Export> GetWantedExports()//incomplete-look at strategy guide for locations/patterns
     {
         List<Export> exports = new List<Export>();
         //Emote statues, dance platforms, ducks, ember angels and NPCs can all be found with identifiers
-        string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
+        //Abilities are randomised with enums so this isn't needed until if I get loction switching working
+        //string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
         string[] Spirit = { "Spirit_A", "Dance_Platform_Party_Chest_Spirit_HammerKing" };
         string[] Tunic = { "" };
         string[] Loot = { "" };
@@ -29,7 +44,7 @@ public static partial class HelperFunctions
         string[] Weapon = { "" };
         foreach (string file in GetMaps())
         {
-            if (Abilities) exports.AddRange(GetExport(file, Ability));
+            //if (Abilities) exports.AddRange(GetExport(file, Ability));
             if (Spirits) exports.AddRange(GetExport(file, Spirit));
             if (Tunics) exports.AddRange(GetExport(file, Tunic));
             if (Weapons) exports.AddRange(GetExport(file, Weapon));

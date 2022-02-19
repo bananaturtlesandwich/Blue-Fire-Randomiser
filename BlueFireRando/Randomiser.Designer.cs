@@ -292,7 +292,7 @@ namespace BlueFireRando
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blue Fire Randomiser";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.BFRandoGUI_Load);
+            //this.Load += new System.EventHandler(this.BFRandoGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).EndInit();
             this.RandoOptions.ResumeLayout(false);
             this.RandoOptions.PerformLayout();

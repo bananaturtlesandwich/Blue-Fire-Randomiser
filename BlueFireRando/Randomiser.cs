@@ -16,8 +16,6 @@ namespace BlueFireRando
             if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
         }
 
-        private void BFRandoGUI_Load(object sender, EventArgs e) { }
-
         private void Randomise_Click(object sender, EventArgs e)
         {
             //delete any previously generated seed's source
