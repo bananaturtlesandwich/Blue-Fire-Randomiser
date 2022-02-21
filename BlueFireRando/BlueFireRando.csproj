@@ -45,11 +45,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\modding\BlueFireRando\UAssetAPI\UAssetAPI\bin\Debug\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="UAssetAPI">
-      <HintPath>..\..\..\..\..\modding\BlueFireRando\UAssetAPI\UAssetAPI\bin\Debug\UAssetAPI.dll</HintPath>
+      <HintPath>..\UAssetAPI\UAssetAPI\bin\Debug\UAssetAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
 
