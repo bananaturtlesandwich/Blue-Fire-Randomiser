@@ -74,7 +74,9 @@
             else
             {
                 //Start the custom batch file I created
+                //I cooouuuuld run cmd with parameters but I think a batch script is cleaner
                 System.Diagnostics.Process.Start(@".\Packing.bat");
+                //Rename the mod pak if american
                 if (American.Checked) File.Move(@".\Randomiser_P.pak", @".\Randomizer_P.pak");
                 MessageBox.Show("Randomisation complete!");
 
