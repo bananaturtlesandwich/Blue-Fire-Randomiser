@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-
-namespace BlueFireRando
+﻿namespace BlueFireRando
 {
     public partial class Randomiser : Form
     {

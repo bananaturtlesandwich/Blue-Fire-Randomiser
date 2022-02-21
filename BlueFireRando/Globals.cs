@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UAssetAPI;
+﻿using UAssetAPI;
 
 public static class Globals
 {

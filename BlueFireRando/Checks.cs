@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BlueFireRando
+﻿namespace BlueFireRando
 {
     internal class Checks
     {

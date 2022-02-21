@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-public static class Shops
+﻿public static class Shops
 {
     public static void RandomiseShop()
     {

@@ -13,21 +13,15 @@ public static partial class HelperFunctions
 
     public static string[] GetMaps()
     {
-        return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ? Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) : Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+        return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ?
+            Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) :
+            Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
     public static List<T> Shuffle<T>(List<T> target)
     {
         Random rndm = new Random();
         return target.OrderBy(x => rndm.Next()).ToList();
-    }
-
-    public static void ShuffleEnumIndexes()
-    {
-        foreach (Export export in ValidExports)
-        {
-
-        }
     }
 
     //is this more or less efficient than scanning through exports each time you want to change something?
