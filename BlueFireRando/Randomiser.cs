@@ -128,13 +128,13 @@
         #endregion
 
         #region making the customisation checkboxes global
-        private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked ? true : false; }
-        private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked ? true : false; }
-        private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked ? true : false; }
-        private void Emotes_CheckedChanged(object sender, EventArgs e) { Globals.Emotes = Emotes.Checked ? true : false; }
-        private void Items_CheckedChanged(object sender, EventArgs e) { Globals.Items = Items.Checked ? true : false; }
-        private void Spirit_CheckedChanged(object sender, EventArgs e) { Globals.Spirits = Spirits.Checked ? true : false; }
-        private void Ducks_CheckedChanged(object sender, EventArgs e) { Globals.Ducks = Ducks.Checked ? true : false; }
+        private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked; }
+        private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked; }
+        private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked; }
+        private void Emotes_CheckedChanged(object sender, EventArgs e) { Globals.Emotes = Emotes.Checked; }
+        private void Items_CheckedChanged(object sender, EventArgs e) { Globals.Items = Items.Checked; }
+        private void Spirit_CheckedChanged(object sender, EventArgs e) { Globals.Spirits = Spirits.Checked; }
+        private void Ducks_CheckedChanged(object sender, EventArgs e) { Globals.Ducks = Ducks.Checked; }
         #endregion
 
         #region deleting mod pak
