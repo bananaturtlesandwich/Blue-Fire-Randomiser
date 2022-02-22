@@ -15,7 +15,7 @@
         private void Randomise_Click(object sender, EventArgs e)
         {
             //delete any previously generated seed's source
-            if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
+            Directory.Delete(@".\Randomiser_P", true);
 
             #region custom menu art
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
@@ -31,7 +31,7 @@
             }
             #endregion
 
-            Globals.ValidExports = HelperFunctions.GetWantedExports();//Find the exports to modify
+            Shops.RandomiseShop();
 
             #region enum randomising
             Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");

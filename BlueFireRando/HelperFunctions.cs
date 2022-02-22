@@ -18,7 +18,14 @@ public static partial class HelperFunctions
             Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
-    public static List<T> Shuffle<T>(List<T> target)
+    public static string GetSaveGame()
+    {
+        return File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset") ?
+            @".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset" :
+            @".\Baseassets\BlueFireSaveGame.uasset";
+    }
+
+    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target)
     {
         Random rndm = new Random();
         return target.OrderBy(x => rndm.Next()).ToList();
@@ -33,7 +40,6 @@ public static partial class HelperFunctions
         //string[] Ability = { "Chest_A01_Keep_Shield", "Chest_A01_Arcane_Spell", "Chest_A01_Nuos_Ability_WallRun", "Chest_A01_Uthas_Loot_01", "NPC_Onop_Speedo" };
         string[] Spirit = { "Spirit_A", "Dance_Platform_Party_Chest_Spirit_HammerKing" };
         string[] Tunic = { "" };
-        string[] Loot = { "" };
         string[] Item = { "" };
         string[] Weapon = { "" };
         foreach (string file in GetMaps())
