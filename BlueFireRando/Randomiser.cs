@@ -64,6 +64,7 @@
             #endregion
 
             #region index randomising
+
             #endregion
 
             #region if options were checked then package
@@ -84,11 +85,9 @@
                 string modfolder = File.ReadAllText(@".\config.txt");
                 if (modfolder.Equals(""))
                 {
-                    File.WriteAllText(@".\config.txt", modfoldercheck.SelectedPath);
                     if (modfoldercheck.ShowDialog() == DialogResult.OK)
-                    {
                         MessageBox.Show("Mod folder registered. edit config.txt to change this folder");
-                    }
+                    File.WriteAllText(@".\config.txt", modfoldercheck.SelectedPath);
                 }
                 modfolder = File.ReadAllText(@".\config.txt");
                 if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");

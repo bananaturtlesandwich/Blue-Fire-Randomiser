@@ -109,7 +109,7 @@ namespace BlueFireRando
             this.RandoOptions.Location = new System.Drawing.Point(403, 289);
             this.RandoOptions.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
             this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(526, 463);
+            this.RandoOptions.Size = new System.Drawing.Size(519, 463);
             this.RandoOptions.TabIndex = 11;
             // 
             // Tunics
@@ -253,10 +253,10 @@ namespace BlueFireRando
             this.Randomise.FlatAppearance.BorderSize = 0;
             this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Randomise.Location = new System.Drawing.Point(937, 394);
+            this.Randomise.Location = new System.Drawing.Point(929, 394);
             this.Randomise.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
             this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(478, 311);
+            this.Randomise.Size = new System.Drawing.Size(486, 311);
             this.Randomise.TabIndex = 0;
             this.Randomise.Text = "Randomise";
             this.Randomise.UseVisualStyleBackColor = false;
