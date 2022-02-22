@@ -1,4 +1,3 @@
-﻿//using System.Windows.Forms;
 using UAssetAPI;
 
 public static class Enums
@@ -6,7 +5,6 @@ public static class Enums
     public static void RandomiseEnum(string filepath, int[] BannedIndexes)
     {
         UAsset enumerator = new UAsset(filepath, UE4Version.VER_UE4_25);
-        //MessageBox.Show($"Data preserved:{(enumerator.VerifyBinaryEquality() ? "yes" : "no")}");
         if (enumerator.Exports[0] is EnumExport ex)
         {
             Random random = new Random();

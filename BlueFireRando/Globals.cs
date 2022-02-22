@@ -1,4 +1,4 @@
-﻿public static class Globals
+public static class Globals
 {
     public static bool Weapons = false;
     public static bool Abilities = false;
