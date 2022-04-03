@@ -1,13 +1,10 @@
-﻿using UAssetAPI;
-using static Globals;
-
-public static partial class HelperFunctions
+﻿public static partial class HelperFunctions
 {
-    public static int RandInt(int MaxValue, int[] Banned)
+    public static int RandInt(int MaxValue, IEnumerable<int> Banned)
     {
         int temp;
         Random rndm = new Random();
-        do temp = rndm.Next(MaxValue); while (Banned.Contains(temp));
+        do temp = rndm.Next(MaxValue); while (Banned.ToList().Contains(temp));
         return temp;
     }
 

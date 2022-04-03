@@ -1,9 +1,4 @@
-﻿using UAssetAPI;
-using UAssetAPI.PropertyTypes;
-using UAssetAPI.StructTypes;
-using static Globals;
-
-public static class Shops
+﻿public static class Shops
 {
     public static void RandomiseShop()
     {
@@ -43,8 +38,8 @@ public static class Shops
                         if (Items) if (Item.Value[4] is BytePropertyData byt)
                                 if (byt.Value == 0)
                                 {
-                                    Item.Value[4] = Stock.Keys.ToArray()[0];
-                                    Item.Value[7] = Stock.Values.ToArray()[0];
+                                    if (Item.Value[4] is BytePropertyData type) type = Stock.Keys.ToArray()[0];
+                                    if (Item.Value[7] is BytePropertyData item) item = Stock.Values.ToArray()[0];
                                     Stock.Remove(Stock.Keys.ToArray()[0]);
                                     continue;
                                 }
@@ -52,8 +47,8 @@ public static class Shops
                         if (Weapons) if (Item.Value[4] is BytePropertyData byt)
                                 if (byt.Value == 1)
                                 {
-                                    Item.Value[4] = Stock.Keys.ToArray()[0];
-                                    Item.Value[7] = Stock.Values.ToArray()[0];
+                                    if (Item.Value[4] is BytePropertyData type) type = Stock.Keys.ToArray()[0];
+                                    if (Item.Value[7] is BytePropertyData weapon) weapon = Stock.Values.ToArray()[0];
                                     Stock.Remove(Stock.Keys.ToArray()[0]);
                                     continue;
                                 }
@@ -61,8 +56,8 @@ public static class Shops
                         if (Tunics) if (Item.Value[4] is BytePropertyData byt)
                                 if (byt.Value == 2)
                                 {
-                                    Item.Value[4] = Stock.Keys.ToArray()[0];
-                                    Item.Value[7] = Stock.Values.ToArray()[0];
+                                    if (Item.Value[4] is BytePropertyData type) type = Stock.Keys.ToArray()[0];
+                                    if (Item.Value[7] is BytePropertyData tunic) tunic = Stock.Values.ToArray()[0];
                                     Stock.Remove(Stock.Keys.ToArray()[0]);
                                     continue;
                                 }
@@ -70,8 +65,8 @@ public static class Shops
                         if (Spirits) if (Item.Value[4] is BytePropertyData byt)
                                 if (byt.Value == 3)
                                 {
-                                    Item.Value[4] = Stock.Keys.ToArray()[0];
-                                    Item.Value[7] = Stock.Values.ToArray()[0];
+                                    if (Item.Value[4] is BytePropertyData type) type = Stock.Keys.ToArray()[0];
+                                    if (Item.Value[7] is BytePropertyData spirit) spirit = Stock.Values.ToArray()[0];
                                     Stock.Remove(Stock.Keys.ToArray()[0]);
                                     continue;
                                 }

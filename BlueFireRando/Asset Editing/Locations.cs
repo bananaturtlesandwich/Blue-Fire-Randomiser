@@ -1,9 +1,4 @@
 ﻿//using System.Windows.Forms;
-using UAssetAPI;
-using UAssetAPI.PropertyTypes;
-using UAssetAPI.StructTypes;
-using static Globals;
-using static HelperFunctions;
 
 public static class Locations
 {
@@ -30,7 +25,7 @@ public static class Locations
         string[] Weapon = { "" };
         List<FVector> Locations = new List<FVector>();
         Random rndm = new Random();
-        foreach (string file in GetMaps())
+        foreach (string file in HelperFunctions.GetMaps())
         {
             UAsset map = new UAsset(file, UE4Version.VER_UE4_25);
             //MessageBox.Show($"Data preserved:{(map.VerifyBinaryEquality() ? "yes" : "no")}");
@@ -87,7 +82,12 @@ public static class Locations
 
     public static void SetLocation(UAsset map, Export export, string identifier, List<FVector> Locations)
     {
-        if (export.ObjectName.ToString().Contains(identifier) && export is NormalExport ex) foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) foreach (PropertyData item in norm.Data) if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
+        if (export.ObjectName.ToString().Contains(identifier) && export is NormalExport ex) 
+            foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) 
+                    if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) 
+                        foreach (PropertyData item in norm.Data) 
+                            if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) 
+                                if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
                                 {
                                     vec.Value = Locations[Locations.Count - 1];
                                     Locations.RemoveAt(Locations.Count - 1);
@@ -96,7 +96,15 @@ public static class Locations
 
     public static void SetLocation(UAsset map, Export export, string[] identifier, List<FVector> Locations)
     {
-        foreach (string element in identifier) if (export.ObjectName.ToString().Contains(element) && export is NormalExport ex) foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) foreach (PropertyData item in norm.Data) if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
+        //ah yes...nesting
+        foreach (string element in identifier) 
+            if (export.ObjectName.ToString().Contains(element) && export is NormalExport ex) 
+                foreach (PropertyData data in ex.Data) 
+                    if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) 
+                        if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) 
+                            foreach (PropertyData item in norm.Data) 
+                                if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) 
+                                    if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
                                     {
                                         vec.Value = Locations[Locations.Count - 1];
                                         Locations.RemoveAt(Locations.Count - 1);
