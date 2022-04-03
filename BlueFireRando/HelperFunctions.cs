@@ -2,8 +2,7 @@
 {
     public static int RandInt(int MaxValue, IEnumerable<int> Banned)
     {
-        int temp;
-        Random rndm = new Random();
+        int temp; Random rndm = new Random();
         do temp = rndm.Next(MaxValue); while (Banned.ToList().Contains(temp));
         return temp;
     }
@@ -11,15 +10,15 @@
     public static string[] GetMaps()
     {
         return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ?
-            Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) :
-            Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+               Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) :
+               Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 
     public static string GetSaveGame()
     {
         return File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset") ?
-            @".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset" :
-            @".\Baseassets\BlueFireSaveGame.uasset";
+               @".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset" :
+               @".\Baseassets\BlueFireSaveGame.uasset";
     }
 
     public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target)
@@ -28,7 +27,8 @@
         return target.OrderBy(x => rndm.Next()).ToList();
     }
 
-    //is this more or less efficient than scanning through exports each time you want to change something?
+    /*is this more or less efficient than scanning through exports each time you want to change something?
+    
     public static List<Export> GetWantedExports()//incomplete-look at strategy guide for locations/patterns
     {
         List<Export> exports = new List<Export>();
@@ -65,5 +65,5 @@
         List<Export> output = new List<Export>();
         foreach (string identifier in identifiers) foreach (Export export in Map.Exports) if (export.ObjectName.ToString().Contains(identifier)) output.Add(export);
         return output;
-    }
+    }*/
 }
