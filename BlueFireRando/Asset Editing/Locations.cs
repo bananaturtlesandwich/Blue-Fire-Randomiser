@@ -82,11 +82,11 @@ public static class Locations
 
     public static void SetLocation(UAsset map, Export export, string identifier, List<FVector> Locations)
     {
-        if (export.ObjectName.ToString().Contains(identifier) && export is NormalExport ex) 
-            foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) 
-                    if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) 
-                        foreach (PropertyData item in norm.Data) 
-                            if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) 
+        if (export.ObjectName.ToString().Contains(identifier) && export is NormalExport ex)
+            foreach (PropertyData data in ex.Data) if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob)
+                    if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm)
+                        foreach (PropertyData item in norm.Data)
+                            if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc)
                                 if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
                                 {
                                     vec.Value = Locations[Locations.Count - 1];
@@ -97,13 +97,13 @@ public static class Locations
     public static void SetLocation(UAsset map, Export export, string[] identifier, List<FVector> Locations)
     {
         //ah yes...nesting
-        foreach (string element in identifier) 
-            if (export.ObjectName.ToString().Contains(element) && export is NormalExport ex) 
-                foreach (PropertyData data in ex.Data) 
-                    if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob) 
-                        if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm) 
-                            foreach (PropertyData item in norm.Data) 
-                                if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc) 
+        foreach (string element in identifier)
+            if (export.ObjectName.ToString().Contains(element) && export is NormalExport ex)
+                foreach (PropertyData data in ex.Data)
+                    if (data.Name.Equals(FName.FromString("RootComponent")) && data is ObjectPropertyData ob)
+                        if (map.Exports[int.Parse(ob.Value.ToString())] is NormalExport norm)
+                            foreach (PropertyData item in norm.Data)
+                                if (item.Name.Equals(FName.FromString("RelativeLocation")) && item is StructPropertyData struc)
                                     if (struc.Value[0].Name.Equals(FName.FromString("RelativeLocation")) && struc.Value[0] is VectorPropertyData vec)
                                     {
                                         vec.Value = Locations[Locations.Count - 1];
