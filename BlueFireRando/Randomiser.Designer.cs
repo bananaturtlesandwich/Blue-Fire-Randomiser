@@ -272,7 +272,7 @@ namespace BlueFireRando
             this.Font = new System.Drawing.Font("Cinzel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "Randomiser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blue Fire Randomiser";
@@ -283,9 +283,7 @@ namespace BlueFireRando
             this.LeftSide.ResumeLayout(false);
             this.LeftSide.PerformLayout();
             this.ResumeLayout(false);
-
         }
-
         #endregion
         private System.Windows.Forms.PictureBox UmbyPet;
         private System.Windows.Forms.CheckBox Weapons;
