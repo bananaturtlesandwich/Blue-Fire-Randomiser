@@ -5,9 +5,9 @@ public partial class Randomiser : Form
     public Randomiser()
     {
         InitializeComponent();
-
-        MessageBox.Show("PSA:\nThere is currently a bug I'm not sure what to do with where the application will have trouble accessing the mod folder due to you having file explorer open.\nJust click randomise again and it'll work, or close file explorer before hitting randomise :)");
-
+#if !DEBUG
+        MessageBox.Show("There is currently a bug I'm not sure what to do with where the application will have trouble accessing the mod folder due to you having file explorer open.\nJust click randomise again and it'll work, or close file explorer before hitting randomise :)");
+#endif
         //create config.txt to store modfolder if it doesn't exist
         if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
     }
@@ -62,7 +62,7 @@ public partial class Randomiser : Form
         #endregion
 
         #region index randomising
-        Indexes.RandomiseIndexes();
+        Indexes.DumpIndexes();
         #endregion
 
         #region if options were checked then package
