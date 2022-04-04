@@ -62,7 +62,7 @@ public partial class Randomiser : Form
         #endregion
 
         #region index randomising
-
+        Indexes.RandomiseIndexes();
         #endregion
 
         #region if options were checked then package
