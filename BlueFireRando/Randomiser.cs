@@ -35,7 +35,7 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\Enums");
         if (Abilities.Checked)
         {
-            int[] CutAbilities = { 5, 7, 10 };
+            int[] CutAbilities = { 5, 7, 10/*for now let's also ban dash and attack*/, 0, 1 };
             Enums.RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
         }
         /*if (Items.Checked)
@@ -67,7 +67,7 @@ public partial class Randomiser : Form
 
         #region if options were checked then package
         //I hate nesting but idk a better way to check
-        if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked && !Ducks.Checked)
+        if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
             MessageBox.Show("You haven't checked any options!");
         else
         {
@@ -92,47 +92,6 @@ public partial class Randomiser : Form
         }
         #endregion
     }
-
-    #region american mode switching
-    private void American_CheckedChanged(object sender, EventArgs e)
-    {
-        if (American.Checked)
-        {
-            Weapons.Text = "Randomize Weapons?";
-            Abilities.Text = "Randomize Abilities?";
-            Spirits.Text = "Randomize Spirits?";
-            Tunics.Text = "Randomize Tunics?";
-            Emotes.Text = "Randomize Emotes?";
-            Ducks.Text = "Randomize Ducks?";
-            Randomise.Text = "Randomize";
-            UmbyPet.Image = UmbyPet.InitialImage;
-            Logo.BackgroundImage = Logo.ErrorImage;
-        }
-        else
-        {
-            Weapons.Text = "Randomise Weapons?";
-            Abilities.Text = "Randomise Abilities?";
-            Spirits.Text = "Randomise Spirits?";
-            Tunics.Text = "Randomise Tunics?";
-            Emotes.Text = "Randomise Emotes";
-            Ducks.Text = "Randomise Ducks?";
-            Randomise.Text = "Randomise";
-            UmbyPet.Image = UmbyPet.ErrorImage;
-            Logo.BackgroundImage = Logo.InitialImage;
-        }
-    }
-    #endregion
-
-    #region making the customisation checkboxes global
-    private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked; }
-    private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked; }
-    private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked; }
-    private void Emotes_CheckedChanged(object sender, EventArgs e) { Globals.Emotes = Emotes.Checked; }
-    private void Items_CheckedChanged(object sender, EventArgs e) { Globals.Items = Items.Checked; }
-    private void Spirit_CheckedChanged(object sender, EventArgs e) { Globals.Spirits = Spirits.Checked; }
-    private void Ducks_CheckedChanged(object sender, EventArgs e) { Globals.Ducks = Ducks.Checked; }
-    #endregion
-
     #region deleting mod pak
     private void DeletePak_Click(object sender, EventArgs e)
     {
@@ -149,5 +108,42 @@ public partial class Randomiser : Form
         }
         else MessageBox.Show("There was no pak to delete");
     }
+    #endregion
+
+    #region american mode switching
+    private void American_CheckedChanged(object sender, EventArgs e)
+    {
+        if (American.Checked)
+        {
+            Weapons.Text = "Randomize Weapons?";
+            Abilities.Text = "Randomize Abilities?";
+            Spirits.Text = "Randomize Spirits?";
+            Tunics.Text = "Randomize Tunics?";
+            Emotes.Text = "Randomize Emotes?";
+            Randomise.Text = "Randomize";
+            UmbyPet.Image = UmbyPet.InitialImage;
+            Logo.BackgroundImage = Logo.ErrorImage;
+        }
+        else
+        {
+            Weapons.Text = "Randomise Weapons?";
+            Abilities.Text = "Randomise Abilities?";
+            Spirits.Text = "Randomise Spirits?";
+            Tunics.Text = "Randomise Tunics?";
+            Emotes.Text = "Randomise Emotes";
+            Randomise.Text = "Randomise";
+            UmbyPet.Image = UmbyPet.ErrorImage;
+            Logo.BackgroundImage = Logo.InitialImage;
+        }
+    }
+    #endregion
+
+    #region making the customisation checkboxes global
+    private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked; }
+    private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked; }
+    private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked; }
+    private void Emotes_CheckedChanged(object sender, EventArgs e) { Globals.Emotes = Emotes.Checked; }
+    private void Items_CheckedChanged(object sender, EventArgs e) { Globals.Items = Items.Checked; }
+    private void Spirit_CheckedChanged(object sender, EventArgs e) { Globals.Spirits = Spirits.Checked; }
     #endregion
 }

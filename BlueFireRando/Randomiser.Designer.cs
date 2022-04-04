@@ -38,7 +38,6 @@ namespace BlueFireRando
             this.Emotes = new System.Windows.Forms.CheckBox();
             this.Items = new System.Windows.Forms.CheckBox();
             this.Spirits = new System.Windows.Forms.CheckBox();
-            this.Ducks = new System.Windows.Forms.CheckBox();
             this.American = new System.Windows.Forms.CheckBox();
             this.ModFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.DeletePak = new System.Windows.Forms.Button();
@@ -67,7 +66,7 @@ namespace BlueFireRando
             // 
             // Weapons
             // 
-            this.Weapons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Weapons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Weapons.AutoSize = true;
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -82,7 +81,7 @@ namespace BlueFireRando
             // 
             // Abilities
             // 
-            this.Abilities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Abilities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Abilities.AutoSize = true;
             this.Abilities.BackColor = System.Drawing.Color.Transparent;
             this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -97,6 +96,7 @@ namespace BlueFireRando
             // 
             // RandoOptions
             // 
+            this.RandoOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.RandoOptions.BackColor = System.Drawing.Color.Transparent;
             this.RandoOptions.Controls.Add(this.Weapons);
             this.RandoOptions.Controls.Add(this.Abilities);
@@ -104,16 +104,15 @@ namespace BlueFireRando
             this.RandoOptions.Controls.Add(this.Emotes);
             this.RandoOptions.Controls.Add(this.Items);
             this.RandoOptions.Controls.Add(this.Spirits);
-            this.RandoOptions.Controls.Add(this.Ducks);
-            this.RandoOptions.Location = new System.Drawing.Point(403, 289);
+            this.RandoOptions.Location = new System.Drawing.Point(403, 291);
             this.RandoOptions.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
             this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(519, 463);
+            this.RandoOptions.Size = new System.Drawing.Size(519, 461);
             this.RandoOptions.TabIndex = 11;
             // 
             // Tunics
             // 
-            this.Tunics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Tunics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Tunics.AutoSize = true;
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -128,7 +127,7 @@ namespace BlueFireRando
             // 
             // Emotes
             // 
-            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Emotes.AutoSize = true;
             this.Emotes.BackColor = System.Drawing.Color.Transparent;
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -143,7 +142,7 @@ namespace BlueFireRando
             // 
             // Items
             // 
-            this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Items.AutoSize = true;
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -158,7 +157,7 @@ namespace BlueFireRando
             // 
             // Spirits
             // 
-            this.Spirits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Spirits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Spirits.AutoSize = true;
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -170,21 +169,6 @@ namespace BlueFireRando
             this.Spirits.TabIndex = 14;
             this.Spirits.Text = "Randomise Spirits?";
             this.Spirits.UseVisualStyleBackColor = false;
-            // 
-            // Ducks
-            // 
-            this.Ducks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Ducks.AutoSize = true;
-            this.Ducks.BackColor = System.Drawing.Color.Transparent;
-            this.Ducks.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Ducks.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Ducks.ForeColor = System.Drawing.SystemColors.Control;
-            this.Ducks.Location = new System.Drawing.Point(3, 327);
-            this.Ducks.Name = "Ducks";
-            this.Ducks.Size = new System.Drawing.Size(365, 48);
-            this.Ducks.TabIndex = 15;
-            this.Ducks.Text = "Randomise Ducks?";
-            this.Ducks.UseVisualStyleBackColor = false;
             // 
             // American
             // 
@@ -252,7 +236,7 @@ namespace BlueFireRando
             this.Randomise.FlatAppearance.BorderSize = 0;
             this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Randomise.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Randomise.Location = new System.Drawing.Point(929, 394);
+            this.Randomise.Location = new System.Drawing.Point(929, 315);
             this.Randomise.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
             this.Randomise.Name = "Randomise";
             this.Randomise.Size = new System.Drawing.Size(486, 311);
@@ -316,7 +300,6 @@ namespace BlueFireRando
         private System.Windows.Forms.Button Randomise;
         private System.Windows.Forms.CheckBox Spirits;
         private System.Windows.Forms.FlowLayoutPanel LeftSide;
-        private System.Windows.Forms.CheckBox Ducks;
     }
 }
 

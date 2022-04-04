@@ -38,6 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Asset Editing\Indexes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="beegUmby.ico" />
   </ItemGroup>
 

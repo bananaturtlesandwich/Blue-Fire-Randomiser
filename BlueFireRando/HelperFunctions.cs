@@ -2,8 +2,8 @@
 {
     public static int RandInt(int MaxValue, IEnumerable<int> Banned)
     {
-        int temp; Random rndm = new Random();
-        do temp = rndm.Next(MaxValue); while (Banned.ToList().Contains(temp));
+        int temp; Random rndm = new Random(); List<int> BannedIndexes = Banned.ToList();
+        do temp = rndm.Next(MaxValue); while (BannedIndexes.Contains(temp));
         return temp;
     }
 
