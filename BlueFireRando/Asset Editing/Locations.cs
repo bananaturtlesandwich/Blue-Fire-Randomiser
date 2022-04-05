@@ -24,7 +24,6 @@ public static class Locations
         string[] Item = { "" };
         string[] Weapon = { "" };
         List<FVector> Locations = new List<FVector>();
-        Random rndm = new Random();
         foreach (string file in HelperFunctions.GetMaps())
         {
             UAsset map = new UAsset(file, UE4Version.VER_UE4_25);
@@ -40,7 +39,7 @@ public static class Locations
             }
         }
         foreach (FVector location in Locations) if (location.Equals(new FVector())) Locations.Remove(location);//removes the new Fvectors
-        return Locations.OrderBy(item => rndm.Next()).ToList();
+        return HelperFunctions.Shuffle(Locations).ToList();
     }
 
     public static FVector GetLocation(UAsset map, Export export, string identifier)

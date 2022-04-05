@@ -34,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Asset Editing\Locations.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="beegUmby.ico" />
   </ItemGroup>
 
