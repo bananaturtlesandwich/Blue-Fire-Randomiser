@@ -100,12 +100,15 @@ public partial class Randomiser : Form
             File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);
         }
         modfolder = File.ReadAllText(@".\config.txt");
-        if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
         File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
         //Rename the mod pak if american
         if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
         MessageBox.Show("Randomiser pak installed");
         #endregion
+
+#if !DEBUG
+        Directory.Delete(@".\Randomiser_P", true);
+#endif
     }
     #region deleting mod pak
     private void DeletePak_Click(object sender, EventArgs e)
@@ -125,9 +128,9 @@ public partial class Randomiser : Form
         }
         MessageBox.Show("There was no pak to delete");
     }
-    #endregion
+#endregion
 
-    #region american mode switching
+#region american mode switching
     private void American_CheckedChanged(object sender, EventArgs e)
     {
         if (American.Checked)
@@ -153,5 +156,5 @@ public partial class Randomiser : Form
             Logo.BackgroundImage = Logo.InitialImage;
         }
     }
-    #endregion
+#endregion
 }

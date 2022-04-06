@@ -71,6 +71,7 @@ namespace BlueFireRando
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.CausesValidation = false;
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Weapons.Enabled = false;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
             this.Weapons.Location = new System.Drawing.Point(3, 3);
@@ -119,6 +120,7 @@ namespace BlueFireRando
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
             this.Tunics.CausesValidation = false;
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Tunics.Enabled = false;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
             this.Tunics.Location = new System.Drawing.Point(3, 111);
@@ -151,6 +153,7 @@ namespace BlueFireRando
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.CausesValidation = false;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Items.Enabled = false;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
             this.Items.Location = new System.Drawing.Point(3, 219);
@@ -194,8 +197,8 @@ namespace BlueFireRando
             // 
             // ModFolderDialog
             // 
-            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one " +
-    "with the button)";
+            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one)" +
+    "";
             this.ModFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.ModFolderDialog.UseDescriptionForTitle = true;
             // 
