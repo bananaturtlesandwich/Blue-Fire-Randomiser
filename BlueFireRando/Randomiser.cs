@@ -111,13 +111,15 @@ public partial class Randomiser : Form
         {
             File.Delete($@"{modfolder}\Randomiser_P.pak");
             MessageBox.Show("Pak file deleted");
+            return;
         }
-        else if (File.Exists($@"{modfolder}\Randomizer_P.pak"))
+        if (File.Exists($@"{modfolder}\Randomizer_P.pak"))
         {
             File.Delete($@"{modfolder}\Randomizer_P.pak");
             MessageBox.Show("Pak file deleted");
+            return;
         }
-        else MessageBox.Show("There was no pak to delete");
+        MessageBox.Show("There was no pak to delete");
     }
     #endregion
 
