@@ -109,7 +109,7 @@ namespace BlueFireRando
             this.RandoOptions.Location = new System.Drawing.Point(403, 291);
             this.RandoOptions.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
             this.RandoOptions.Name = "RandoOptions";
-            this.RandoOptions.Size = new System.Drawing.Size(519, 461);
+            this.RandoOptions.Size = new System.Drawing.Size(519, 389);
             this.RandoOptions.TabIndex = 11;
             // 
             // Tunics
@@ -194,7 +194,8 @@ namespace BlueFireRando
             // 
             // ModFolderDialog
             // 
-            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one with the button)";
+            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one " +
+    "with the button)";
             this.ModFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.ModFolderDialog.UseDescriptionForTitle = true;
             // 
@@ -299,12 +300,12 @@ namespace BlueFireRando
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button Randomise;
         private System.Windows.Forms.FlowLayoutPanel LeftSide;
-        public CheckBox Weapons;
-        public CheckBox Abilities;
-        public CheckBox Tunics;
-        public CheckBox Emotes;
-        public CheckBox Items;
-        public CheckBox Spirits;
+        private CheckBox Weapons;
+        private CheckBox Abilities;
+        private CheckBox Tunics;
+        private CheckBox Emotes;
+        private CheckBox Items;
+        private CheckBox Spirits;
     }
 }
 

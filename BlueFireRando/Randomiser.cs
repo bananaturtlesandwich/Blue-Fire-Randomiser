@@ -15,12 +15,14 @@ public partial class Randomiser : Form
     private void Randomise_Click(object sender, EventArgs e)
     {
         //delete any previously generated seed's source
-        if(Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
+        if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
 
-        //I hate nesting but idk a better way to check
+        //Not sure if there's a better way to check for no unchecked boxes
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
         {
-            //Indexes.DumpIndexes();
+#if DEBUG
+            Indexes.DumpIndexes();
+#endif
             MessageBox.Show("You haven't checked any options!");
             return;
         }
@@ -79,28 +81,30 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
+        Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork");
         if (Emotes.Checked) Indexes.RandomiseEmotes();
+        if (Spirits.Checked) Indexes.RandomiseSpirits();
         #endregion
 
         #region packaging and installing
         //Start the custom batch file I created
         //I cooouuuuld run cmd with parameters but I think a batch script is cleaner
         System.Diagnostics.Process.Start(@".\Packing.bat");
-            MessageBox.Show("Randomisation complete!");
+        MessageBox.Show("Randomisation complete!");
 
-            //Start moving process of the .pak file to the mod folder
-            string modfolder = File.ReadAllText(@".\config.txt");
-            if (modfolder.Equals(""))
-            {
-                if (ModFolderDialog.ShowDialog() == DialogResult.OK) MessageBox.Show("Mod folder registered. edit config.txt to change this folder");
-                File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);
-            }
-            modfolder = File.ReadAllText(@".\config.txt");
-            if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
-            File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
-            //Rename the mod pak if american
-            if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
-            MessageBox.Show("Randomiser pak installed");
+        //Start moving process of the .pak file to the mod folder
+        string modfolder = File.ReadAllText(@".\config.txt");
+        if (modfolder.Equals(""))
+        {
+            if (ModFolderDialog.ShowDialog() == DialogResult.OK) MessageBox.Show("Mod folder registered. edit config.txt to change this folder");
+            File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);
+        }
+        modfolder = File.ReadAllText(@".\config.txt");
+        if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
+        File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
+        //Rename the mod pak if american
+        if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
+        MessageBox.Show("Randomiser pak installed");
         #endregion
     }
     #region deleting mod pak

@@ -1,3 +1,5 @@
+namespace BlueFireRando;
+
 public static class Enums
 {
     public static void RandomiseEnum(string filepath, int[] BannedIndexes)

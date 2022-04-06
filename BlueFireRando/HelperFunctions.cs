@@ -18,7 +18,7 @@
     {
         return File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset") ?
                @".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset" :
-               @".\Baseassets\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset";
+               @".\Baseassets\BlueFireSaveGame.uasset";
     }
 
     public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target)
