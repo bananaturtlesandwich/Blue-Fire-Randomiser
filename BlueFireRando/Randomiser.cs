@@ -100,6 +100,8 @@ public partial class Randomiser : Form
             File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);
         }
         modfolder = File.ReadAllText(@".\config.txt");
+        if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
+        if (File.Exists($@"{modfolder}\Randomizer_P.pak")) File.Delete($@"{modfolder}\Randomizer_P.pak");
         File.Move(@".\Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
         //Rename the mod pak if american
         if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
