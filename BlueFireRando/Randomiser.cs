@@ -70,14 +70,16 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\03_VoidEasy");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\15_VoidFlauta");
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\Voids\17_VoidSanti");
-        //Indexes.DumpIndexes();
         if (Emotes.Checked) Indexes.RandomiseEmotes();
         #endregion
 
         #region if options were checked then package
         //I hate nesting but idk a better way to check
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
+        {
+            Indexes.DumpIndexes();
             MessageBox.Show("You haven't checked any options!");
+        }
         else
         {
             //Start the custom batch file I created
