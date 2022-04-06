@@ -148,13 +148,4 @@ public partial class Randomiser : Form
         }
     }
     #endregion
-
-    #region making the customisation checkboxes global
-    private void Weapons_CheckedChanged(object sender, EventArgs e) { Globals.Weapons = Weapons.Checked; }
-    private void Abilities_CheckedChanged(object sender, EventArgs e) { Globals.Abilities = Abilities.Checked; }
-    private void Tunics_CheckedChanged(object sender, EventArgs e) { Globals.Tunics = Tunics.Checked; }
-    private void Emotes_CheckedChanged(object sender, EventArgs e) { Globals.Emotes = Emotes.Checked; }
-    private void Items_CheckedChanged(object sender, EventArgs e) { Globals.Items = Items.Checked; }
-    private void Spirit_CheckedChanged(object sender, EventArgs e) { Globals.Spirits = Spirits.Checked; }
-    #endregion
 }

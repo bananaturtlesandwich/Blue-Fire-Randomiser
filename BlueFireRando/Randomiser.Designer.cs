@@ -69,6 +69,7 @@ namespace BlueFireRando
             this.Weapons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Weapons.AutoSize = true;
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
+            this.Weapons.CausesValidation = false;
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
@@ -84,6 +85,7 @@ namespace BlueFireRando
             this.Abilities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Abilities.AutoSize = true;
             this.Abilities.BackColor = System.Drawing.Color.Transparent;
+            this.Abilities.CausesValidation = false;
             this.Abilities.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Abilities.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
@@ -115,6 +117,7 @@ namespace BlueFireRando
             this.Tunics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Tunics.AutoSize = true;
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
+            this.Tunics.CausesValidation = false;
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
@@ -130,6 +133,7 @@ namespace BlueFireRando
             this.Emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Emotes.AutoSize = true;
             this.Emotes.BackColor = System.Drawing.Color.Transparent;
+            this.Emotes.CausesValidation = false;
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
@@ -145,6 +149,7 @@ namespace BlueFireRando
             this.Items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Items.AutoSize = true;
             this.Items.BackColor = System.Drawing.Color.Transparent;
+            this.Items.CausesValidation = false;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
@@ -160,6 +165,7 @@ namespace BlueFireRando
             this.Spirits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Spirits.AutoSize = true;
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
+            this.Spirits.CausesValidation = false;
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
@@ -188,8 +194,7 @@ namespace BlueFireRando
             // 
             // ModFolderDialog
             // 
-            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one " +
-    "with the button)";
+            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one with the button)";
             this.ModFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.ModFolderDialog.UseDescriptionForTitle = true;
             // 
@@ -283,22 +288,23 @@ namespace BlueFireRando
             this.LeftSide.ResumeLayout(false);
             this.LeftSide.PerformLayout();
             this.ResumeLayout(false);
+
         }
         #endregion
         private System.Windows.Forms.PictureBox UmbyPet;
-        private System.Windows.Forms.CheckBox Weapons;
-        private System.Windows.Forms.CheckBox Abilities;
         private System.Windows.Forms.FlowLayoutPanel RandoOptions;
         private System.Windows.Forms.CheckBox American;
         public System.Windows.Forms.FolderBrowserDialog ModFolderDialog;
-        private System.Windows.Forms.CheckBox Tunics;
-        private System.Windows.Forms.CheckBox Emotes;
         private System.Windows.Forms.Button DeletePak;
-        private System.Windows.Forms.CheckBox Items;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button Randomise;
-        private System.Windows.Forms.CheckBox Spirits;
         private System.Windows.Forms.FlowLayoutPanel LeftSide;
+        public CheckBox Weapons;
+        public CheckBox Abilities;
+        public CheckBox Tunics;
+        public CheckBox Emotes;
+        public CheckBox Items;
+        public CheckBox Spirits;
     }
 }
 
