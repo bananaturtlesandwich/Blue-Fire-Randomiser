@@ -15,7 +15,16 @@ public partial class Randomiser : Form
     private void Randomise_Click(object sender, EventArgs e)
     {
         //delete any previously generated seed's source
-        Directory.Delete(@".\Randomiser_P", true);
+        if(Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
+
+        //I hate nesting but idk a better way to check
+        if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
+        {
+            //Indexes.DumpIndexes();
+            MessageBox.Show("You haven't checked any options!");
+            return;
+        }
+
 
         #region custom menu art
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
@@ -73,18 +82,10 @@ public partial class Randomiser : Form
         if (Emotes.Checked) Indexes.RandomiseEmotes();
         #endregion
 
-        #region if options were checked then package
-        //I hate nesting but idk a better way to check
-        if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
-        {
-            Indexes.DumpIndexes();
-            MessageBox.Show("You haven't checked any options!");
-        }
-        else
-        {
-            //Start the custom batch file I created
-            //I cooouuuuld run cmd with parameters but I think a batch script is cleaner
-            System.Diagnostics.Process.Start(@".\Packing.bat");
+        #region packaging and installing
+        //Start the custom batch file I created
+        //I cooouuuuld run cmd with parameters but I think a batch script is cleaner
+        System.Diagnostics.Process.Start(@".\Packing.bat");
             MessageBox.Show("Randomisation complete!");
 
             //Start moving process of the .pak file to the mod folder
@@ -100,7 +101,6 @@ public partial class Randomiser : Form
             //Rename the mod pak if american
             if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
             MessageBox.Show("Randomiser pak installed");
-        }
         #endregion
     }
     #region deleting mod pak
