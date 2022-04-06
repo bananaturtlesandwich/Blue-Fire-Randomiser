@@ -197,8 +197,7 @@ namespace BlueFireRando
             // 
             // ModFolderDialog
             // 
-            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder in Paks make one)" +
-    "";
+            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder make one in the game's Paks folder (the default location for steam is C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blue Fire\\Blue Fire\\Content\\Paks))";
             this.ModFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.ModFolderDialog.UseDescriptionForTitle = true;
             // 
@@ -295,6 +294,7 @@ namespace BlueFireRando
 
         }
         #endregion
+
         private System.Windows.Forms.PictureBox UmbyPet;
         private System.Windows.Forms.FlowLayoutPanel RandoOptions;
         private System.Windows.Forms.CheckBox American;
