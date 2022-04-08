@@ -5,9 +5,6 @@ public partial class Randomiser : Form
     public Randomiser()
     {
         InitializeComponent();
-#if !DEBUG
-        MessageBox.Show("There is currently a bug I'm not sure what to do with where the application will have trouble accessing the mod folder due to you having file explorer open.\nJust click randomise again and it'll work, or close file explorer before hitting randomise :)");
-#endif
         //create config.txt to store modfolder if it doesn't exist
         if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
     }
@@ -84,7 +81,7 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork");
         if (Emotes.Checked) Indexes.RandomiseEmotes();
         if (Spirits.Checked) Indexes.RandomiseSpirits();
-        if(Items.Checked) Indexes.RandomiseItems();
+        if (Items.Checked) Indexes.RandomiseItems();
         #endregion
 
         #region packaging and installing
@@ -95,7 +92,7 @@ public partial class Randomiser : Form
 
         //Start moving process of the .pak file to the mod folder
         string modfolder = File.ReadAllText(@".\config.txt");
-        if (modfolder.Equals(""))
+        if (modfolder=="")
         {
             if (ModFolderDialog.ShowDialog() == DialogResult.OK) MessageBox.Show("Mod folder registered. edit config.txt to change this folder");
             File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);

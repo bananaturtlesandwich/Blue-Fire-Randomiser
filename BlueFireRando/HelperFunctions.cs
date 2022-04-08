@@ -9,7 +9,7 @@
 
     public static string[] GetMaps()
     {
-        return Directory.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World") ?
+        return File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World\A01_AbilityShrine.umap") ?
                Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) :
                Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
