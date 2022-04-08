@@ -153,7 +153,6 @@ namespace BlueFireRando
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.CausesValidation = false;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Items.Enabled = false;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
             this.Items.Location = new System.Drawing.Point(3, 219);
@@ -197,7 +196,8 @@ namespace BlueFireRando
             // 
             // ModFolderDialog
             // 
-            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder make one in the game's Paks folder (the default location for steam is C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blue Fire\\Blue Fire\\Content\\Paks))";
+            this.ModFolderDialog.Description = "Please select the mod folder (if you do not have a ~mods folder make one in the g" +
+    "ame\'s Paks folder)";
             this.ModFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.ModFolderDialog.UseDescriptionForTitle = true;
             // 

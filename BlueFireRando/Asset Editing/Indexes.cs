@@ -13,25 +13,20 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
-                /*foreach (PropertyData data in export.Data)
-                    if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Spirits"))
-                        File.AppendAllText(@".\dump.txt", $"Map: {MapFile}\nObject:{export.ObjectName}\nByte:{_byte.GetEnumFull(Map)}\n\n");*/
-                if (export.ObjectName.ToString().Contains("_EmoteStatue_") && export.Data[9] is BytePropertyData _byte)
-                    File.AppendAllText(@".\dump.txt", "\"" + Map.GetNameReference(_byte.Value).ToString() + "\",");
-                /*else if (export.ObjectName.ToString().StartsWith("Dance_Platform_Party_Chest_Spirit_") && export.Data[11] is BytePropertyData byt)
-                    File.AppendAllText(@".\dump.txt", "\"" + Map.GetNameReference(byt.Value).ToString() + "\",");*/
+                if (!export.ObjectName.ToString().Contains("Door_"))
+                    foreach (PropertyData data in export.Data)
+                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
+                            File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
             }
         }
 
-        /*UAsset Savegame = new(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
+        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
-            foreach (PropertyData data in ex.Data)
+            foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
-                    foreach (StructPropertyData item in shop.Value)
-                        if (item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('3'))
-                            foreach (var props in item.Value)
-                                if (props is BytePropertyData _byte && _byte.GetEnumBase(Savegame) == FString.FromString("Spirits"))
-                                    File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Savegame).ToString() + "\",");*/
+                    foreach (var thing in shop.Value)
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
+                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull(Savegame).ToString() + "\",");
     }
 #endif
 
@@ -74,8 +69,8 @@ public static class Indexes
                 }
                 if (export.ObjectName.ToString().StartsWith("Dance_Platform_Party_Chest_Spirit_") && export.Data[11] is BytePropertyData byt)
                 {
-                    Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
                     Map.SetNameReference(byt.Value, FString.FromString(ShuffledSpirits.Dequeue()));
+                    Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
                 }
             }
         }
@@ -90,6 +85,33 @@ public static class Indexes
     }
 
     //Item Patterns: Base Enum is Items and we do not want doors to be included unless you want to unlock a door with a ruby or smthn
+    //Too many other variables have Chest_ or Pickup_ at the start of their names so I'll search manually
+    public static void RandomiseItems()
+    {
+        string[] Items = { "Items::NewEnumerator45", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator17", "Items::NewEnumerator31", "Items::NewEnumerator24", "Items::NewEnumerator26", "Items::NewEnumerator31", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator30", "Items::NewEnumerator42", "Items::NewEnumerator55", "Items::NewEnumerator27", "Items::NewEnumerator70", "Items::NewEnumerator9", "Items::NewEnumerator9", "Items::NewEnumerator24", "Items::NewEnumerator46", "Items::NewEnumerator26", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator72", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator72", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator80", "Items::NewEnumerator31", "Items::NewEnumerator42", "Items::NewEnumerator14", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator42", "Items::NewEnumerator54", "Items::NewEnumerator81", "Items::NewEnumerator14", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator0", "Items::NewEnumerator83", "Items::NewEnumerator81", "Items::NewEnumerator80", "Items::NewEnumerator14", "Items::NewEnumerator91", "Items::NewEnumerator39", "Items::NewEnumerator89", "Items::NewEnumerator31", "Items::NewEnumerator25", "Items::NewEnumerator24"};
+        Queue<string> ShuffledItems = new Queue<string>(HelperFunctions.Shuffle(Items));
+        foreach (string MapFile in HelperFunctions.GetMaps())
+        {
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
+                if (!export.ObjectName.ToString().Contains("Door_"))
+                    foreach (PropertyData data in export.Data)
+                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
+                        {
+                            _byte.Value = Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+                            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
+                        }
+        }
+
+        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
+        if (Savegame.Exports[1] is NormalExport ex)
+            foreach (var data in ex.Data)
+                if (data is ArrayPropertyData shop)
+                    foreach (var thing in shop.Value)
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
+                            Item.Value = Savegame.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+        Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
+    }
     //Tunic Patterns: Base Enum is Tunics...that's it!
     //Weapon Patterns: Base Enum is Weapons...that's it!
 }

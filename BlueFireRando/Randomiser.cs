@@ -84,6 +84,7 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork");
         if (Emotes.Checked) Indexes.RandomiseEmotes();
         if (Spirits.Checked) Indexes.RandomiseSpirits();
+        if(Items.Checked) Indexes.RandomiseItems();
         #endregion
 
         #region packaging and installing
@@ -130,9 +131,9 @@ public partial class Randomiser : Form
         }
         MessageBox.Show("There was no pak to delete");
     }
-#endregion
+    #endregion
 
-#region american mode switching
+    #region american mode switching
     private void American_CheckedChanged(object sender, EventArgs e)
     {
         if (American.Checked)
@@ -158,5 +159,5 @@ public partial class Randomiser : Form
             Logo.BackgroundImage = Logo.InitialImage;
         }
     }
-#endregion
+    #endregion
 }
