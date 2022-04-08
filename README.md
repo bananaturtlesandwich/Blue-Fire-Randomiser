@@ -11,6 +11,7 @@ Remember this application was written using the dotnet 4.7.2 framework in order 
 - Check the boxes which you would like and click randomise once you are satisfied with your choice
 - A pak file will be generated
 - You will be prompted to select your mod folder - this is Blue Fire/Content/Paks/~mods (if you do not have a ~mods folder in Paks then make one with the new folder button)
+- Your modfolder is saved in a file next to the .exe for future reference
 
 # Issues
 There is nothing currently-if there is then please report in the issues tab or in the Blue Fire discord (ping spuds)
