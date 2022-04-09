@@ -9,8 +9,8 @@
 
     public static string[] GetMaps()
     {
-        return File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\World\A01_AbilityShrine.umap") ?
-               Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\World", "*.umap", SearchOption.AllDirectories) :
+        return Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories).Length > 0 ?
+               Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories) :
                Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
     }
 

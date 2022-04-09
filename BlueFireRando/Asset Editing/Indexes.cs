@@ -42,10 +42,8 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
                 if (export.ObjectName.ToString().Contains("_EmoteStatue_") && export.Data[2] is BytePropertyData _byte)
-                {
                     Map.SetNameReference(_byte.Value, FString.FromString(ShuffledEmotes.Dequeue()));
-                    Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
-                }
+            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
     }
 
@@ -64,15 +62,12 @@ public static class Indexes
                 if (export.ObjectName.ToString().StartsWith("Spirit_") && export.Data[9] is BytePropertyData _byte)
                 {
                     Map.SetNameReference(_byte.Value, FString.FromString(ShuffledSpirits.Dequeue()));
-                    Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
                     continue;
                 }
                 if (export.ObjectName.ToString().StartsWith("Dance_Platform_Party_Chest_Spirit_") && export.Data[11] is BytePropertyData byt)
-                {
                     Map.SetNameReference(byt.Value, FString.FromString(ShuffledSpirits.Dequeue()));
-                    Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
-                }
             }
+            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
         UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
@@ -97,10 +92,9 @@ public static class Indexes
                 if (!export.ObjectName.ToString().Contains("Door_"))
                     foreach (PropertyData data in export.Data)
                         if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
-                        {
                             _byte.Value = Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
-                            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "")}");
-                        }
+
+            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
 
         UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);

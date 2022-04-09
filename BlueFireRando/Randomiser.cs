@@ -92,7 +92,7 @@ public partial class Randomiser : Form
 
         //Start moving process of the .pak file to the mod folder
         string modfolder = File.ReadAllText(@".\config.txt");
-        if (modfolder=="")
+        if (modfolder == "")
         {
             if (ModFolderDialog.ShowDialog() == DialogResult.OK) MessageBox.Show("Mod folder registered. edit config.txt to change this folder");
             File.WriteAllText(@".\config.txt", ModFolderDialog.SelectedPath);
