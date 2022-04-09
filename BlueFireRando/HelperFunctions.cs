@@ -17,9 +17,5 @@
         @".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset" :
         @".\Baseassets\BlueFireSaveGame.uasset";
 
-    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target)
-    {
-        Random rndm = new Random();
-        return target.OrderBy(x => rndm.Next()).ToList();
-    }
+    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target) => target.OrderBy(x => new Random().Next());
 }

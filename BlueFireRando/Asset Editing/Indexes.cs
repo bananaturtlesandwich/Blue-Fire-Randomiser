@@ -19,7 +19,6 @@ public static class Indexes
         }
     }
 
-
     //Spirit Patterns: All spirit objects start with Spirit_ except for Dance_Platform_Party_Chest_Spirit_HammerKing
     //The location of the byte property is always 9 except when it's 1 in Dance_Platform_Party_Chest_Spirit_HammerKing
     public static void RandomiseSpirits()
