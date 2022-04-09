@@ -2,34 +2,6 @@
 
 public static class Indexes
 {
-#if DEBUG
-
-    //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns
-    public static void DumpIndexes()
-    {
-        File.Delete(@".\dump.txt");
-        foreach (string MapFile in HelperFunctions.GetMaps())
-        {
-            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
-            foreach (NormalExport export in Map.Exports)
-            {
-                if (!export.ObjectName.ToString().Contains("Door_"))
-                    foreach (PropertyData data in export.Data)
-                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
-                            File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
-            }
-        }
-
-        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
-        if (Savegame.Exports[1] is NormalExport ex)
-            foreach (var data in ex.Data)
-                if (data is ArrayPropertyData shop)
-                    foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
-                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull(Savegame).ToString() + "\",");
-    }
-#endif
-
     //Emote Statue Patterns: _EmoteStatue_ is always part of the object name
     ////Weirdly, the wave emote statue does not have a ByteProperty listed
     //The location of the byte property is always the 3rd
@@ -108,4 +80,32 @@ public static class Indexes
     }
     //Tunic Patterns: Base Enum is Tunics...that's it!
     //Weapon Patterns: Base Enum is Weapons...that's it!
+
+#if DEBUG
+
+    //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns
+    public static void DumpIndexes()
+    {
+        File.Delete(@".\dump.txt");
+        foreach (string MapFile in HelperFunctions.GetMaps())
+        {
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
+            {
+                if (!export.ObjectName.ToString().Contains("Door_"))
+                    foreach (PropertyData data in export.Data)
+                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
+                            File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
+            }
+        }
+
+        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
+        if (Savegame.Exports[1] is NormalExport ex)
+            foreach (var data in ex.Data)
+                if (data is ArrayPropertyData shop)
+                    foreach (var thing in shop.Value)
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
+                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull(Savegame).ToString() + "\",");
+    }
+#endif
 }

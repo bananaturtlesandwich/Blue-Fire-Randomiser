@@ -143,18 +143,16 @@ public partial class Randomiser : Form
             Randomise.Text = "Randomize";
             UmbyPet.Image = UmbyPet.InitialImage;
             Logo.BackgroundImage = Logo.ErrorImage;
+            return;
         }
-        else
-        {
-            Weapons.Text = "Randomise Weapons?";
-            Abilities.Text = "Randomise Abilities?";
-            Spirits.Text = "Randomise Spirits?";
-            Tunics.Text = "Randomise Tunics?";
-            Emotes.Text = "Randomise Emotes";
-            Randomise.Text = "Randomise";
-            UmbyPet.Image = UmbyPet.ErrorImage;
-            Logo.BackgroundImage = Logo.InitialImage;
-        }
+        Weapons.Text = "Randomise Weapons?";
+        Abilities.Text = "Randomise Abilities?";
+        Spirits.Text = "Randomise Spirits?";
+        Tunics.Text = "Randomise Tunics?";
+        Emotes.Text = "Randomise Emotes";
+        Randomise.Text = "Randomise";
+        UmbyPet.Image = UmbyPet.ErrorImage;
+        Logo.BackgroundImage = Logo.InitialImage;
     }
     #endregion
 }
