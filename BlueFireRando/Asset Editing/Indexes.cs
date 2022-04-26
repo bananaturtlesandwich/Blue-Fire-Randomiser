@@ -8,8 +8,8 @@ public static class Indexes
     public static void RandomiseEmotes()
     {
         string[] Emotes = { "E_Emotes::NewEnumerator6", "E_Emotes::NewEnumerator7", "E_Emotes::NewEnumerator13", "E_Emotes::NewEnumerator8", "E_Emotes::NewEnumerator4", "E_Emotes::NewEnumerator2", "E_Emotes::NewEnumerator12", "E_Emotes::NewEnumerator9", "E_Emotes::NewEnumerator3", "E_Emotes::NewEnumerator11", "E_Emotes::NewEnumerator5", "E_Emotes::NewEnumerator1" };
-        Queue<string> ShuffledEmotes = new(HelperFunctions.Shuffle(Emotes));
-        foreach (string MapFile in HelperFunctions.GetMaps())
+        Queue<string> ShuffledEmotes = new(Helpers.Shuffle(Emotes));
+        foreach (string MapFile in Helpers.GetMaps())
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
@@ -24,8 +24,8 @@ public static class Indexes
     public static void RandomiseSpirits()
     {
         string[] Spirits = { "Spirits::NewEnumerator13", "Spirits::NewEnumerator4", "Spirits::NewEnumerator2", "Spirits::NewEnumerator9", "Spirits::NewEnumerator3", "Spirits::NewEnumerator21", "Spirits::NewEnumerator1", "Spirits::NewEnumerator28", "Spirits::NewEnumerator12", "Spirits::NewEnumerator17", "Spirits::NewEnumerator25", "Spirits::NewEnumerator10", "Spirits::NewEnumerator11", "Spirits::NewEnumerator7", "Spirits::NewEnumerator27", "Spirits::NewEnumerator14", "Spirits::NewEnumerator15" };
-        Queue<string> ShuffledSpirits = new(HelperFunctions.Shuffle(Spirits));
-        foreach (string MapFile in HelperFunctions.GetMaps())
+        Queue<string> ShuffledSpirits = new(Helpers.Shuffle(Spirits));
+        foreach (string MapFile in Helpers.GetMaps())
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
@@ -48,8 +48,8 @@ public static class Indexes
     public static void RandomiseItems()
     {
         string[] Items = { "Items::NewEnumerator45", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator17", "Items::NewEnumerator31", "Items::NewEnumerator24", "Items::NewEnumerator26", "Items::NewEnumerator31", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator30", "Items::NewEnumerator42", "Items::NewEnumerator55", "Items::NewEnumerator27", "Items::NewEnumerator70", "Items::NewEnumerator9", "Items::NewEnumerator9", "Items::NewEnumerator24", "Items::NewEnumerator46", "Items::NewEnumerator26", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator72", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator72", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator80", "Items::NewEnumerator31", "Items::NewEnumerator42", "Items::NewEnumerator14", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator42", "Items::NewEnumerator54", "Items::NewEnumerator81", "Items::NewEnumerator14", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator0", "Items::NewEnumerator83", "Items::NewEnumerator81", "Items::NewEnumerator80", "Items::NewEnumerator14", "Items::NewEnumerator91", "Items::NewEnumerator39", "Items::NewEnumerator89", "Items::NewEnumerator31", "Items::NewEnumerator25", "Items::NewEnumerator24" };
-        Queue<string> ShuffledItems = new Queue<string>(HelperFunctions.Shuffle(Items));
-        foreach (string MapFile in HelperFunctions.GetMaps())
+        Queue<string> ShuffledItems = new Queue<string>(Helpers.Shuffle(Items));
+        foreach (string MapFile in Helpers.GetMaps())
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
@@ -67,14 +67,14 @@ public static class Indexes
     public static void RandomiseTunics()
     {
         string[] Tunics = { "Tunics::NewEnumerator31", "Tunics::NewEnumerator15", "Tunics::NewEnumerator2", "Tunics::NewEnumerator16", "Tunics::NewEnumerator16", "Tunics::NewEnumerator7", "Tunics::NewEnumerator14", "Tunics::NewEnumerator10", "Tunics::NewEnumerator27", "Tunics::NewEnumerator26", "Tunics::NewEnumerator25", "Tunics::NewEnumerator24", "Tunics::NewEnumerator23", "Tunics::NewEnumerator22", "Tunics::NewEnumerator21", "Tunics::NewEnumerator20", "Tunics::NewEnumerator19", "Tunics::NewEnumerator18", "Tunics::NewEnumerator17" };
-        Queue<string> ShuffledTunics = new Queue<string>(HelperFunctions.Shuffle(Tunics));
+        Queue<string> ShuffledTunics = new Queue<string>(Helpers.Shuffle(Tunics));
         RandomiseShops(ref ShuffledTunics, '2', 5);
     }
     //Weapon Patterns: Base Enum is Weapons...that's it!
 
     private static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
     {
-        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
+        UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
@@ -89,7 +89,7 @@ public static class Indexes
     public static void DumpIndexes()
     {
         File.Delete(@".\dump.txt");
-        foreach (string MapFile in HelperFunctions.GetMaps())
+        foreach (string MapFile in Helpers.GetMaps())
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
@@ -100,7 +100,7 @@ public static class Indexes
             }
         }
 
-        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
+        UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
