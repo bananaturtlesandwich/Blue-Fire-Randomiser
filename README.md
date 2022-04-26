@@ -3,8 +3,9 @@ A **very** work-in-progress randomiser for Blue Fire
 
 For a roadmap and my thought process check out the [wiki](https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser/wiki)
 
-Remember this application was written using the dotnet 4.7.2 framework in order to support .uasset file editing in [UAssetAPI](https://github.com/atenfyr/UAssetAPI) by [atenfyr](https://github.com/atenfyr) so you will need to install the appropriate runtime from [here](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472) in order to run it
+Remember this application was written using dotnet 6 so you will need to install the appropriate runtime from [here](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472) in order to run it
 
+The main dependency of this program is UAssetAPI
 
 # Usage Guide
 - Open BlueFireRando.exe and you will be greeted with the menu. 
