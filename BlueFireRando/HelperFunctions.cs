@@ -7,10 +7,9 @@
         return temp;
     }
 
-    public static string[] GetMaps() =>
-        Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories).Length > 0 ?
-        Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories) :
-        Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
+    public static string[] GetMaps() => Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories).Length > 0 ?
+            Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories) :
+            Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
 
     public static string GetSaveGame() =>
         File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset") ?

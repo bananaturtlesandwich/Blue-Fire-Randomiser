@@ -40,14 +40,7 @@ public static class Indexes
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
-        UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
-        if (Savegame.Exports[1] is NormalExport ex)
-            foreach (var data in ex.Data)
-                if (data is ArrayPropertyData shop)
-                    foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('3') && item.Value[7] is BytePropertyData Spirit)
-                            Savegame.SetNameReference(Spirit.Value, FString.FromString(ShuffledSpirits.Dequeue()));
-        Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
+        RandomiseShops(ref ShuffledSpirits, '3', 7);
     }
 
     //Item Patterns: Base Enum is Items and we do not want doors to be included unless you want to unlock a door with a ruby or smthn
@@ -60,28 +53,38 @@ public static class Indexes
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
-                if (!export.ObjectName.ToString().Contains("Door_"))
+                if (!export.ObjectName.ToString().Contains("Door_") && !export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01"))
                     foreach (PropertyData data in export.Data)
                         if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
                             _byte.Value = Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
 
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
+        RandomiseShops(ref ShuffledItems, '0', 0);
+    }
 
+    //Tunic Patterns: Base Enum is Tunics...that's it!
+    public static void RandomiseTunics()
+    {
+        string[] Tunics = { "Tunics::NewEnumerator31", "Tunics::NewEnumerator15", "Tunics::NewEnumerator2", "Tunics::NewEnumerator16", "Tunics::NewEnumerator16", "Tunics::NewEnumerator7", "Tunics::NewEnumerator14", "Tunics::NewEnumerator10", "Tunics::NewEnumerator27", "Tunics::NewEnumerator26", "Tunics::NewEnumerator25", "Tunics::NewEnumerator24", "Tunics::NewEnumerator23", "Tunics::NewEnumerator22", "Tunics::NewEnumerator21", "Tunics::NewEnumerator20", "Tunics::NewEnumerator19", "Tunics::NewEnumerator18", "Tunics::NewEnumerator17" };
+        Queue<string> ShuffledTunics = new Queue<string>(HelperFunctions.Shuffle(Tunics));
+        RandomiseShops(ref ShuffledTunics, '2', 5);
+    }
+    //Weapon Patterns: Base Enum is Weapons...that's it!
+
+    private static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
+    {
         UAsset Savegame = new UAsset(HelperFunctions.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
-                            Item.Value = Savegame.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
+                            Item.Value = Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
     }
-    //Tunic Patterns: Base Enum is Tunics...that's it!
-    //Weapon Patterns: Base Enum is Weapons...that's it!
 
 #if DEBUG
-
     //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns
     public static void DumpIndexes()
     {
@@ -91,10 +94,9 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
-                if (!export.ObjectName.ToString().Contains("Door_"))
-                    foreach (PropertyData data in export.Data)
-                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
-                            File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
+                foreach (PropertyData data in export.Data)
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
+                        File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
             }
         }
 
@@ -103,7 +105,7 @@ public static class Indexes
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('0') && item.Value[0] is BytePropertyData Item)
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('2') && item.Value[5] is BytePropertyData Item)
                             File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull(Savegame).ToString() + "\",");
     }
 #endif

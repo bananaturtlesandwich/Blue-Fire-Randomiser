@@ -46,16 +46,16 @@ public partial class Randomiser : Form
             int[] CutAbilities = { 5, 7, 10/*for now let's also ban dash and attack*/, 0, 1 };
             Enums.RandomiseEnum(@".\Baseassets\Enums\Abilities.uasset", CutAbilities);
         }
-        /*if (Weapons.Checked)
-        {
-            int[] UnusedWeapons = { 12,13,14 };
-            Enums.RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", UnusedWeapons);
-        }
-        if (Items.Checked)
+        /*if (Items.Checked)
         {
             //this might change
             int[] CutOrKeyItems = { 2, 3, 17, 4, 6, 8, 15, 20, 21, 43, 25, 26, 22, 7, 9, 28, 10, 16, 11, 29, 12, 30, 13, 35, 36, 37, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 68, 69, 71, 73, 74, 76, 77, 78, 79, 80, 81, 82 };
             Enums.RandomiseEnum(@".\Baseassets\Enums\Items.uasset", CutOrKeyItems);
+        }*/
+        /*if (Weapons.Checked)
+        {
+            int[] UnusedWeapons = { 12,13,14 };
+            Enums.RandomiseEnum(@".\Baseassets\Enums\Weapons.uasset", UnusedWeapons);
         }
         if (Spirits.Checked)
         {
