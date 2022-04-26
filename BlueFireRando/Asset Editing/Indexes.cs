@@ -55,8 +55,8 @@ public static class Indexes
             foreach (NormalExport export in Map.Exports)
                 if (!export.ObjectName.ToString().Contains("Door_") && !export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01"))
                     foreach (PropertyData data in export.Data)
-                        if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Items"))
-                            _byte.Value = Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+                        if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
+                            _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
 
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
@@ -79,8 +79,8 @@ public static class Indexes
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
-                            Item.Value = Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull().ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
+                            Item.Value = (byte)Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
     }
 
@@ -95,8 +95,8 @@ public static class Indexes
             foreach (NormalExport export in Map.Exports)
             {
                 foreach (PropertyData data in export.Data)
-                    if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
-                        File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull(Map).ToString() + "\",");
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
+                        File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull().ToString() + "\",");
             }
         }
 
@@ -105,8 +105,8 @@ public static class Indexes
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith('2') && item.Value[5] is BytePropertyData Item)
-                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull(Savegame).ToString() + "\",");
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull().ToString().EndsWith('2') && item.Value[5] is BytePropertyData Item)
+                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull().ToString() + "\",");
     }
 #endif
 }

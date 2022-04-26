@@ -363,4 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.vscode
+
 Engine
+
+*.dll
