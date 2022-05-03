@@ -30,8 +30,9 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
-                if (export.ObjectName.ToString().StartsWith("Spirit_") && export.Data[9] is BytePropertyData _byte)
-                {
+                if (export.ObjectName == FName.FromString("Spirit_2")) continue;
+                if (export.ObjectName.ToString().StartsWith("Spirit_")&& export.Data[9] is BytePropertyData _byte) 
+                { 
                     Map.SetNameReference(_byte.Value, FString.FromString(ShuffledSpirits.Dequeue()));
                     continue;
                 }
@@ -70,11 +71,40 @@ public static class Indexes
     //Tunic Patterns: Base Enum is Tunics...that's it!
     public static void RandomiseTunics()
     {
-        string[] Tunics = { "Tunics::NewEnumerator31", "Tunics::NewEnumerator15", "Tunics::NewEnumerator2", "Tunics::NewEnumerator16", "Tunics::NewEnumerator16", "Tunics::NewEnumerator7", "Tunics::NewEnumerator14", "Tunics::NewEnumerator10", "Tunics::NewEnumerator27", "Tunics::NewEnumerator26", "Tunics::NewEnumerator25", "Tunics::NewEnumerator24", "Tunics::NewEnumerator23", "Tunics::NewEnumerator22", "Tunics::NewEnumerator21", "Tunics::NewEnumerator20", "Tunics::NewEnumerator19", "Tunics::NewEnumerator18", "Tunics::NewEnumerator17" };
+        string[] Tunics = { "Tunics::NewEnumerator31", "Tunics::NewEnumerator15", "Tunics::NewEnumerator2", "Tunics::NewEnumerator16", "Tunics::NewEnumerator7", "Tunics::NewEnumerator14", "Tunics::NewEnumerator10", "Tunics::NewEnumerator27", "Tunics::NewEnumerator26", "Tunics::NewEnumerator25", "Tunics::NewEnumerator24", "Tunics::NewEnumerator23", "Tunics::NewEnumerator22", "Tunics::NewEnumerator21", "Tunics::NewEnumerator20", "Tunics::NewEnumerator19", "Tunics::NewEnumerator18", "Tunics::NewEnumerator17" };
         Queue<string> ShuffledTunics = new Queue<string>(Helpers.Shuffle(Tunics));
+        foreach (string MapFile in Helpers.GetMaps())
+        {
+            UAsset Map = new UAsset(MapFile,UE4Version.VER_UE4_25);
+            foreach(NormalExport export in Map.Exports)
+            {
+                //prevents randomising of a pointless reference
+                if(export.ObjectName== FName.FromString("Dance_Platform_Wave_Chest")) continue;
+                foreach (PropertyData data in export.Data)
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
+                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue())); ;
+            }
+            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+        }
         RandomiseShops(ref ShuffledTunics, '2', 5);
     }
     //Weapon Patterns: Base Enum is Weapons...that's it!
+    public static void RandomiseWeapons()
+    {
+        string[] Weapons = { "Weapons::NewEnumerator10", "Weapons::NewEnumerator6", "Weapons::NewEnumerator8", "Weapons::NewEnumerator7", "Weapons::NewEnumerator2", "Weapons::NewEnumerator1", "Weapons::NewEnumerator4", "Weapons::NewEnumerator3"};
+        Queue<string> ShuffledWeapons = new Queue<string>(Helpers.Shuffle(Weapons));
+        foreach (string MapFile in Helpers.GetMaps())
+        {
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
+            {
+                foreach (PropertyData data in export.Data)
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
+                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue())); ;
+            }
+            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+        }
+    }
 
     private static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
     {
@@ -99,8 +129,8 @@ public static class Indexes
             foreach (NormalExport export in Map.Exports)
             {
                 foreach (PropertyData data in export.Data)
-                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
-                        File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull().ToString() + "\",");
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Weapons"))
+                        File.AppendAllText(@".\dump.txt", "\"" + _byte.GetEnumFull() + "\",");
             }
         }
 
@@ -109,8 +139,8 @@ public static class Indexes
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull().ToString().EndsWith('2') && item.Value[5] is BytePropertyData Item)
-                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull().ToString() + "\",");
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull().ToString().EndsWith('1') && item.Value[6] is BytePropertyData Item)
+                            File.AppendAllText(@".\dump.txt", "\"" + Item.GetEnumFull() + "\",");
     }
 #endif
 }

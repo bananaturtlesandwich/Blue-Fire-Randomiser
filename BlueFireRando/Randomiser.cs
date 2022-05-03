@@ -11,9 +11,6 @@ public partial class Randomiser : Form
 
     private void Randomise_Click(object sender, EventArgs e)
     {
-        //delete any previously generated seed's source
-        if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
-
         //Not sure if there's a better way to check for no unchecked boxes
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
         {
@@ -24,7 +21,8 @@ public partial class Randomiser : Form
             return;
         }
 
-
+        //delete any previously generated seed's source
+        if (Directory.Exists(@".\Randomiser_P")) Directory.Delete(@".\Randomiser_P", true);
         #region custom menu art
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
         if (American.Checked)
@@ -82,6 +80,8 @@ public partial class Randomiser : Form
         if (Emotes.Checked) Indexes.RandomiseEmotes();
         if (Spirits.Checked) Indexes.RandomiseSpirits();
         if (Items.Checked) Indexes.RandomiseItems();
+        if (Weapons.Checked) Indexes.RandomiseWeapons();
+        if (Tunics.Checked) Indexes.RandomiseTunics();
         #endregion
 
         #region packaging and installing
