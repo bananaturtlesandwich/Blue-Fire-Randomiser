@@ -8,7 +8,7 @@
     }
 
     public static string[] GetMaps() =>
-        File.Exists(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World\A02_ArcaneTunnels\A02_GameIntro_FirstVoidRoom.umap") ?
+        Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories).Length > 0 ?
         Directory.GetFiles(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps\World", "*.umap", SearchOption.AllDirectories) :
         Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories);
 
