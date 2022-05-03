@@ -47,16 +47,20 @@ public static class Indexes
     //Too many other variables have Chest_ or Pickup_ at the start of their names so I'll search manually
     public static void RandomiseItems()
     {
-        string[] Items = { "Items::NewEnumerator45", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator17", "Items::NewEnumerator31", "Items::NewEnumerator24", "Items::NewEnumerator26", "Items::NewEnumerator31", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator30", "Items::NewEnumerator42", "Items::NewEnumerator55", "Items::NewEnumerator27", "Items::NewEnumerator70", "Items::NewEnumerator9", "Items::NewEnumerator9", "Items::NewEnumerator24", "Items::NewEnumerator46", "Items::NewEnumerator26", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator72", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator72", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator80", "Items::NewEnumerator31", "Items::NewEnumerator42", "Items::NewEnumerator14", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator42", "Items::NewEnumerator54", "Items::NewEnumerator81", "Items::NewEnumerator14", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator0", "Items::NewEnumerator83", "Items::NewEnumerator81", "Items::NewEnumerator80", "Items::NewEnumerator14", "Items::NewEnumerator91", "Items::NewEnumerator39", "Items::NewEnumerator89", "Items::NewEnumerator31", "Items::NewEnumerator25", "Items::NewEnumerator24" };
+        string[] Items = { "Items::NewEnumerator45", "Items::NewEnumerator72", /* Without the starting key you are softlocked "Items::NewEnumerator6",*/ "Items::NewEnumerator24", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator17", "Items::NewEnumerator31", "Items::NewEnumerator24", "Items::NewEnumerator26", "Items::NewEnumerator31", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator7", "Items::NewEnumerator30", "Items::NewEnumerator42", "Items::NewEnumerator55", "Items::NewEnumerator27", "Items::NewEnumerator70", "Items::NewEnumerator9", "Items::NewEnumerator9", "Items::NewEnumerator24", "Items::NewEnumerator46", "Items::NewEnumerator26", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator6", "Items::NewEnumerator24", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator31", "Items::NewEnumerator72", "Items::NewEnumerator72", "Items::NewEnumerator6", "Items::NewEnumerator72", "Items::NewEnumerator31", "Items::NewEnumerator6", "Items::NewEnumerator80", "Items::NewEnumerator31", "Items::NewEnumerator42", "Items::NewEnumerator14", "Items::NewEnumerator24", "Items::NewEnumerator24", "Items::NewEnumerator42", "Items::NewEnumerator54", "Items::NewEnumerator81", "Items::NewEnumerator14", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator90", "Items::NewEnumerator0", "Items::NewEnumerator83", "Items::NewEnumerator81", "Items::NewEnumerator80", "Items::NewEnumerator14", "Items::NewEnumerator91", "Items::NewEnumerator39", "Items::NewEnumerator89", "Items::NewEnumerator31", "Items::NewEnumerator25", "Items::NewEnumerator24" };
         Queue<string> ShuffledItems = new Queue<string>(Helpers.Shuffle(Items));
         foreach (string MapFile in Helpers.GetMaps())
         {
+            //This allows progression to grace of lula since the hall chests are uneditable
+            if (MapFile.Contains("A02_GameIntro_SouthHalls")) continue;
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
-                if (!export.ObjectName.ToString().Contains("Door_") && !export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01"))
-                    foreach (PropertyData data in export.Data)
-                        if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
-                            _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+            {
+                if (export.ObjectName.ToString().Contains("Door_") || export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01")) continue;
+                foreach (PropertyData data in export.Data)
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
+                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+            }
 
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
@@ -85,7 +89,7 @@ public static class Indexes
     }
 
 #if DEBUG
-    //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns
+    //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns if they exist
     public static void DumpIndexes()
     {
         File.Delete(@".\dump.txt");
