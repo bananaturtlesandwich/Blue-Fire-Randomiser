@@ -53,7 +53,7 @@ public static class Indexes
         foreach (string MapFile in Helpers.GetMaps())
         {
             //This allows progression to grace of lula since the hall chests are uneditable
-            if (MapFile.Contains("A02_GameIntro_SouthHalls")) continue;
+            if (MapFile.Contains("A02_GameIntro_EastWing")) continue;
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
