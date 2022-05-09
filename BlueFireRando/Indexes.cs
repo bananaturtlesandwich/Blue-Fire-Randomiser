@@ -25,7 +25,7 @@ public static partial class Indexes
             foreach (NormalExport export in Map.Exports)
                 if (export.ObjectName.ToString().Contains("_EmoteStatue_") && export.Data[2] is BytePropertyData _byte)
                     Map.SetNameReference(_byte.Value, FString.FromString(ShuffledEmotes.Dequeue()));
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
     }
 
@@ -49,7 +49,7 @@ public static partial class Indexes
                 if (export.ObjectName.ToString().StartsWith("Dance_Platform_Party_Chest_Spirit_") && export.Data[11] is BytePropertyData byt)
                     Map.SetNameReference(byt.Value, FString.FromString(ShuffledSpirits.Dequeue()));
             }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledSpirits, '3', 7);
     }
@@ -73,7 +73,7 @@ public static partial class Indexes
                         _byte.Value = Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
             }
 
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledItems, '0', 0);
     }
@@ -92,9 +92,9 @@ public static partial class Indexes
                 if (export.ObjectName == FName.FromString("Dance_Platform_Wave_Chest")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
-                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue())); ;
+                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()));
             }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledTunics, '2', 5);
     }
@@ -107,13 +107,12 @@ public static partial class Indexes
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
-            {
                 foreach (PropertyData data in export.Data)
-                    if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
-                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue())); ;
-            }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+                    if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Weapons"))
+                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue()));
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
+        RandomiseShops(ref ShuffledWeapons, '1', 6);
     }
 
     static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
