@@ -1,7 +1,17 @@
 ﻿namespace BlueFireRando;
 
-public static class Indexes
+public static partial class Indexes
 {
+    /*public static void RandomiseChests(string[] Base)
+    {
+        Queue<string> ShuffledBase = new Queue<string>(Base);
+        foreach(string MapFile in Helpers.GetMaps())
+        {
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach(NormalExport export in Map.Exports)
+                if(export.ObjectName.ToString().Contains())
+        }
+    }*/
     //Emote Statue Patterns: _EmoteStatue_ is always part of the object name
     ////Weirdly, the wave emote statue does not have a ByteProperty listed
     //The location of the byte property is always the 3rd
@@ -31,8 +41,8 @@ public static class Indexes
             foreach (NormalExport export in Map.Exports)
             {
                 if (export.ObjectName == FName.FromString("Spirit_2")) continue;
-                if (export.ObjectName.ToString().StartsWith("Spirit_")&& export.Data[9] is BytePropertyData _byte) 
-                { 
+                if (export.ObjectName.ToString().StartsWith("Spirit_") && export.Data[9] is BytePropertyData _byte)
+                {
                     Map.SetNameReference(_byte.Value, FString.FromString(ShuffledSpirits.Dequeue()));
                     continue;
                 }
@@ -75,14 +85,14 @@ public static class Indexes
         Queue<string> ShuffledTunics = new Queue<string>(Helpers.Shuffle(Tunics));
         foreach (string MapFile in Helpers.GetMaps())
         {
-            UAsset Map = new UAsset(MapFile,UE4Version.VER_UE4_25);
-            foreach(NormalExport export in Map.Exports)
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
             {
                 //prevents randomising of a pointless reference
-                if(export.ObjectName== FName.FromString("Dance_Platform_Wave_Chest")) continue;
+                if (export.ObjectName == FName.FromString("Dance_Platform_Wave_Chest")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
-                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue())); ;
+                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue())); ;
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
@@ -91,7 +101,7 @@ public static class Indexes
     //Weapon Patterns: Base Enum is Weapons...that's it!
     public static void RandomiseWeapons()
     {
-        string[] Weapons = { "Weapons::NewEnumerator10", "Weapons::NewEnumerator6", "Weapons::NewEnumerator8", "Weapons::NewEnumerator7", "Weapons::NewEnumerator2", "Weapons::NewEnumerator1", "Weapons::NewEnumerator4", "Weapons::NewEnumerator3"};
+        string[] Weapons = { "Weapons::NewEnumerator10", "Weapons::NewEnumerator6", "Weapons::NewEnumerator8", "Weapons::NewEnumerator7", "Weapons::NewEnumerator2", "Weapons::NewEnumerator1", "Weapons::NewEnumerator4", "Weapons::NewEnumerator3" };
         Queue<string> ShuffledWeapons = new Queue<string>(Helpers.Shuffle(Weapons));
         foreach (string MapFile in Helpers.GetMaps())
         {
@@ -100,13 +110,13 @@ public static class Indexes
             {
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase(Map) == FString.FromString("Tunics"))
-                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue())); ;
+                        _byte.Value = Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue())); ;
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
     }
 
-    private static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
+    static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
     {
         UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
@@ -115,6 +125,30 @@ public static class Indexes
                     foreach (var thing in shop.Value)
                         if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
                             Item.Value = Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
+        Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
+    }
+
+    public static void ShuffleShops()
+    {
+        List<StructPropertyData> Items = new();
+        UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
+        if (Savegame.Exports[1] is NormalExport ex)
+        {
+            foreach (var data in ex.Data)
+                if (data is ArrayPropertyData shop)
+                    foreach (var thing in shop.Value)
+                        if (thing is StructPropertyData item)
+                            Items.Add(item);
+            Items = new(Helpers.Shuffle(Items));
+            foreach (var data in ex.Data)
+                if (data is ArrayPropertyData shop)
+                    foreach (var thing in shop.Value)
+                        if (thing is StructPropertyData item)
+                        {
+                            for (int i = 0; i < item.Value.Count; i++) item.Value[i] = Items[Items.Count - 1].Value[i];
+                            Items.Remove(Items[Items.Count - 1]);
+                        }
+        }
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
     }
 
