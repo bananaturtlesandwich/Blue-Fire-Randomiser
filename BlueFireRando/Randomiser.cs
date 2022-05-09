@@ -84,6 +84,8 @@ public partial class Randomiser : Form
         if (Tunics.Checked) Indexes.RandomiseTunics();
         #endregion
 
+        Indexes.ShuffleShops();
+
         #region packaging and installing
         //Start the custom batch file I created
         //I cooouuuuld run cmd with parameters but I think a batch script is cleaner

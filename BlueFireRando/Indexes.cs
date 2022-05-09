@@ -129,7 +129,7 @@ public static partial class Indexes
 
     public static void ShuffleShops()
     {
-        List<StructPropertyData> Items = new();
+        Queue<StructPropertyData> Items = new();
         UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
         {
@@ -137,15 +137,24 @@ public static partial class Indexes
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
                         if (thing is StructPropertyData item)
-                            Items.Add(item);
+                            Items.Enqueue(item);
             Items = new(Helpers.Shuffle(Items));
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
                         if (thing is StructPropertyData item)
                         {
-                            for (int i = 0; i < item.Value.Count; i++) item.Value[i] = Items[Items.Count - 1].Value[i];
-                            Items.Remove(Items[Items.Count - 1]);
+                            //Any other way eluded me :/
+                            var temp = Items.Dequeue();
+                            for (int i = 0; i < item.Value.Count; i++)
+                            {
+                                if (item.Value[i] is BytePropertyData bit && temp.Value[i] is BytePropertyData byt)
+                                    bit.Value = byt.Value;
+                                if (item.Value[i] is IntPropertyData ipd && temp.Value[i] is BytePropertyData ipd2)
+                                    ipd.Value = ipd2.Value;
+                                if (item.Value[i] is BoolPropertyData b && temp.Value[i] is BoolPropertyData b2)
+                                    b.Value = b2.Value;
+                            }
                         }
         }
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
