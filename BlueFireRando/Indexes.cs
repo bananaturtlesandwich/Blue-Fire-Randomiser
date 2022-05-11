@@ -127,39 +127,6 @@ public static partial class Indexes
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
     }
 
-    public static void ShuffleShops()
-    {
-        Queue<StructPropertyData> Items = new();
-        UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
-        if (Savegame.Exports[1] is NormalExport ex)
-        {
-            foreach (var data in ex.Data)
-                if (data is ArrayPropertyData shop)
-                    foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item)
-                            Items.Enqueue(item);
-            Items = new(Helpers.Shuffle(Items));
-            foreach (var data in ex.Data)
-                if (data is ArrayPropertyData shop)
-                    foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item)
-                        {
-                            //Any other way eluded me :/
-                            var temp = Items.Dequeue();
-                            for (int i = 0; i < item.Value.Count; i++)
-                            {
-                                if (item.Value[i] is BytePropertyData bit && temp.Value[i] is BytePropertyData byt)
-                                    bit.Value = byt.Value;
-                                if (item.Value[i] is IntPropertyData ipd && temp.Value[i] is BytePropertyData ipd2)
-                                    ipd.Value = ipd2.Value;
-                                if (item.Value[i] is BoolPropertyData b && temp.Value[i] is BoolPropertyData b2)
-                                    b.Value = b2.Value;
-                            }
-                        }
-        }
-        Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
-    }
-
 #if DEBUG
     //using ObjectNames instead of scanning for enum signatures reduces the number of iterations over irrelevant code so this function is for finding those patterns if they exist
     public static void DumpIndexes()
