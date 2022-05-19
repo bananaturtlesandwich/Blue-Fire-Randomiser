@@ -9,7 +9,7 @@ public partial class Randomiser : Form
         if (!File.Exists(@".\config.txt")) File.Create(@".\config.txt");
     }
 
-    private void Randomise_Click(object sender, EventArgs e)
+    void Randomise_Click(object sender, EventArgs e)
     {
         //Not sure if there's a better way to check for no unchecked boxes
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)

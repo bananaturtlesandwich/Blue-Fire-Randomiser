@@ -13,8 +13,8 @@ public static class Indexes
         {
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
-                if (export.ObjectName.ToString().Contains("_EmoteStatue_") && export.Data[2] is BytePropertyData _byte)
-                    Map.SetNameReference(_byte.Value, FString.FromString(ShuffledEmotes.Dequeue()));
+                if (export.ObjectName.Value.Value.Contains("_EmoteStatue_") && export.Data[2] is BytePropertyData _byte)
+                    Map.SetNameReference(Map.SearchNameReference(_byte.EnumValue.Value), FString.FromString(ShuffledEmotes.Dequeue()));
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
     }
@@ -30,14 +30,17 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
-                if (export.ObjectName == FName.FromString("Spirit_2")) continue;
-                if (export.ObjectName.ToString().StartsWith("Spirit_")&& export.Data[9] is BytePropertyData _byte) 
+                if (export.GetExportClassType().Value.Value=="") 
                 { 
-                    Map.SetNameReference(_byte.Value, FString.FromString(ShuffledSpirits.Dequeue()));
-                    continue;
+                    if(export.Data[9] is BytePropertyData _byte)
+                    {
+                        Map.SetNameReference(Map.SearchNameReference(_byte.EnumValue.Value), FString.FromString(ShuffledSpirits.Dequeue()));
+                        continue;
+                    }
+                    //Provide case for Dance_Platform_Party_Chest_Spirit_HammerKing
+                    if (export.Data[11] is BytePropertyData byt)
+                        Map.SetNameReference(Map.SearchNameReference(byt.EnumValue.Value), FString.FromString(ShuffledSpirits.Dequeue()));
                 }
-                if (export.ObjectName.ToString().StartsWith("Dance_Platform_Party_Chest_Spirit_") && export.Data[11] is BytePropertyData byt)
-                    Map.SetNameReference(byt.Value, FString.FromString(ShuffledSpirits.Dequeue()));
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
@@ -60,7 +63,7 @@ public static class Indexes
                 if (export.ObjectName.ToString().Contains("Door_") || export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
-                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()));
+                        _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()))).Value);
             }
 
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
@@ -82,7 +85,7 @@ public static class Indexes
                 if(export.ObjectName== FName.FromString("Dance_Platform_Wave_Chest")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
-                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue())); ;
+                        _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()))).Value);
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
@@ -100,13 +103,14 @@ public static class Indexes
             {
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
-                        _byte.Value = (byte)Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue())); ;
+                        _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue()))).Value);
             }
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
         }
+        RandomiseShops(ref ShuffledWeapons, '1', 6);
     }
 
-    private static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
+    static void RandomiseShops(ref Queue<string> Shuffled, char InventoryItemType, byte ItemIndex)
     {
         UAsset Savegame = new UAsset(Helpers.GetSaveGame(), UE4Version.VER_UE4_25);
         if (Savegame.Exports[1] is NormalExport ex)
