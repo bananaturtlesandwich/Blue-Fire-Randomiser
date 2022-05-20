@@ -30,9 +30,9 @@ public static class Indexes
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
-                if (export.GetExportClassType().Value.Value=="") 
-                { 
-                    if(export.Data[9] is BytePropertyData _byte)
+                if (export.GetExportClassType().Value.Value == "")
+                {
+                    if (export.Data[9] is BytePropertyData _byte)
                     {
                         Map.SetNameReference(Map.SearchNameReference(_byte.EnumValue.Value), FString.FromString(ShuffledSpirits.Dequeue()));
                         continue;
@@ -63,7 +63,7 @@ public static class Indexes
                 if (export.ObjectName.ToString().Contains("Door_") || export.ObjectName.ToString().Contains("Chest_A01_Uthas_Loot_01")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
-                        _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()))).Value);
+                        _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()))).Value);
             }
 
             Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
@@ -78,11 +78,11 @@ public static class Indexes
         Queue<string> ShuffledTunics = new Queue<string>(Helpers.Shuffle(Tunics));
         foreach (string MapFile in Helpers.GetMaps())
         {
-            UAsset Map = new UAsset(MapFile,UE4Version.VER_UE4_25);
-            foreach(NormalExport export in Map.Exports)
+            UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
             {
                 //prevents randomising of a pointless reference
-                if(export.ObjectName== FName.FromString("Dance_Platform_Wave_Chest")) continue;
+                if (export.ObjectName == FName.FromString("Dance_Platform_Wave_Chest")) continue;
                 foreach (PropertyData data in export.Data)
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
                         _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()))).Value);
@@ -94,7 +94,7 @@ public static class Indexes
     //Weapon Patterns: Base Enum is Weapons...that's it!
     public static void RandomiseWeapons()
     {
-        string[] Weapons = { "Weapons::NewEnumerator10", "Weapons::NewEnumerator6", "Weapons::NewEnumerator8", "Weapons::NewEnumerator7", "Weapons::NewEnumerator2", "Weapons::NewEnumerator1", "Weapons::NewEnumerator4", "Weapons::NewEnumerator3"};
+        string[] Weapons = { "Weapons::NewEnumerator10", "Weapons::NewEnumerator6", "Weapons::NewEnumerator8", "Weapons::NewEnumerator7", "Weapons::NewEnumerator2", "Weapons::NewEnumerator1", "Weapons::NewEnumerator4", "Weapons::NewEnumerator3" };
         Queue<string> ShuffledWeapons = new Queue<string>(Helpers.Shuffle(Weapons));
         foreach (string MapFile in Helpers.GetMaps())
         {
