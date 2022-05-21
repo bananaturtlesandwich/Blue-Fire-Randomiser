@@ -1,4 +1,5 @@
 ﻿using UAssetAPI;
+using UAssetAPI.PropertyTypes;
 
 foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
 {
@@ -11,15 +12,37 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
             case "Chest_Master_C":
             case "Chest_Dance_C":
             case "Chest_Master_Child_C":
+                List<PropertyData> badproperties = new();
+                for (int i = 0; i < export.Data.Count; i++)
+                    //make every chest a blank slate
+                    switch (export.Data[i].Name.Value.Value)
+                    {
+                        case "Amount":
+                        case "KeyItem":
+                        case "InventoryItemType":
+                        case "Tunic":
+                        case "Item":
+                        case "Ability":
+                        case "Amulet":
+                            badproperties.Add(export.Data[i]);
+                            break;
+                    }
+                foreach (PropertyData property in badproperties) export.Data.Remove(property);
+                Map.Write(Mapfile);
+                HasThings = true;
+                break;
             case "EmoteStatue_BP_C":
             case "Spirit_C":
                 HasThings = true;
                 break;
             case "Pickup_C":
-                foreach (var property in export.Data) if (property.Name == FName.FromString("Type"))
-                        HasThings = true;
+                foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) HasThings = true;
                 break;
         }
     }
-    if (!HasThings) File.Delete(Mapfile);
+    if (!HasThings)
+    {
+        File.Delete(Mapfile);
+        File.Delete(Mapfile.Replace("umap", "uexp"));
+    }
 }
