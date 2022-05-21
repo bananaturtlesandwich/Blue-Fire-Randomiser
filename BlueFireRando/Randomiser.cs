@@ -14,9 +14,6 @@ public partial class Randomiser : Form
         //Not sure if there's a better way to check for no unchecked boxes
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
         {
-#if DEBUG
-            Indexes.DumpIndexes();
-#endif
             MessageBox.Show("You haven't checked any options!");
             return;
         }
@@ -41,11 +38,8 @@ public partial class Randomiser : Form
         Directory.CreateDirectory(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork");
         #endregion
 
-        if (Emotes.Checked) Indexes.RandomiseEmotes();
-        if (Spirits.Checked) Indexes.RandomiseSpirits();
-        if (Items.Checked) Indexes.RandomiseItems();
-        if (Weapons.Checked) Indexes.RandomiseWeapons();
-        if (Tunics.Checked) Indexes.RandomiseTunics();
+        //start from scratch >o<
+        Randomise();
 
         #region packaging and installing
         //Start the custom batch file I created
@@ -98,12 +92,12 @@ public partial class Randomiser : Form
     {
         if (American.Checked)
         {
-            Randomise.Text = "Randomize";
+            RandomiseButton.Text = "Randomize";
             UmbyPet.Image = UmbyPet.InitialImage;
             Logo.BackgroundImage = Logo.ErrorImage;
             return;
         }
-        Randomise.Text = "Randomise";
+        RandomiseButton.Text = "Randomise";
         UmbyPet.Image = UmbyPet.ErrorImage;
         Logo.BackgroundImage = Logo.InitialImage;
     }

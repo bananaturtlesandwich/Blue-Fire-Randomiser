@@ -41,7 +41,7 @@ namespace BlueFireRando
             this.ModFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.DeletePak = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.Randomise = new System.Windows.Forms.Button();
+            this.RandomiseButton = new System.Windows.Forms.Button();
             this.LeftSide = new System.Windows.Forms.FlowLayoutPanel();
             this.PoolOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.PoolTitle = new System.Windows.Forms.PictureBox();
@@ -223,24 +223,24 @@ namespace BlueFireRando
             this.Logo.TabIndex = 13;
             this.Logo.TabStop = false;
             // 
-            // Randomise
+            // RandomiseButton
             // 
-            this.Randomise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Randomise.BackColor = System.Drawing.SystemColors.Control;
-            this.Randomise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Randomise.BackgroundImage")));
-            this.Randomise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Randomise.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Randomise.FlatAppearance.BorderSize = 0;
-            this.Randomise.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Randomise.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Randomise.Location = new System.Drawing.Point(929, 315);
-            this.Randomise.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
-            this.Randomise.Name = "Randomise";
-            this.Randomise.Size = new System.Drawing.Size(486, 311);
-            this.Randomise.TabIndex = 0;
-            this.Randomise.Text = "Randomise";
-            this.Randomise.UseVisualStyleBackColor = false;
-            this.Randomise.Click += new System.EventHandler(this.Randomise_Click);
+            this.RandomiseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RandomiseButton.BackColor = System.Drawing.SystemColors.Control;
+            this.RandomiseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RandomiseButton.BackgroundImage")));
+            this.RandomiseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RandomiseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RandomiseButton.FlatAppearance.BorderSize = 0;
+            this.RandomiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RandomiseButton.Font = new System.Drawing.Font("Cinzel", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RandomiseButton.Location = new System.Drawing.Point(929, 315);
+            this.RandomiseButton.Margin = new System.Windows.Forms.Padding(4, 50, 4, 4);
+            this.RandomiseButton.Name = "RandomiseButton";
+            this.RandomiseButton.Size = new System.Drawing.Size(486, 311);
+            this.RandomiseButton.TabIndex = 0;
+            this.RandomiseButton.Text = "Randomise";
+            this.RandomiseButton.UseVisualStyleBackColor = false;
+            this.RandomiseButton.Click += new System.EventHandler(this.Randomise_Click);
             // 
             // LeftSide
             // 
@@ -326,7 +326,7 @@ namespace BlueFireRando
             this.Controls.Add(this.PoolOptions);
             this.Controls.Add(this.LeftSide);
             this.Controls.Add(this.Abilities);
-            this.Controls.Add(this.Randomise);
+            this.Controls.Add(this.RandomiseButton);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.UmbyPet);
             this.DoubleBuffered = true;
@@ -358,7 +358,7 @@ namespace BlueFireRando
         public System.Windows.Forms.FolderBrowserDialog ModFolderDialog;
         private System.Windows.Forms.Button DeletePak;
         private System.Windows.Forms.PictureBox Logo;
-        private System.Windows.Forms.Button Randomise;
+        private System.Windows.Forms.Button RandomiseButton;
         private System.Windows.Forms.FlowLayoutPanel LeftSide;
         private CheckBox Weapons;
         private CheckBox Abilities;
