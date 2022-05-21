@@ -367,3 +367,4 @@ FodyWeavers.xsd
 Engine
 
 *.dll
+*.xml
