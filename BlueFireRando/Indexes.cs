@@ -15,7 +15,8 @@ public static class Indexes
             foreach (NormalExport export in Map.Exports)
                 if (export.ObjectName.Value.Value.Contains("_EmoteStatue_") && export.Data[2] is BytePropertyData _byte)
                     Map.SetNameReference(Map.SearchNameReference(_byte.EnumValue.Value), FString.FromString(ShuffledEmotes.Dequeue()));
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
+
         }
     }
 
@@ -40,9 +41,7 @@ public static class Indexes
                     //Provide case for Dance_Platform_Party_Chest_Spirit_HammerKing
                     if (export.Data[11] is BytePropertyData byt)
                         Map.SetNameReference(Map.SearchNameReference(byt.EnumValue.Value), FString.FromString(ShuffledSpirits.Dequeue()));
-                }
-            }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledSpirits, '3', 7);
     }
@@ -56,7 +55,7 @@ public static class Indexes
         foreach (string MapFile in Helpers.GetMaps())
         {
             //This allows progression to grace of lula since the hall chests are uneditable
-            if (MapFile.Contains("A02_GameIntro_SouthHalls")) continue;
+            if (MapFile.Contains("A02_GameIntro_EastWing")) continue;
             UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)
             {
@@ -65,8 +64,7 @@ public static class Indexes
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Items"))
                         _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledItems.Dequeue()))).Value);
             }
-
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+          Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledItems, '0', 0);
     }
@@ -87,7 +85,7 @@ public static class Indexes
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
                         _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledTunics.Dequeue()))).Value);
             }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledTunics, '2', 5);
     }
@@ -105,7 +103,7 @@ public static class Indexes
                     if (data is BytePropertyData _byte && _byte.GetEnumBase() == FName.FromString("Tunics"))
                         _byte.EnumValue = FName.FromString(Map.GetNameReference(Map.AddNameReference(FString.FromString(ShuffledWeapons.Dequeue()))).Value);
             }
-            Map.Write($@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps{MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", "")}");
+            Map.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Maps" + MapFile.Replace(".\\Baseassets", "").Replace(".\\Randomiser_P\\Blue Fire\\Content\\BlueFire\\Maps", ""));
         }
         RandomiseShops(ref ShuffledWeapons, '1', 6);
     }
@@ -117,8 +115,8 @@ public static class Indexes
             foreach (var data in ex.Data)
                 if (data is ArrayPropertyData shop)
                     foreach (var thing in shop.Value)
-                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull().ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
-                            Item.Value = (byte)Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
+                        if (thing is StructPropertyData item && item.Value[4] is BytePropertyData ItemType && ItemType.GetEnumFull(Savegame).ToString().EndsWith(InventoryItemType) && item.Value[ItemIndex] is BytePropertyData Item)
+                            Item.EnumValue = Savegame.AddNameReference(FString.FromString(Shuffled.Dequeue()));
         Savegame.Write(@".\Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset");
     }
 

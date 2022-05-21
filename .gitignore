@@ -365,6 +365,7 @@ FodyWeavers.xsd
 *.vscode
 
 Engine
+Baseassets
 
 *.dll
 *.xml
