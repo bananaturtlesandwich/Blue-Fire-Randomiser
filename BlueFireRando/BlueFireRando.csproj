@@ -1,61 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <DebugType>portable</DebugType>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-    <Company>Blue Fire Modding</Company>
-    <Authors>spuds</Authors>
-    <Product>Blue Fire Randomiser</Product>
-    <ApplicationIcon>beegUmby.ico</ApplicationIcon>
-    <StartupObject>BlueFireRando.Startup</StartupObject>
-    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-    <Description>An application that allows randomisation of items in Blue Fire</Description>
-    <BaseOutputPath>.\</BaseOutputPath>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser</RepositoryUrl>
-    <PackageLicenseFile>...\LICENSE</PackageLicenseFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<DebugType>portable</DebugType>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<Company>Blue Fire Modding</Company>
+		<Authors>spuds</Authors>
+		<Product>Blue Fire Randomiser</Product>
+		<ApplicationIcon>beegUmby.ico</ApplicationIcon>
+		<StartupObject>BlueFireRando.Startup</StartupObject>
+		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+		<Description>An application that allows randomisation of items in Blue Fire</Description>
+		<BaseOutputPath>.\</BaseOutputPath>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser</RepositoryUrl>
+		<PackageLicenseFile>...\LICENSE</PackageLicenseFile>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>False</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Optimize>False</Optimize>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Debug\**" />
-    <EmbeddedResource Remove="Debug\**" />
-    <None Remove="Debug\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Debug\**" />
+		<EmbeddedResource Remove="Debug\**" />
+		<None Remove="Debug\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Asset Editing\Locations.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="beegUmby.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="beegUmby.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="UAssetAPI">
-      <HintPath>..\UAssetAPI.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+	  <Reference Include="RandomizerCore">
+	    <HintPath>..\lib\RandomizerCore.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UAssetAPI">
+	    <HintPath>..\lib\UAssetAPI.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 </Project>
