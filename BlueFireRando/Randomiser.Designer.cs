@@ -48,6 +48,7 @@ namespace BlueFireRando
             this.CursedOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.CursedTitle = new System.Windows.Forms.PictureBox();
             this.StartingItems = new System.Windows.Forms.CheckBox();
+            this.Cost = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.LeftSide.SuspendLayout();
@@ -77,6 +78,8 @@ namespace BlueFireRando
             this.Weapons.AutoSize = true;
             this.Weapons.BackColor = System.Drawing.Color.Transparent;
             this.Weapons.CausesValidation = false;
+            this.Weapons.Checked = true;
+            this.Weapons.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
@@ -109,6 +112,8 @@ namespace BlueFireRando
             this.Tunics.AutoSize = true;
             this.Tunics.BackColor = System.Drawing.Color.Transparent;
             this.Tunics.CausesValidation = false;
+            this.Tunics.Checked = true;
+            this.Tunics.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
@@ -125,6 +130,8 @@ namespace BlueFireRando
             this.Emotes.AutoSize = true;
             this.Emotes.BackColor = System.Drawing.Color.Transparent;
             this.Emotes.CausesValidation = false;
+            this.Emotes.Checked = true;
+            this.Emotes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
@@ -141,6 +148,8 @@ namespace BlueFireRando
             this.Items.AutoSize = true;
             this.Items.BackColor = System.Drawing.Color.Transparent;
             this.Items.CausesValidation = false;
+            this.Items.Checked = true;
+            this.Items.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
@@ -157,6 +166,8 @@ namespace BlueFireRando
             this.Spirits.AutoSize = true;
             this.Spirits.BackColor = System.Drawing.Color.Transparent;
             this.Spirits.CausesValidation = false;
+            this.Spirits.Checked = true;
+            this.Spirits.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
@@ -281,6 +292,7 @@ namespace BlueFireRando
             this.CursedOptions.BackColor = System.Drawing.Color.Transparent;
             this.CursedOptions.Controls.Add(this.CursedTitle);
             this.CursedOptions.Controls.Add(this.StartingItems);
+            this.CursedOptions.Controls.Add(this.Cost);
             this.CursedOptions.Location = new System.Drawing.Point(659, 318);
             this.CursedOptions.Name = "CursedOptions";
             this.CursedOptions.Size = new System.Drawing.Size(263, 315);
@@ -313,6 +325,23 @@ namespace BlueFireRando
             this.StartingItems.TabIndex = 14;
             this.StartingItems.Text = "Start Items";
             this.StartingItems.UseVisualStyleBackColor = false;
+            // 
+            // Cost
+            // 
+            this.Cost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cost.AutoSize = true;
+            this.Cost.BackColor = System.Drawing.Color.Transparent;
+            this.Cost.CausesValidation = false;
+            this.Cost.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cost.Enabled = false;
+            this.Cost.Font = new System.Drawing.Font("Cinzel", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Cost.ForeColor = System.Drawing.SystemColors.Control;
+            this.Cost.Location = new System.Drawing.Point(3, 96);
+            this.Cost.Name = "Cost";
+            this.Cost.Size = new System.Drawing.Size(226, 48);
+            this.Cost.TabIndex = 15;
+            this.Cost.Text = "Item Costs";
+            this.Cost.UseVisualStyleBackColor = false;
             // 
             // Randomiser
             // 
@@ -371,6 +400,7 @@ namespace BlueFireRando
         private FlowLayoutPanel CursedOptions;
         private PictureBox CursedTitle;
         private CheckBox StartingItems;
+        private CheckBox Cost;
     }
 }
 
