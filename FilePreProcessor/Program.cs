@@ -7,13 +7,12 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
     UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
     bool HasThings = false;
     foreach (NormalExport export in Map.Exports)
-    {
         switch (export.GetExportClassType().Value.Value)
         {
             case "Chest_Master_C":
             case "Chest_Dance_C":
             case "Chest_Master_Child_C":
-                bool HasType = false;
+                bool HasInventoryItemType = false;
                 List<PropertyData> badproperties = new();
                 for (int i = 0; i < export.Data.Count; i++)
                     //make it so amount is always 1 and key item is set by the rando
@@ -24,22 +23,21 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                             badproperties.Add(export.Data[i]);
                             break;
                         case "Type":
-                            HasType = true;
+                            HasInventoryItemType = true;
                             break;
                     }
-                if (!HasType)
+                foreach (PropertyData property in badproperties) export.Data.Remove(property);
+                if (!HasInventoryItemType)
                 {
                     Map.AddNameReference(FString.FromString("Type"));
                     Map.AddNameReference(FString.FromString("InventoryItemType"));
-                    Map.AddNameReference(FString.FromString("InventoryItemType::NewEnumerator3"));
+                    Map.AddNameReference(FString.FromString("InventoryItemType::NewEnumerator0"));
                     export.Data.Add(new BytePropertyData(FName.FromString("Type"))
                     {
-                        ByteType = BytePropertyType.FName,
                         EnumType = FName.FromString("InventoryItemType"),
-                        EnumValue = FName.FromString("\"InventoryItemType::NewEnumerator3\",")
+                        EnumValue = FName.FromString("InventoryItemType::NewEnumerator0")
                     });
                 }
-                foreach (PropertyData property in badproperties) export.Data.Remove(property);
                 Map.Write(Mapfile);
                 HasThings = true;
                 break;
@@ -51,12 +49,18 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                 foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) HasThings = true;
                 break;
         }
-    }
     if (!HasThings)
     {
         File.Delete(Mapfile);
         File.Delete(Mapfile.Replace("umap", "uexp"));
     }
+}
+
+foreach (string file in Directory.GetFiles(@".\Baseassets\World", "*.uasset", SearchOption.AllDirectories))
+{
+    File.Delete(file);
+    if (file.EndsWith("_BuiltData.uasset")) File.Delete(file.Replace("uasset", "ubulk"));
+    File.Delete(file.Replace("uasset", "uexp"));
 }
 
 UAsset Savegame = new UAsset(@".\Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);

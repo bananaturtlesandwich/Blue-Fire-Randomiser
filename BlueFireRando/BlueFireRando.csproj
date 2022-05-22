@@ -38,11 +38,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="RandomizerCore">
-	    <HintPath>..\lib\RandomizerCore.dll</HintPath>
-	  </Reference>
 	  <Reference Include="UAssetAPI">
-	    <HintPath>..\lib\UAssetAPI.dll</HintPath>
+	    <HintPath>..\UAssetAPI.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
