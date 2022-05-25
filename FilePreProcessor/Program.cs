@@ -2,7 +2,7 @@
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 
-static void AddByteProperty(NormalExport export, string propname, string enumname, string enumvalue)
+static void AddEnumReference(NormalExport export, string propname, string enumname, string enumvalue)
 {
     export.Asset.AddNameReference(FString.FromString(propname));
     export.Asset.AddNameReference(FString.FromString(enumname));
@@ -17,6 +17,7 @@ static void AddByteProperty(NormalExport export, string propname, string enumnam
 foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
 {
     UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
+    //to search for redundant map files - is set to true if anything is found
     bool HasThings = false;
     foreach (NormalExport export in Map.Exports)
         switch (export.GetExportClassType().Value.Value)
@@ -26,6 +27,8 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
             case "Chest_Master_Child_C":
                 HasThings = true;
                 bool HasInventoryItemType = false;
+                bool HasItem = false;
+                byte ItemType = 0;
                 List<PropertyData> badproperties = new();
                 for (int i = 0; i < export.Data.Count; i++)
                     //make it so amount is always 1 and key item is set by the rando
@@ -37,17 +40,41 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                             break;
                         case "Type":
                             HasInventoryItemType = true;
+                            ItemType = Convert.ToByte(((BytePropertyData)export.Data[i]).EnumValue.Value.Value[^1]);
+                            break;
+                        case "Item":
+                        case "Weapon":
+                        case "Amulet":
+                        case "Tunic":
+                        case "Ability":
+                            HasItem = true;
                             break;
                     }
                 foreach (PropertyData property in badproperties) export.Data.Remove(property);
                 //Add so item can be identified
                 if (!HasInventoryItemType)
-                    AddByteProperty(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
+                    AddEnumReference(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
+                if (!HasItem)
+                    switch (ItemType)
+                    {
+                        //default value for items
+                        case (byte)InventoryItemType.Item:
+                            AddEnumReference(export, "Item", "Items", "Items::NewEnumerator25");
+                            break;
+                        default:
+                            Console.WriteLine(export.ObjectName.Value.Value + " Has the default value for " + (InventoryItemType)ItemType);
+                            break;
+                    }
                 Map.Write(Mapfile);
                 break;
             case "EmoteStatue_BP_C":
             case "Spirit_C":
                 HasThings = true;
+                //Fara's Grace is the only spirit at default
+                if (export.ObjectName.Value.Value == "Spirit_A01_FarasGrace")
+                    AddEnumReference(export, "Amulet", "Spirits", "Spirits::NewEnumerator0");
+                if (export.ObjectName.Value.Value == "A01_Nuos_EmoteStatue_Wave")
+                    AddEnumReference(export, "Emote", "E_Emotes", "E_Emotes::NewEnumerator0");
                 break;
             case "Pickup_C":
                 foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) HasThings = true;
@@ -84,3 +111,15 @@ foreach (var prop in ((NormalExport)Savegame.Exports[1]).Data)
                     ((BoolPropertyData)StockProp).Value = false;
             }
 Savegame.Write(Savegame.FilePath);
+
+enum InventoryItemType
+{
+    Item = 0,
+    Weapon = 1,
+    Tunic = 2,
+    Spirit = 3,
+    Life = 4,
+    SpiritSlot = 5,
+    Ability = 6,
+    Emote = 7,
+}

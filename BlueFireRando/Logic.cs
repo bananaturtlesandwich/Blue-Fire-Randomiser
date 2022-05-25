@@ -24,6 +24,7 @@ partial class Randomiser
         }
     }
 
+    //returns a list of checks that are affected by the pools selected
     List<string> FilterChecks()
     {
         List<string> checks = new List<string>();

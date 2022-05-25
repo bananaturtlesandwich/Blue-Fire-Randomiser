@@ -13,7 +13,7 @@
 
     public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target) => target.OrderBy(x => new Random().Next());
 
-    public static void AddByteProperty(NormalExport export, string propname, string enumname, string enumvalue)
+    public static void AddEnumReference(NormalExport export, string propname, string enumname, string enumvalue)
     {
         export.Asset.AddNameReference(FString.FromString(propname));
         export.Asset.AddNameReference(FString.FromString(enumname));
