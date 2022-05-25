@@ -14,6 +14,14 @@ partial class Randomiser
     void Randomise()
     {
         var rndm = new Random();
+        var checks = FilterChecks();
+        foreach (string Mapfile in Helpers.GetMaps())
+        {
+            UAsset Map = new UAsset(Mapfile, UE4Version.VER_UE4_25);
+            foreach (NormalExport export in Map.Exports)
+                if (checks.Contains(export.ObjectName.Value.Value))
+                    foreach (var property in export.Data) ;
+        }
     }
 
     List<string> FilterChecks()
@@ -31,24 +39,24 @@ partial class Randomiser
                         foreach (var property in export.Data)
                         {
                             if (property.Name.Value.Value == "Type")
-                                switch (Convert.ToInt16(((BytePropertyData)property).EnumValue.Value.Value[13..]))
+                                switch (Convert.ToByte(((BytePropertyData)property).EnumValue.Value.Value[^1]))
                                 {
-                                    case (short)InventoryItemType.Ability:
+                                    case (byte)InventoryItemType.Ability:
                                         if (Abilities.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
-                                    case (short)InventoryItemType.Item:
+                                    case (byte)InventoryItemType.Item:
                                         if (Items.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
-                                    case (short)InventoryItemType.Tunic:
+                                    case (byte)InventoryItemType.Tunic:
                                         if (Tunics.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
-                                    case (short)InventoryItemType.Weapon:
+                                    case (byte)InventoryItemType.Weapon:
                                         if (Weapons.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
-                                    case (short)InventoryItemType.Emote:
+                                    case (byte)InventoryItemType.Emote:
                                         if (Emotes.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
-                                    case (short)InventoryItemType.Spirit:
+                                    case (byte)InventoryItemType.Spirit:
                                         if (Spirits.Checked) checks.Add(export.ObjectName.Value.Value);
                                         break;
                                 }
@@ -65,18 +73,28 @@ partial class Randomiser
                                 if (Items.Checked) checks.Add(export.ObjectName.Value.Value);
                         break;
                 }
+            Map.Write(Mapfile.Replace("Baseassets", @"Randomiser_P\Blue Fire\Content\BlueFire\Maps"));
         }
         return checks;
     }
 
+    enum InventoryItemType
+    {
+        Item = 0,
+        Weapon = 1,
+        Tunic = 2,
+        Spirit = 3,
+        Life = 4,
+        SpiritSlot = 5,
+        Ability = 6,
+        Emote = 7,
+    }
     enum E_Abilities
     {
         DoubleJump = 1,
         Dash = 2,
         Attack = 3,
-        DownSmash = 4,
         WallRun = 9,
-        Grind = 10,
         Sprint = 11,
         Spell = 13,
         Block = 14,
@@ -99,17 +117,6 @@ partial class Randomiser
         Party = 13,
         Hello2 = 14,
         Empty = 15,
-    }
-    enum InventoryItemType
-    {
-        Item = 0,
-        Weapon = 1,
-        Tunic = 2,
-        Spirit = 3,
-        Life = 4,
-        SpiritSlot = 5,
-        Ability = 6,
-        Emote = 7,
     }
     enum E_Items
     {

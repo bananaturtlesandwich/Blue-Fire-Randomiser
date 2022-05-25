@@ -34,13 +34,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="beegUmby.ico" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="UAssetAPI">
-	    <HintPath>..\UAssetAPI.dll</HintPath>
-	  </Reference>
+		<Reference Include="UAssetAPI">
+			<HintPath>..\UAssetAPI.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 </Project>

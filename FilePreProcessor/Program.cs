@@ -2,6 +2,18 @@
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 
+static void AddByteProperty(NormalExport export, string propname, string enumname, string enumvalue)
+{
+    export.Asset.AddNameReference(FString.FromString(propname));
+    export.Asset.AddNameReference(FString.FromString(enumname));
+    export.Asset.AddNameReference(FString.FromString(enumvalue));
+    export.Data.Add(new BytePropertyData(FName.FromString(propname))
+    {
+        EnumType = FName.FromString(enumname),
+        EnumValue = FName.FromString(enumvalue)
+    });
+}
+
 foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
 {
     UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
@@ -12,6 +24,7 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
             case "Chest_Master_C":
             case "Chest_Dance_C":
             case "Chest_Master_Child_C":
+                HasThings = true;
                 bool HasInventoryItemType = false;
                 List<PropertyData> badproperties = new();
                 for (int i = 0; i < export.Data.Count; i++)
@@ -27,19 +40,10 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                             break;
                     }
                 foreach (PropertyData property in badproperties) export.Data.Remove(property);
+                //Add so item can be identified
                 if (!HasInventoryItemType)
-                {
-                    Map.AddNameReference(FString.FromString("Type"));
-                    Map.AddNameReference(FString.FromString("InventoryItemType"));
-                    Map.AddNameReference(FString.FromString("InventoryItemType::NewEnumerator0"));
-                    export.Data.Add(new BytePropertyData(FName.FromString("Type"))
-                    {
-                        EnumType = FName.FromString("InventoryItemType"),
-                        EnumValue = FName.FromString("InventoryItemType::NewEnumerator0")
-                    });
-                }
+                    AddByteProperty(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
                 Map.Write(Mapfile);
-                HasThings = true;
                 break;
             case "EmoteStatue_BP_C":
             case "Spirit_C":
@@ -49,6 +53,7 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                 foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) HasThings = true;
                 break;
         }
+    //delete redundant maps (without any items)
     if (!HasThings)
     {
         File.Delete(Mapfile);
@@ -56,6 +61,7 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
     }
 }
 
+//clear out builtdata and models
 foreach (string file in Directory.GetFiles(@".\Baseassets\World", "*.uasset", SearchOption.AllDirectories))
 {
     File.Delete(file);
@@ -63,6 +69,7 @@ foreach (string file in Directory.GetFiles(@".\Baseassets\World", "*.uasset", Se
     File.Delete(file.Replace("uasset", "uexp"));
 }
 
+//Set all shops to have only one of each that doesn't reset
 UAsset Savegame = new UAsset(@".\Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);
 foreach (var prop in ((NormalExport)Savegame.Exports[1]).Data)
     if (prop.Name.Value.Value.Contains("Shop"))

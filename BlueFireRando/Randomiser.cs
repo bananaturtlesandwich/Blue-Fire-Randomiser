@@ -14,6 +14,7 @@ public partial class Randomiser : Form
         //Not sure if there's a better way to check for no unchecked boxes
         if (!Spirits.Checked && !Abilities.Checked && !Weapons.Checked && !Tunics.Checked && !Emotes.Checked && !Items.Checked)
         {
+            MessageBox.Show(Newtonsoft.Json.JsonConvert.SerializeObject(new Chest("aa", true, false, true)));
             MessageBox.Show("You haven't checked any options!");
             return;
         }
