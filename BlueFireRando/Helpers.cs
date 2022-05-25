@@ -20,6 +20,7 @@
         export.Asset.AddNameReference(FString.FromString(enumvalue));
         export.Data.Add(new BytePropertyData(FName.FromString(propname))
         {
+            ByteType = BytePropertyType.FName,
             EnumType = FName.FromString(enumname),
             EnumValue = FName.FromString(enumvalue)
         });

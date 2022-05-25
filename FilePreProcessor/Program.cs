@@ -9,9 +9,13 @@ static void AddEnumReference(NormalExport export, string propname, string enumna
     export.Asset.AddNameReference(FString.FromString(enumvalue));
     export.Data.Add(new BytePropertyData(FName.FromString(propname))
     {
+        ByteType = BytePropertyType.FName,
         EnumType = FName.FromString(enumname),
         EnumValue = FName.FromString(enumvalue)
     });
+
+    //because it's out of scope afterwards otherwise
+    export.Asset.Write(export.Asset.FilePath);
 }
 
 foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
@@ -28,7 +32,6 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                 HasThings = true;
                 bool HasInventoryItemType = false;
                 bool HasItem = false;
-                byte ItemType = 0;
                 List<PropertyData> badproperties = new();
                 for (int i = 0; i < export.Data.Count; i++)
                     //make it so amount is always 1 and key item is set by the rando
@@ -40,7 +43,6 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                             break;
                         case "Type":
                             HasInventoryItemType = true;
-                            ItemType = Convert.ToByte(((BytePropertyData)export.Data[i]).EnumValue.Value.Value[^1]);
                             break;
                         case "Item":
                         case "Weapon":
@@ -54,17 +56,8 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                 //Add so item can be identified
                 if (!HasInventoryItemType)
                     AddEnumReference(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
-                if (!HasItem)
-                    switch (ItemType)
-                    {
-                        //default value for items
-                        case (byte)InventoryItemType.Item:
-                            AddEnumReference(export, "Item", "Items", "Items::NewEnumerator25");
-                            break;
-                        default:
-                            Console.WriteLine(export.ObjectName.Value.Value + " Has the default value for " + (InventoryItemType)ItemType);
-                            break;
-                    }
+                //There's no chests with any other default value than items
+                if (!HasItem) AddEnumReference(export, "Item", "Items", "Items::NewEnumerator25");
                 Map.Write(Mapfile);
                 break;
             case "EmoteStatue_BP_C":
@@ -73,6 +66,7 @@ foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", S
                 //Fara's Grace is the only spirit at default
                 if (export.ObjectName.Value.Value == "Spirit_A01_FarasGrace")
                     AddEnumReference(export, "Amulet", "Spirits", "Spirits::NewEnumerator0");
+                //the Wave statue in forest temple
                 if (export.ObjectName.Value.Value == "A01_Nuos_EmoteStatue_Wave")
                     AddEnumReference(export, "Emote", "E_Emotes", "E_Emotes::NewEnumerator0");
                 break;
