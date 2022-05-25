@@ -28,7 +28,7 @@ partial class Randomiser
     List<string> FilterChecks()
     {
         List<string> checks = new List<string>();
-        foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
+        foreach (string Mapfile in Directory.GetFiles(@"Baseassets\World", "*.umap", SearchOption.AllDirectories))
         {
             UAsset Map = new UAsset(Mapfile, UE4Version.VER_UE4_25);
             foreach (NormalExport export in Map.Exports)

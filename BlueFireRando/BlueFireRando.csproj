@@ -12,11 +12,10 @@
 		<Company>Blue Fire Modding</Company>
 		<Authors>spuds</Authors>
 		<Product>Blue Fire Randomiser</Product>
-		<ApplicationIcon>beegUmby.ico</ApplicationIcon>
+		<ApplicationIcon>Umby.ico</ApplicationIcon>
 		<StartupObject>BlueFireRando.Startup</StartupObject>
 		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
 		<Description>An application that allows randomisation of items in Blue Fire</Description>
-		<BaseOutputPath>.\</BaseOutputPath>
 		<RunPostBuildEvent>Always</RunPostBuildEvent>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/bananaturtlesandwich/Blue-Fire-Randomiser</RepositoryUrl>
@@ -42,5 +41,9 @@
 			<HintPath>..\UAssetAPI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="rmdir /s /q .\Engine" />
+	</Target>
 
 </Project>
