@@ -10,7 +10,7 @@ The main dependency of this program is UAssetAPI
 # Usage Guide
 - Open BlueFireRando.exe and you will be greeted with the menu. 
 - Check the boxes which you would like and click randomise once you are satisfied with your choice
-- A pak file will be generated
+- A pak file will be generated (the cmd that pops up is the packaging program)
 - You will be prompted to select your mod folder - this is Blue Fire/Content/Paks/~mods (if you do not have a ~mods folder in Paks then make one with the new folder button)
 - Your modfolder is saved in a file next to the .exe for future reference
 
