@@ -2,12 +2,10 @@
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 
-Console.Write("Enter which function you wish to use");
-var cursorpos = Console.GetCursorPosition();
-Console.WriteLine("\n1 for enum extraction");
+Console.WriteLine("Enter which function you wish to use: ");
+Console.WriteLine("1 for enum extraction");
 Console.WriteLine("2 for file pre-processing");
 Console.WriteLine("3 for value dumping (probably best to pre-process first)");
-Console.SetCursorPosition(cursorpos.Left, cursorpos.Top);
 
 if (int.TryParse(Console.ReadLine(), out var request))
     switch (request)
@@ -146,9 +144,10 @@ static void Process()
 
 static void Dump()
 {
-    foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
+    foreach (string Mapfile in Directory.GetFiles(@"Baseassets\World", "*.umap", SearchOption.AllDirectories))
     {
-        UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25); foreach (NormalExport export in Map.Exports)
+        UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
+        foreach (NormalExport export in Map.Exports)
             switch (export.GetExportClassType().Value.Value)
             {
                 case "Chest_Master_C":
@@ -156,12 +155,41 @@ static void Dump()
                 case "Chest_Master_Child_C":
                 case "EmoteStatue_BP_C":
                 case "Spirit_C":
+                    foreach (var prop in export.Data)
+                        if (prop is BytePropertyData byt && prop.Name != FName.FromString("Type"))
+                            Console.WriteLine(byt.EnumValue.Value.Value);
                     break;
                 case "Pickup_C":
-                    foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) ;
+                    foreach (var property in export.Data)
+                        if (property.Name == FName.FromString("Item"))
+                            Console.WriteLine(((BytePropertyData)property).EnumValue.Value.Value);
                     break;
             }
     }
+    Console.WriteLine("shops");
+    UAsset Savegame = new UAsset(@"Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);
+    if (Savegame.Exports[1] is NormalExport norm)
+        foreach (var prop in norm.Data)
+            if (prop.Name.Value.Value.Contains("Shop") && prop is ArrayPropertyData shop)
+                foreach (StructPropertyData stock in shop.Value)
+                    switch (((BytePropertyData)stock.Value[4]).EnumValue.Value.Value[^1])
+                    {
+                        case '0':
+                            Console.WriteLine(((BytePropertyData)stock.Value[0]).EnumValue.Value.Value);
+                            break;
+                        case '1':
+                            Console.WriteLine(((BytePropertyData)stock.Value[6]).EnumValue.Value.Value);
+                            break;
+                        case '2':
+                            Console.WriteLine(((BytePropertyData)stock.Value[5]).EnumValue.Value.Value);
+                            break;
+                        case '3':
+                            Console.WriteLine(((BytePropertyData)stock.Value[7]).EnumValue.Value.Value);
+                            break;
+                        case '6':
+                            Console.WriteLine(((BytePropertyData)stock.Value[9]).EnumValue.Value.Value);
+                            break;
+                    };
 }
 enum InventoryItemType
 {
