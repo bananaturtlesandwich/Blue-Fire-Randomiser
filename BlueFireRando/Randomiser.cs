@@ -19,14 +19,14 @@ public partial class Randomiser : Form
             return;
         }
 
-#if !DEBUG
+#if DEBUG
         //delete any previously generated seed's source
         if (Directory.Exists(@"Randomiser_P")) Directory.Delete(@"Randomiser_P", true);
 #endif
         #region custom menu art
         Directory.CreateDirectory(@"Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu");
-        File.Copy(American.Checked ? @"Baseassets\USLogo.uasset" : @"Baseassets\NormalLogo.uasset", @"Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
-        File.Copy(American.Checked ? @"Baseassets\USLogo.uexp" : @"Baseassets\NormalLogo.uexp", @"Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
+        File.Copy(American.Checked ? @"Baseassets\USLogo.uasset" : @"Baseassets\Logo.uasset", @"Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uasset");
+        File.Copy(American.Checked ? @"Baseassets\USLogo.uexp" : @"Baseassets\Logo.uexp", @"Randomiser_P\Blue Fire\Content\BlueFire\HUD\Menu\Blue-Fire-Logo.uexp");
         #endregion
 
         #region creating folders xwx
