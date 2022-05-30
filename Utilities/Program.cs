@@ -144,6 +144,7 @@ static void Process()
 
 static void Dump()
 {
+    List<string> checks = new();
     foreach (string Mapfile in Directory.GetFiles(@"Baseassets\World", "*.umap", SearchOption.AllDirectories))
     {
         UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
@@ -157,16 +158,15 @@ static void Dump()
                 case "Spirit_C":
                     foreach (var prop in export.Data)
                         if (prop is BytePropertyData byt && prop.Name != FName.FromString("Type"))
-                            Console.WriteLine(byt.EnumValue.Value.Value);
+                            checks.Add(byt.EnumValue.Value.Value);
                     break;
                 case "Pickup_C":
                     foreach (var property in export.Data)
                         if (property.Name == FName.FromString("Item"))
-                            Console.WriteLine(((BytePropertyData)property).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)property).EnumValue.Value.Value);
                     break;
             }
     }
-    Console.WriteLine("shops");
     UAsset Savegame = new UAsset(@"Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);
     if (Savegame.Exports[1] is NormalExport norm)
         foreach (var prop in norm.Data)
@@ -175,21 +175,50 @@ static void Dump()
                     switch (((BytePropertyData)stock.Value[4]).EnumValue.Value.Value[^1])
                     {
                         case '0':
-                            Console.WriteLine(((BytePropertyData)stock.Value[0]).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)stock.Value[0]).EnumValue.Value.Value);
                             break;
                         case '1':
-                            Console.WriteLine(((BytePropertyData)stock.Value[6]).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)stock.Value[6]).EnumValue.Value.Value);
                             break;
                         case '2':
-                            Console.WriteLine(((BytePropertyData)stock.Value[5]).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)stock.Value[5]).EnumValue.Value.Value);
                             break;
                         case '3':
-                            Console.WriteLine(((BytePropertyData)stock.Value[7]).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)stock.Value[7]).EnumValue.Value.Value);
                             break;
                         case '6':
-                            Console.WriteLine(((BytePropertyData)stock.Value[9]).EnumValue.Value.Value);
+                            checks.Add(((BytePropertyData)stock.Value[9]).EnumValue.Value.Value);
                             break;
                     };
+    Console.WriteLine("Items");
+    foreach (string item in checks)
+        if (item[..5] == "Items")
+            Console.WriteLine(item);
+
+    Console.WriteLine("Weapons");
+    foreach (string weapon in checks)
+        if (weapon[..7] == "Weapons")
+            Console.WriteLine(weapon);
+
+    Console.WriteLine("Tunics");
+    foreach (string tunic in checks)
+        if (tunic[..6] == "Tunics")
+            Console.WriteLine(tunic);
+
+    Console.WriteLine("Spirits");
+    foreach (string spirit in checks)
+        if (spirit[..7] == "Spirits")
+            Console.WriteLine(spirit);
+
+    Console.WriteLine("Abilities");
+    foreach (string ability in checks)
+        if (ability[..9] == "Abilities")
+            Console.WriteLine(ability);
+
+    Console.WriteLine("Emotes");
+    foreach (string emote in checks)
+        if (emote[..8] == "E_Emotes")
+            Console.WriteLine(emote);
 }
 enum InventoryItemType
 {
