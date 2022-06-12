@@ -11,7 +11,11 @@
 
     public static string GetSaveGame() => @"Randomiser_P\Blue Fire\Content\BlueFire\Player\Logic\FrameWork\BlueFireSaveGame.uasset";
 
-    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target) => target.OrderBy(x => new Random().Next());
+    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> target)
+    {
+        var rndm = new Random();
+        return target.OrderBy(x => rndm.Next());
+    }
 
     public static void AddEnumReference(NormalExport export, string propname, string enumname, string enumvalue)
     {
