@@ -220,7 +220,7 @@ namespace BlueFireRando
             this.DeletePak.TabIndex = 14;
             this.DeletePak.Text = "Delete Mod Pak";
             this.DeletePak.UseVisualStyleBackColor = false;
-            this.DeletePak.Click += new System.EventHandler(this.DeletePak_Click);
+            this.DeletePak.Click += new System.EventHandler(this.OnDeletePakClick);
             // 
             // Logo
             // 

@@ -1,8 +1,4 @@
-﻿using UAssetAPI;
-using UAssetAPI.PropertyTypes;
-using UAssetAPI.StructTypes;
-
-Console.WriteLine("Enter which function you wish to use: ");
+﻿Console.WriteLine("Enter which function you wish to use: ");
 Console.WriteLine("1 for enum extraction");
 Console.WriteLine("2 for file pre-processing");
 Console.WriteLine("3 for value dumping (probably best to pre-process first)");

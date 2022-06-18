@@ -1,7 +1,3 @@
-global using UAssetAPI;
-global using UAssetAPI.PropertyTypes;
-global using UAssetAPI.StructTypes;
-
 namespace BlueFireRando;
 
 internal static class Startup

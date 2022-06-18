@@ -41,11 +41,9 @@ public partial class Randomiser : Form
         #endregion
 
         //start from scratch >o<
-        Randomise();
 
         #region packaging and installing
         //Start the custom batch file I created
-        //I cooouuuuld run cmd with parameters but I think a batch script is cleaner
         System.Diagnostics.Process.Start(@"Packing.bat");
         MessageBox.Show("Randomisation complete!");
 
@@ -57,31 +55,23 @@ public partial class Randomiser : Form
             File.WriteAllText(@"config.txt", ModFolderDialog.SelectedPath);
         }
         modfolder = File.ReadAllText(@"config.txt");
-        if (File.Exists($@"{modfolder}\Randomiser_P.pak")) File.Delete($@"{modfolder}\Randomiser_P.pak");
-        if (File.Exists($@"{modfolder}\Randomizer_P.pak")) File.Delete($@"{modfolder}\Randomizer_P.pak");
-        File.Move(@"Randomiser_P.pak", $@"{modfolder}\Randomiser_P.pak");
-        //Rename the mod pak if american
-        if (American.Checked) File.Move($@"{modfolder}\Randomiser_P.pak", $@"{modfolder}\Randomizer_P.pak");
+        if (File.Exists($@"{modfolder}\Rando_P.pak")) File.Delete($@"{modfolder}\Rando_P.pak");
+        File.Move(@"Rando_P.pak", $@"{modfolder}\Rando_P.pak");
         MessageBox.Show("Randomiser pak installed");
         #endregion
 
+        //Users don't need to see the source quickly and bugged seeds can be unpaked
 #if !DEBUG
         Directory.Delete(@"Randomiser_P", true);
 #endif
     }
     #region deleting mod pak
-    private void DeletePak_Click(object sender, EventArgs e)
+    void OnDeletePakClick(object sender, EventArgs e)
     {
         string modfolder = File.ReadAllText(@"config.txt");
-        if (File.Exists($@"{modfolder}\Randomiser_P.pak"))
+        if (File.Exists($@"{modfolder}\Rando_P.pak"))
         {
-            File.Delete($@"{modfolder}\Randomiser_P.pak");
-            MessageBox.Show("Pak file deleted");
-            return;
-        }
-        if (File.Exists($@"{modfolder}\Randomizer_P.pak"))
-        {
-            File.Delete($@"{modfolder}\Randomizer_P.pak");
+            File.Delete($@"{modfolder}\Rando_P.pak");
             MessageBox.Show("Pak file deleted");
             return;
         }
