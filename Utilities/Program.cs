@@ -1,4 +1,9 @@
-﻿Console.WriteLine("Enter which function you wish to use: ");
+﻿using UAssetAPI;
+using UAssetAPI.PropertyTypes.Objects;
+using UAssetAPI.PropertyTypes.Structs;
+using UAssetAPI.UnrealTypes;
+
+Console.WriteLine("Enter which function you wish to use: ");
 Console.WriteLine("1 for enum extraction");
 Console.WriteLine("2 for file pre-processing");
 Console.WriteLine("3 for value dumping (probably best to pre-process first)");
@@ -32,21 +37,14 @@ static void Extract()
     }
 }
 
-static void AddEnumReference(NormalExport export, string propname, string enumname, string enumvalue)
-{
-    export.Asset.AddNameReference(FString.FromString(propname));
-    export.Asset.AddNameReference(FString.FromString(enumname));
-    export.Asset.AddNameReference(FString.FromString(enumvalue));
-    export.Data.Add(new BytePropertyData(FName.FromString(propname))
+static void AddEnumRef(NormalExport export, string propname, string enumname, string enumvalue) =>
+    export.Data.Add(new BytePropertyData(FName.FromString(export.Asset, propname))
     {
         ByteType = BytePropertyType.FName,
-        EnumType = FName.FromString(enumname),
-        EnumValue = FName.FromString(enumvalue)
+        EnumType = FName.FromString(export.Asset, enumname),
+        EnumValue = FName.FromString(export.Asset, enumvalue),
     });
 
-    //because it's out of scope afterwards otherwise
-    export.Asset.Write(export.Asset.FilePath);
-}
 static void Process()
 {
     foreach (string Mapfile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
@@ -85,10 +83,9 @@ static void Process()
                         }
                     foreach (PropertyData property in badproperties) export.Data.Remove(property);
                     //Add so item can be identified
-                    if (!HasInventoryItemType)
-                        AddEnumReference(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
+                    if (!HasInventoryItemType) AddEnumRef(export, "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
                     //There's no chests with any other default value than items
-                    if (!HasItem) AddEnumReference(export, "Item", "Items", "Items::NewEnumerator25");
+                    if (!HasItem) AddEnumRef(export, "Item", "Items", "Items::NewEnumerator25");
                     Map.Write(Mapfile);
                     break;
                 case "EmoteStatue_BP_C":
@@ -96,13 +93,15 @@ static void Process()
                     HasThings = true;
                     //Fara's Grace is the only spirit at default
                     if (export.ObjectName.Value.Value == "Spirit_A01_FarasGrace")
-                        AddEnumReference(export, "Amulet", "Spirits", "Spirits::NewEnumerator0");
+                        AddEnumRef(export, "Amulet", "Spirits", "Spirits::NewEnumerator0");
                     //the Wave statue in forest temple
                     if (export.ObjectName.Value.Value == "A01_Nuos_EmoteStatue_Wave")
-                        AddEnumReference(export, "Emote", "E_Emotes", "E_Emotes::NewEnumerator0");
+                        AddEnumRef(export, "Emote", "E_Emotes", "E_Emotes::NewEnumerator0");
+                    Map.Write(Mapfile);
                     break;
                 case "Pickup_C":
-                    foreach (var property in export.Data) if (property.Name == FName.FromString("Type")) HasThings = true;
+                    //foreach (var property in export.Data) if (property.Name.Value.Value == "Type")
+                    HasThings = true;
                     break;
             }
         //delete redundant maps (without any items)
@@ -121,7 +120,7 @@ static void Process()
         File.Delete(file.Replace("uasset", "uexp"));
     }
 
-    //Set all shops to have only one of each that doesn't reset
+    //Set all shops to have only one of each item that doesn't reset
     UAsset Savegame = new UAsset(@".\Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);
     foreach (var prop in ((NormalExport)Savegame.Exports[1]).Data)
         if (prop.Name.Value.Value.Contains("Shop"))
@@ -140,9 +139,9 @@ static void Process()
 
 static void Dump()
 {
-    foreach (string Mapfile in Directory.GetFiles(@"Baseassets\World", "*.umap", SearchOption.AllDirectories))
+    foreach (string MapFile in Directory.GetFiles(@".\Baseassets\World", "*.umap", SearchOption.AllDirectories))
     {
-        UAsset Map = new UAsset(@Mapfile, UE4Version.VER_UE4_25);
+        UAsset Map = new UAsset(MapFile, UE4Version.VER_UE4_25);
         foreach (NormalExport export in Map.Exports)
             switch (export.GetExportClassType().Value.Value)
             {
@@ -151,49 +150,13 @@ static void Dump()
                 case "Chest_Master_Child_C":
                 case "EmoteStatue_BP_C":
                 case "Spirit_C":
-                    foreach (var prop in export.Data)
-                        if (prop is BytePropertyData byt && prop.Name != FName.FromString("Type"))
-                            Console.WriteLine('\"' + byt.EnumValue.Value.Value + "\",");
+                    Console.WriteLine('\"' + export.ObjectName.Value.Value + "\",");
                     break;
                 case "Pickup_C":
                     foreach (var property in export.Data)
-                        if (property.Name == FName.FromString("Item"))
-                            Console.WriteLine('\"' + ((BytePropertyData)property).EnumValue.Value.Value + "\",");
+                        if (property.Name.Value.Value == "Type")
+                            Console.WriteLine('\"' + export.ObjectName.Value.Value + "\",");
                     break;
             }
     }
-    UAsset Savegame = new UAsset(@"Baseassets\BlueFireSaveGame.uasset", UE4Version.VER_UE4_25);
-    if (Savegame.Exports[1] is NormalExport norm)
-        foreach (var prop in norm.Data)
-            if (prop.Name.Value.Value.Contains("Shop") && prop is ArrayPropertyData shop)
-                foreach (StructPropertyData stock in shop.Value)
-                    switch (((BytePropertyData)stock.Value[4]).EnumValue.Value.Value[^1])
-                    {
-                        case '0':
-                            Console.WriteLine('\"' + ((BytePropertyData)stock.Value[0]).EnumValue.Value.Value + "\",");
-                            break;
-                        case '1':
-                            Console.WriteLine('\"' + ((BytePropertyData)stock.Value[6]).EnumValue.Value.Value + "\",");
-                            break;
-                        case '2':
-                            Console.WriteLine('\"' + ((BytePropertyData)stock.Value[5]).EnumValue.Value.Value + "\",");
-                            break;
-                        case '3':
-                            Console.WriteLine('\"' + ((BytePropertyData)stock.Value[7]).EnumValue.Value.Value + "\",");
-                            break;
-                        case '6':
-                            Console.WriteLine('\"' + ((BytePropertyData)stock.Value[9]).EnumValue.Value.Value + "\",");
-                            break;
-                    };
-}
-enum InventoryItemType
-{
-    Item = 0,
-    Weapon = 1,
-    Tunic = 2,
-    Spirit = 3,
-    Life = 4,
-    SpiritSlot = 5,
-    Ability = 6,
-    Emote = 7,
 }

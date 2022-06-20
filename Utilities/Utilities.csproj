@@ -8,17 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\UAssetAPI\UAssetAPI\UAssetAPI.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Reference Include="UAssetAPI">
-	    <HintPath>..\UAssetAPI.dll</HintPath>
-	  </Reference>
 	</ItemGroup>
 
 </Project>

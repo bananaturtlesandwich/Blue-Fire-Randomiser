@@ -1,4 +1,7 @@
-﻿namespace BlueFireRando;
+﻿using UAssetAPI;
+using UAssetAPI.UnrealTypes;
+
+namespace BlueFireRando;
 
 public partial class Randomiser : Form
 {
@@ -94,4 +97,64 @@ public partial class Randomiser : Form
         Logo.BackgroundImage = Logo.InitialImage;
     }
     #endregion
+
+    //And now the mind-breaking logic begins...
+    Dictionary<string, string> CheckData = new();
+
+    //The logic for the rando is here
+    void GenerateSeed()
+    {
+
+    }
+
+    //Writes the randomised data stored in CheckData to the maps
+    void WriteData()
+    {
+        foreach (string MapFile in Directory.GetFiles(@"Baseassets\World", "*.umap", SearchOption.AllDirectories))
+        {
+            UAsset Map = new(MapFile, UE4Version.VER_UE4_25);
+            for (int i = 0; i < Map.Exports.Count; i++)
+                if (CheckData.ContainsKey(Map.Exports[i].ObjectName.Value.Value))
+                {
+                    string value = CheckData[Map.Exports[i].ObjectName.Value.Value];
+                    if (value[..5] == "Items")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator0");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Item", "Items", value);
+                        continue;
+                    }
+                    if (value[..7] == "Weapons")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator1");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Weapon", "Weapons", value);
+                        continue;
+                    }
+                    if (value[..6] == "Tunics")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator2");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Tunic", "Tunics", value);
+                        continue;
+                    }
+                    if (value[..7] == "Spirits")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator3");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Amulet", "Spirits", value);
+                        continue;
+                    }
+                    if (value[..9] == "Abilities")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator6");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Ability", "Abilities", value);
+                        continue;
+                    }
+                    if (value[..8] == "E_Emotes")
+                    {
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Type", "InventoryItemType", "InventoryItemType::NewEnumerator7");
+                        Helpers.AddEnumReference((NormalExport)Map.Exports[i], "Emote", "E_Emotes", value);
+                        continue;
+                    }
+                }
+            Map.Write(MapFile.Replace("Baseassets", @"Randomiser_P\Blue Fire\Content\BlueFire\Maps"));
+        }
+    }
 }

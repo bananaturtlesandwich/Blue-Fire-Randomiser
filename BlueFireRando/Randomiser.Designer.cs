@@ -49,6 +49,7 @@ namespace BlueFireRando
             this.CursedTitle = new System.Windows.Forms.PictureBox();
             this.StartingItems = new System.Windows.Forms.CheckBox();
             this.Cost = new System.Windows.Forms.CheckBox();
+            this.OrePickups = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.LeftSide.SuspendLayout();
@@ -296,6 +297,7 @@ namespace BlueFireRando
             this.CursedOptions.Controls.Add(this.CursedTitle);
             this.CursedOptions.Controls.Add(this.StartingItems);
             this.CursedOptions.Controls.Add(this.Cost);
+            this.CursedOptions.Controls.Add(this.OrePickups);
             this.CursedOptions.Location = new System.Drawing.Point(653, 318);
             this.CursedOptions.Name = "CursedOptions";
             this.CursedOptions.Size = new System.Drawing.Size(269, 397);
@@ -345,6 +347,23 @@ namespace BlueFireRando
             this.Cost.TabIndex = 15;
             this.Cost.Text = "Item Costs";
             this.Cost.UseVisualStyleBackColor = false;
+            // 
+            // OrePickups
+            // 
+            this.OrePickups.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrePickups.AutoSize = true;
+            this.OrePickups.BackColor = System.Drawing.Color.Transparent;
+            this.OrePickups.CausesValidation = false;
+            this.OrePickups.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OrePickups.Enabled = false;
+            this.OrePickups.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OrePickups.ForeColor = System.Drawing.SystemColors.Control;
+            this.OrePickups.Location = new System.Drawing.Point(3, 132);
+            this.OrePickups.Name = "OrePickups";
+            this.OrePickups.Size = new System.Drawing.Size(201, 39);
+            this.OrePickups.TabIndex = 16;
+            this.OrePickups.Text = "Ore Pickups";
+            this.OrePickups.UseVisualStyleBackColor = false;
             // 
             // Randomiser
             // 
@@ -402,6 +421,7 @@ namespace BlueFireRando
         private PictureBox CursedTitle;
         private CheckBox StartingItems;
         private CheckBox Cost;
+        private CheckBox OrePickups;
     }
 }
 
