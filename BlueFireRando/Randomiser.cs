@@ -98,13 +98,28 @@ public partial class Randomiser : Form
     }
     #endregion
 
-    //And now the mind-breaking logic begins...
+    //And now the hair-pulling logic begins...
     Dictionary<string, string> CheckData = new();
 
-    //The logic for the rando is here
+    //The logic for the rando seed generation is here
     void GenerateSeed()
     {
+        Queue<StaticWorld.Check> names;
+        while (TryFindChecks(out var checks))
+        {
+            //randomise the positions of the checks
+            names = new(Helpers.Shuffle(checks));
+            for (int i = 0; i < names.Count; i++)
+                CheckData.TryAdd(names.Dequeue().name,);
+        }
+    }
 
+    public static bool TryFindChecks(out List<StaticWorld.Check> checks)
+    {
+        checks = new();
+        //look at the inventory and from that determine the accessible area and add all less than
+        //then check the requirements and cut if necessary
+        return checks == new List<StaticWorld.Check>() ? false : true;
     }
 
     //Writes the randomised data stored in CheckData to the maps

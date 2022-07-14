@@ -48,7 +48,7 @@ namespace BlueFireRando
             this.CursedOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.CursedTitle = new System.Windows.Forms.PictureBox();
             this.StartingItems = new System.Windows.Forms.CheckBox();
-            this.Cost = new System.Windows.Forms.CheckBox();
+            this.Prices = new System.Windows.Forms.CheckBox();
             this.OrePickups = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UmbyPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -84,9 +84,9 @@ namespace BlueFireRando
             this.Weapons.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Weapons.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Weapons.ForeColor = System.Drawing.SystemColors.Control;
-            this.Weapons.Location = new System.Drawing.Point(3, 180);
+            this.Weapons.Location = new System.Drawing.Point(3, 204);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(162, 39);
+            this.Weapons.Size = new System.Drawing.Size(195, 47);
             this.Weapons.TabIndex = 7;
             this.Weapons.Text = "Weapons";
             this.Weapons.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@ namespace BlueFireRando
             this.Abilities.ForeColor = System.Drawing.SystemColors.Control;
             this.Abilities.Location = new System.Drawing.Point(3, 45);
             this.Abilities.Name = "Abilities";
-            this.Abilities.Size = new System.Drawing.Size(151, 39);
+            this.Abilities.Size = new System.Drawing.Size(183, 47);
             this.Abilities.TabIndex = 10;
             this.Abilities.Text = "Abilities";
             this.Abilities.UseVisualStyleBackColor = false;
@@ -120,9 +120,9 @@ namespace BlueFireRando
             this.Tunics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tunics.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tunics.ForeColor = System.Drawing.SystemColors.Control;
-            this.Tunics.Location = new System.Drawing.Point(3, 135);
+            this.Tunics.Location = new System.Drawing.Point(3, 151);
             this.Tunics.Name = "Tunics";
-            this.Tunics.Size = new System.Drawing.Size(128, 39);
+            this.Tunics.Size = new System.Drawing.Size(154, 47);
             this.Tunics.TabIndex = 11;
             this.Tunics.Text = "Tunics";
             this.Tunics.UseVisualStyleBackColor = false;
@@ -138,9 +138,9 @@ namespace BlueFireRando
             this.Emotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Emotes.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Emotes.ForeColor = System.Drawing.SystemColors.Control;
-            this.Emotes.Location = new System.Drawing.Point(3, 225);
+            this.Emotes.Location = new System.Drawing.Point(3, 257);
             this.Emotes.Name = "Emotes";
-            this.Emotes.Size = new System.Drawing.Size(137, 39);
+            this.Emotes.Size = new System.Drawing.Size(165, 47);
             this.Emotes.TabIndex = 12;
             this.Emotes.Text = "Emotes";
             this.Emotes.UseVisualStyleBackColor = false;
@@ -156,9 +156,9 @@ namespace BlueFireRando
             this.Items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Items.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Items.ForeColor = System.Drawing.SystemColors.Control;
-            this.Items.Location = new System.Drawing.Point(3, 90);
+            this.Items.Location = new System.Drawing.Point(3, 98);
             this.Items.Name = "Items";
-            this.Items.Size = new System.Drawing.Size(111, 39);
+            this.Items.Size = new System.Drawing.Size(134, 47);
             this.Items.TabIndex = 13;
             this.Items.Text = "Items";
             this.Items.UseVisualStyleBackColor = false;
@@ -174,9 +174,9 @@ namespace BlueFireRando
             this.Spirits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Spirits.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spirits.ForeColor = System.Drawing.SystemColors.Control;
-            this.Spirits.Location = new System.Drawing.Point(3, 270);
+            this.Spirits.Location = new System.Drawing.Point(3, 310);
             this.Spirits.Name = "Spirits";
-            this.Spirits.Size = new System.Drawing.Size(123, 39);
+            this.Spirits.Size = new System.Drawing.Size(149, 47);
             this.Spirits.TabIndex = 14;
             this.Spirits.Text = "Spirits";
             this.Spirits.UseVisualStyleBackColor = false;
@@ -191,7 +191,7 @@ namespace BlueFireRando
             this.American.Location = new System.Drawing.Point(4, 4);
             this.American.Margin = new System.Windows.Forms.Padding(4);
             this.American.Name = "American";
-            this.American.Size = new System.Drawing.Size(252, 39);
+            this.American.Size = new System.Drawing.Size(302, 47);
             this.American.TabIndex = 12;
             this.American.Text = "American mode";
             this.American.UseVisualStyleBackColor = false;
@@ -214,7 +214,7 @@ namespace BlueFireRando
             this.DeletePak.FlatAppearance.BorderSize = 0;
             this.DeletePak.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeletePak.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeletePak.Location = new System.Drawing.Point(4, 51);
+            this.DeletePak.Location = new System.Drawing.Point(4, 59);
             this.DeletePak.Margin = new System.Windows.Forms.Padding(4);
             this.DeletePak.Name = "DeletePak";
             this.DeletePak.Size = new System.Drawing.Size(373, 178);
@@ -296,7 +296,7 @@ namespace BlueFireRando
             this.CursedOptions.BackColor = System.Drawing.Color.Transparent;
             this.CursedOptions.Controls.Add(this.CursedTitle);
             this.CursedOptions.Controls.Add(this.StartingItems);
-            this.CursedOptions.Controls.Add(this.Cost);
+            this.CursedOptions.Controls.Add(this.Prices);
             this.CursedOptions.Controls.Add(this.OrePickups);
             this.CursedOptions.Location = new System.Drawing.Point(653, 318);
             this.CursedOptions.Name = "CursedOptions";
@@ -326,27 +326,27 @@ namespace BlueFireRando
             this.StartingItems.ForeColor = System.Drawing.SystemColors.Control;
             this.StartingItems.Location = new System.Drawing.Point(3, 42);
             this.StartingItems.Name = "StartingItems";
-            this.StartingItems.Size = new System.Drawing.Size(181, 39);
+            this.StartingItems.Size = new System.Drawing.Size(219, 47);
             this.StartingItems.TabIndex = 14;
             this.StartingItems.Text = "Start Items";
             this.StartingItems.UseVisualStyleBackColor = false;
             // 
-            // Cost
+            // Prices
             // 
-            this.Cost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cost.AutoSize = true;
-            this.Cost.BackColor = System.Drawing.Color.Transparent;
-            this.Cost.CausesValidation = false;
-            this.Cost.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Cost.Enabled = false;
-            this.Cost.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Cost.ForeColor = System.Drawing.SystemColors.Control;
-            this.Cost.Location = new System.Drawing.Point(3, 87);
-            this.Cost.Name = "Cost";
-            this.Cost.Size = new System.Drawing.Size(180, 39);
-            this.Cost.TabIndex = 15;
-            this.Cost.Text = "Item Costs";
-            this.Cost.UseVisualStyleBackColor = false;
+            this.Prices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Prices.AutoSize = true;
+            this.Prices.BackColor = System.Drawing.Color.Transparent;
+            this.Prices.CausesValidation = false;
+            this.Prices.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Prices.Enabled = false;
+            this.Prices.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Prices.ForeColor = System.Drawing.SystemColors.Control;
+            this.Prices.Location = new System.Drawing.Point(3, 95);
+            this.Prices.Name = "Prices";
+            this.Prices.Size = new System.Drawing.Size(235, 47);
+            this.Prices.TabIndex = 15;
+            this.Prices.Text = "Shop Prices";
+            this.Prices.UseVisualStyleBackColor = false;
             // 
             // OrePickups
             // 
@@ -358,9 +358,9 @@ namespace BlueFireRando
             this.OrePickups.Enabled = false;
             this.OrePickups.Font = new System.Drawing.Font("Mongolian Baiti", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrePickups.ForeColor = System.Drawing.SystemColors.Control;
-            this.OrePickups.Location = new System.Drawing.Point(3, 132);
+            this.OrePickups.Location = new System.Drawing.Point(3, 148);
             this.OrePickups.Name = "OrePickups";
-            this.OrePickups.Size = new System.Drawing.Size(201, 39);
+            this.OrePickups.Size = new System.Drawing.Size(242, 47);
             this.OrePickups.TabIndex = 16;
             this.OrePickups.Text = "Ore Pickups";
             this.OrePickups.UseVisualStyleBackColor = false;
@@ -420,7 +420,7 @@ namespace BlueFireRando
         private FlowLayoutPanel CursedOptions;
         private PictureBox CursedTitle;
         private CheckBox StartingItems;
-        private CheckBox Cost;
+        private CheckBox Prices;
         private CheckBox OrePickups;
     }
 }

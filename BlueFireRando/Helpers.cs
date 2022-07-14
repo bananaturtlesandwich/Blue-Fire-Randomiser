@@ -1,6 +1,8 @@
 ﻿using UAssetAPI;
 using UAssetAPI.PropertyTypes.Objects;
 using UAssetAPI.UnrealTypes;
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 public static class Helpers
 {
     public static int RandInt(int MaxValue, IEnumerable<int> Banned)
@@ -25,4 +27,13 @@ public static class Helpers
             EnumType = FName.FromString(export.Asset, enumname),
             EnumValue = FName.FromString(export.Asset, enumvalue)
         });
+
+    public static int GetAmount<T>(IEnumerable<T> target, T query)
+    {
+        int x = 0;
+        foreach (T item in target)
+            if (item.Equals(query))
+                x++;
+        return x;
+    }
 }
